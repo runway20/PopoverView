@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopoverView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <PopoverViewDelegate>
 
 @end

@@ -1,0 +1,307 @@
+Tpopover
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/Info.plist popover/popover-Info.plist
+cProcessPCH /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.pth popover/popover-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.o /Users/ocrickard/Documents/source/popover/popover/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.o /Users/ocrickard/Documents/source/popover/popover/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.o /Users/ocrickard/Documents/source/popover/popover/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.o /Users/ocrickard/Documents/source/popover/popover/PopoverView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover normal i386
+cGenerateDSYMFile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover
+cCompileStoryboard /Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPhone.storyboard
+cCompileStoryboard /Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPad.storyboard
+cCopyStringsFile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/InfoPlist.strings popover/en.lproj/InfoPlist.strings
+cTouch /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
+c000000004F453DF80000000000000110
+t1329937912
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000050254B450000000000244490
+t1344621381
+s2376848
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000050254B460000000000353830
+t1344621382
+s3487792
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c0000000050254B4700000000001AB190
+t1344621383
+s1749392
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c0000000050254B480000000000905E40
+t1344621384
+s9461312
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/Info.plist
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/PkgInfo
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/MainStoryboard_iPad.storyboardc
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/MainStoryboard_iPhone.storyboardc
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.o
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.o
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.o
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/popover.LinkFileList
+c000000005035A270000000000000020C
+t1345692272
+s524
+
+N/Users/ocrickard/Documents/source/popover/popover/AppDelegate.m
+c000000005033C46E0000000000000821
+t1345569902
+s2081
+
+N/Users/ocrickard/Documents/source/popover/popover/PopoverView.m
+c000000005035A1F50000000000006119
+t1345692149
+s24857
+
+N/Users/ocrickard/Documents/source/popover/popover/ViewController.m
+c000000005035A16A0000000000000590
+t1345692010
+s1424
+
+N/Users/ocrickard/Documents/source/popover/popover/en.lproj/InfoPlist.strings
+c000000005033C46E000000000000002D
+t1345569902
+s45
+
+N/Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPad.storyboard
+c000000005033C46E0000000000000645
+t1345569902
+s1605
+
+N/Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPhone.storyboard
+c000000005033C46E000000000000061C
+t1345569902
+s1564
+
+N/Users/ocrickard/Documents/source/popover/popover/main.m
+c000000005033C46E0000000000000159
+t1345569902
+s345
+
+N/Users/ocrickard/Documents/source/popover/popover/popover-Prefix.pch
+c000000005033C46E000000000000013D
+t1345569902
+s317
+
+N/var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.pth
+t2
+s0
+
+Npopover/popover-Info.plist
+c000000005033C46E0000000000000648
+t1345569902
+s1608
+
+CBuild AST from /Users/ocrickard/Documents/source/popover/popover/AppDelegate.m
+r0
+
+CBuild AST from /Users/ocrickard/Documents/source/popover/popover/PopoverView.m
+r0
+
+CBuild AST from /Users/ocrickard/Documents/source/popover/popover/ViewController.m
+r0
+
+CBuild AST from /Users/ocrickard/Documents/source/popover/popover/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesc8d326f0d9e5b541^ee3e2ff0d9e5b541^---0#1#0#--18"Check dependencies36"70D8CD8F-7C29-486F-96C0-8BFAF901D9E8-
+
+CCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.o /Users/ocrickard/Documents/source/popover/popover/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s367385072.411902
+e367385072.478447
+r1
+xCompileC
+xbuild/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.o
+x/Users/ocrickard/Documents/source/popover/popover/AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/ocrickard/Documents/source/popover/popover/AppDelegate.m969269f0d9e5b541^2d7b7af0d9e5b541^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/AppDelegate.m0000000000000000^3403"CompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.o popover/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/ocrickard/Documents/source/popover    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-generated-files.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-own-target-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-all-target-headers.hmap -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-project-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources/i386 -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources -F/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator -include /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch -MMD -MT dependencies -MF /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.dia -c /Users/ocrickard/Documents/source/popover/popover/AppDelegate.m -o /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/AppDelegate.o36"66DF8184-D8B2-4E1E-96D3-DF0A90CDA610-
+
+CCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.o /Users/ocrickard/Documents/source/popover/popover/PopoverView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s367385072.411917
+e367385072.521274
+r1
+xCompileC
+xbuild/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.o
+x/Users/ocrickard/Documents/source/popover/popover/PopoverView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/ocrickard/Documents/source/popover/popover/PopoverView.m:9:
+o/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:19:1: warning: multiple declarations of method 'popoverView:didSelectItemAtIndex:' found and ignored [-Wduplicate-method-match]
+o- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
+o^
+o/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:15:1: note: previous declaration is here
+o- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
+o^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/ocrickard/Documents/source/popover/popover/PopoverView.m0c9369f0d9e5b541^367285f0d9e5b541^-583"In file included from /Users/ocrickard/Documents/source/popover/popover/PopoverView.m:9:/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:19:1: warning: multiple declarations of method 'popoverView:didSelectItemAtIndex:' found and ignored [-Wduplicate-method-match]- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;^/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:15:1: note: previous declaration is here- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@85"Multiple declarations of method 'popoverView:didSelectItemAtIndex:' found and ignored-367385072#18446744073709551615#0#2(2@88"In file included from /Users/ocrickard/Documents/source/popover/popover/PopoverView.m:9:-367385072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/PopoverView.m0000000000000000^8#8#8#8#95#0#30"Apple LLVM compiler 4.0 Notice--2@28"Previous declaration is here-367385072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/PopoverView.h0000000000000000^14#0#14#0#175#0#30"Apple LLVM compiler 4.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/PopoverView.h0000000000000000^18#0#18#0#273#0#14"Semantic Issue--0#0#0#-19%DVTDocumentLocation4@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/PopoverView.m0000000000000000^3403"CompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.o popover/PopoverView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/ocrickard/Documents/source/popover    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-generated-files.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-own-target-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-all-target-headers.hmap -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-project-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources/i386 -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources -F/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator -include /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch -MMD -MT dependencies -MF /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.d --serialize-diagnostics /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.dia -c /Users/ocrickard/Documents/source/popover/popover/PopoverView.m -o /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/PopoverView.o36"9CF367BC-A677-4C9C-B8CF-959FFD6775A5-
+
+CCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.o /Users/ocrickard/Documents/source/popover/popover/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s367385072.411912
+e367385072.471641
+r1
+xCompileC
+xbuild/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.o
+x/Users/ocrickard/Documents/source/popover/popover/ViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/ocrickard/Documents/source/popover/popover/ViewController.m:10:
+o/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:19:1: warning: multiple declarations of method 'popoverView:didSelectItemAtIndex:' found and ignored [-Wduplicate-method-match]
+o- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
+o^
+o/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:15:1: note: previous declaration is here
+o- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
+o^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/ocrickard/Documents/source/popover/popover/ViewController.m988a69f0d9e5b541^cfbc78f0d9e5b541^-587"In file included from /Users/ocrickard/Documents/source/popover/popover/ViewController.m:10:/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:19:1: warning: multiple declarations of method 'popoverView:didSelectItemAtIndex:' found and ignored [-Wduplicate-method-match]- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;^/Users/ocrickard/Documents/source/popover/popover/PopoverView.h:15:1: note: previous declaration is here- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@85"Multiple declarations of method 'popoverView:didSelectItemAtIndex:' found and ignored-367385072#18446744073709551615#0#2(2@92"In file included from /Users/ocrickard/Documents/source/popover/popover/ViewController.m:10:-367385072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@82"file://localhost/Users/ocrickard/Documents/source/popover/popover/ViewController.m0000000000000000^9#8#9#8#183#0#30"Apple LLVM compiler 4.0 Notice--2@28"Previous declaration is here-367385072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/PopoverView.h0000000000000000^14#0#14#0#175#0#30"Apple LLVM compiler 4.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@79"file://localhost/Users/ocrickard/Documents/source/popover/popover/PopoverView.h0000000000000000^18#0#18#0#273#0#14"Semantic Issue--0#0#0#-19%DVTDocumentLocation4@82"file://localhost/Users/ocrickard/Documents/source/popover/popover/ViewController.m0000000000000000^3421"CompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.o popover/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/ocrickard/Documents/source/popover    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-generated-files.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-own-target-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-all-target-headers.hmap -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-project-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources/i386 -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources -F/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator -include /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch -MMD -MT dependencies -MF /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.d --serialize-diagnostics /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.dia -c /Users/ocrickard/Documents/source/popover/popover/ViewController.m -o /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/ViewController.o36"062331DF-3491-4A6A-BF68-4CC018AA86C9-
+
+CCompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.o /Users/ocrickard/Documents/source/popover/popover/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s367385072.411887
+e367385072.439825
+r1
+xCompileC
+xbuild/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.o
+x/Users/ocrickard/Documents/source/popover/popover/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Compile /Users/ocrickard/Documents/source/popover/popover/main.m9c8969f0d9e5b541^2d9870f0d9e5b541^---0#0#0#-19%DVTDocumentLocation2@72"file://localhost/Users/ocrickard/Documents/source/popover/popover/main.m0000000000000000^3361"CompileC build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.o popover/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/ocrickard/Documents/source/popover    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-generated-files.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-own-target-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-all-target-headers.hmap -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-project-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources/i386 -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources -F/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator -include /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch -MMD -MT dependencies -MF /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.dia -c /Users/ocrickard/Documents/source/popover/popover/main.m -o /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/main.o36"BD677415-BE02-4B49-9A1B-1473A39F7EFE-
+
+CCompileStoryboard /Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPad.storyboard
+s367385072.587872
+e367385073.396464
+r1
+xCompileStoryboard
+x/Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPad.storyboard
+o2012-08-22 20:24:33.070 Interface Builder Cocoa Touch Tool[64653:1a03] CFPreferences: user home directory at file://localhost/Users/ocrickard/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"CompileStoryboard popover/en.lproj/MainStoryboard_iPad.storyboard2e8e96f0d9e5b541^598565f1d9e5b541^-243"2012-08-22 20:24:33.070 Interface Builder Cocoa Touch Tool[64653:1a03] CFPreferences: user home directory at file://localhost/Users/ocrickard/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.-0#0#0#-19%DVTDocumentLocation2@105"file://localhost/Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPad.storyboard0000000000000000^968"CompileStoryboard popover/en.lproj/MainStoryboard_iPad.storyboard    cd /Users/ocrickard/Documents/source/popover    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/MainStoryboard_iPad.storyboardc /Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPad.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk36"5A9F374F-06E5-4050-992D-ED2D3C3363FD-
+
+CCompileStoryboard /Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPhone.storyboard
+s367385072.587856
+e367385073.396472
+r1
+xCompileStoryboard
+x/Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPhone.storyboard
+o2012-08-22 20:24:33.070 Interface Builder Cocoa Touch Tool[64654:1a03] CFPreferences: user home directory at file://localhost/Users/ocrickard/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"CompileStoryboard popover/en.lproj/MainStoryboard_iPhone.storyboard1d8e96f0d9e5b541^7f8865f1d9e5b541^-243"2012-08-22 20:24:33.070 Interface Builder Cocoa Touch Tool[64654:1a03] CFPreferences: user home directory at file://localhost/Users/ocrickard/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.-0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPhone.storyboard0000000000000000^974"CompileStoryboard popover/en.lproj/MainStoryboard_iPhone.storyboard    cd /Users/ocrickard/Documents/source/popover    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/MainStoryboard_iPhone.storyboardc /Users/ocrickard/Documents/source/popover/popover/en.lproj/MainStoryboard_iPhone.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk36"FD1AE597-A898-4F58-AED0-D6B82C131C83-
+
+CCopyStringsFile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/InfoPlist.strings popover/en.lproj/InfoPlist.strings
+s367385072.587868
+e367385072.592842
+r1
+xCopyStringsFile
+x/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj/InfoPlist.strings
+xpopover/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy popover/en.lproj/InfoPlist.stringsd68e96f0d9e5b541^e3c497f0d9e5b541^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/ocrickard/Documents/source/popover/popover/en.lproj/InfoPlist.strings0000000000000000^581"CopyStringsFile build/Debug-iphonesimulator/popover.app/en.lproj/InfoPlist.strings popover/en.lproj/InfoPlist.strings    cd /Users/ocrickard/Documents/source/popover    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/en.lproj -- popover/en.lproj/InfoPlist.strings36"9740AFDA-931F-49F9-A4AC-938D5DF65B64-
+
+CGenerateDSYMFile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover
+s367385072.560580
+e367385072.580128
+r1
+xGenerateDSYMFile
+x/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM
+x/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Generating /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM21908ff0d9e5b541^348394f0d9e5b541^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM000000000080d041^634"GenerateDSYMFile build/Debug-iphonesimulator/popover.app.dSYM build/Debug-iphonesimulator/popover.app/popover    cd /Users/ocrickard/Documents/source/popover    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover -o /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app.dSYM36"F4AE9089-9C58-4D83-B0EF-E1B825FD7D42-
+
+CLd /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover normal i386
+s367385072.528103
+e367385072.554123
+r1
+xLd
+x/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Link /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover3a4187f0d9e5b541^dbdb8df0d9e5b541^---0#0#0#--1207"Ld build/Debug-iphonesimulator/popover.app/popover normal i386    cd /Users/ocrickard/Documents/source/popover    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -L/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator -F/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator -filelist /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/Objects-normal/i386/popover.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -fobjc-link-runtime -Xlinker -no_implicit_dylibs -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -framework QuartzCore -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/popover36"94009C9E-54A3-4BC1-9977-5EAEA17397F7-
+
+CProcessInfoPlistFile /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/Info.plist popover/popover-Info.plist
+s367385072.192288
+e367385072.203763
+r1
+xProcessInfoPlistFile
+x/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/Info.plist
+xpopover/popover-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection34"Process popover/popover-Info.plist7c6231f0d9e5b541^132a34f0d9e5b541^---0#0#0#-19%DVTDocumentLocation2@84"file://localhost/Users/ocrickard/Documents/source/popover/popover/popover-Info.plist0000000000000000^659"ProcessInfoPlistFile build/Debug-iphonesimulator/popover.app/Info.plist popover/popover-Info.plist    cd /Users/ocrickard/Documents/source/popover    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility popover/popover-Info.plist -genpkginfo /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app/Info.plist36"47A7FE38-17E4-428E-86B6-08DCDB1FDC4F-
+
+CProcessPCH /Users/ocrickard/Library/Developer/Xcode/DerivedData/popover-ddsmbiucwlukmmaeovbaurqndseq/Index/PrecompiledHeaders/popover-Prefix-hhwgnagshvifbmgjrlywagkmnmtl_ast/popover-Prefix.pch.pth popover/popover-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.pth popover/popover-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s367385072.211207
+e367385072.405382
+r1
+xProcessPCH
+x/var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.pth
+xpopover/popover-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Precompile popover/popover-Prefix.pch892836f0d9e5b541^3fc767f0d9e5b541^---0#0#0#-19%DVTDocumentLocation2@84"file://localhost/Users/ocrickard/Documents/source/popover/popover/popover-Prefix.pch0000000000000000^3410"ProcessPCH /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.pth popover/popover-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/ocrickard/Documents/source/popover    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-generated-files.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-own-target-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-all-target-headers.hmap -iquote /Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/popover-project-headers.hmap -I/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources/i386 -I/Users/ocrickard/Documents/source/popover/build/popover.build/Debug-iphonesimulator/popover.build/DerivedSources -F/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator --serialize-diagnostics /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.dia -c /Users/ocrickard/Documents/source/popover/popover/popover-Prefix.pch -o /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/k2/fqx7l37x0b7267n5rcglysn00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/popover-Prefix-adwtvtfucdtuuwbiwcmtmdogvdeg/popover-Prefix.pch.d36"4400D4B4-0973-45F2-B48C-2F6E698FA39A-
+
+CTouch /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app
+s367385073.404545
+e367385073.409845
+r1
+xTouch
+x/Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Touch /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app129f67f1d9e5b541^3eed68f1d9e5b541^---0#0#0#--394"Touch build/Debug-iphonesimulator/popover.app    cd /Users/ocrickard/Documents/source/popover    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/ocrickard/Documents/source/popover/build/Debug-iphonesimulator/popover.app36"2DA35F00-0A07-4004-8A94-1E0FC864E51E-
+
