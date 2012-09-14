@@ -213,6 +213,7 @@
 				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
 			);
 			name = PopoverView;
+			path = ../PopoverView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
