@@ -20,7 +20,7 @@ OCDaysView *daysView = [[OCDaysView alloc] initWithFrame:CGRectMake(0, 0, 150, 1
 
 As you may note, I have two versions of the display code here.  One of them displays the `daysView` as a single `contentView` with no title, and the other displays the same view with a "October 2012" title.
 
-![Simple Calendar using PopoverView](http://blog.getsherpa.com/images/postImages/popoverCal1.png)
+<img src="http://blog.getsherpa.com/images/postImages/popoverCal1.png" width="320" height="480" />
 
 ##Demo Project##
 The structure of the demo project is very simple.  The PopoverView.h and .m files are in the "PopoverView" folder in the root directory.  The demo project files are in the "popover/demo" subdirectory.
