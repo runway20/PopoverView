@@ -5,7 +5,11 @@ PopoverView is a simple resolution-independent UIView written entirely in CoreGr
 For More Information, please see our full blog post:
 [PopoverView](http://blog.getsherpa.com/blog/2012/09/14/popoverview-a-flexible-modal-content-view-for-ios/)
 
+***
+
 <img src="http://blog.getsherpa.com/images/postImages/popoverMap.png" width="320" height="480" />
+
+***
 
 ##Demonstration##
 As a quick demonstration, I used a UIView from another one of my components called OCCalendar[^1].  To display this to the user on tap, I simply allocate and initialize the view, then I use a single line to display it to the user.    The PopoverView handles positioning above/below the point of interest, handles all of the memory management, and manages the view stack so it gets displayed to the user at the correct location.
@@ -22,8 +26,12 @@ As you may note, I have two versions of the display code here.  One of them disp
 
 <img src="http://blog.getsherpa.com/images/postImages/popoverCal1.png" width="320" height="480" />
 
+***
+
 ##Demo Project##
 The structure of the demo project is very simple.  The PopoverView.h and .m files are in the "PopoverView" folder in the root directory.  The demo project files are in the "popover/demo" subdirectory.
+
+***
 
 ##License##
 
