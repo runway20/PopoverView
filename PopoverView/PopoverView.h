@@ -31,6 +31,10 @@
     
     id<PopoverViewDelegate> delegate;
     
+    UIView *parentView;
+    
+    UIView *topView;
+    
     NSArray *subviewsArray;
     
     NSArray *dividerRects;
@@ -98,6 +102,13 @@
 
 //This method does same as above, but with a title label at the top of the popover.
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray;
+
+//Lays out the PopoverView at a point once all of the views have already been setup elsewhere
+- (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view;
+
+#pragma mark - Other Interaction
+//This method animates the rotation of the PopoverView to a new point
+- (void)animateRotationToNewPoint:(CGPoint)point inView:(UIView *)view withDuration:(NSTimeInterval)duration;
 
 #pragma mark - Dismissal
 //Dismisses the view, and removes it from the view stack.

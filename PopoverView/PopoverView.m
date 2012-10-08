@@ -212,7 +212,7 @@
     textView.textColor = [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
     textView.text = text;
     
-    [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:textView]];
+    [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:[textView autorelease]]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text {
@@ -228,7 +228,7 @@
     textView.textColor = [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
     textView.text = text;
     
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:textView]];
+    [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:[textView autorelease]]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withViewArray:(NSArray *)viewArray {
@@ -424,7 +424,7 @@
         [labelArray addObject:[label autorelease]];
     }
     
-    [self showAtPoint:point inView:view withTitle:title withViewArray:labelArray];
+    [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray autorelease]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView {
@@ -437,12 +437,14 @@
     
     self.contentView = cView;
     
+    parentView = view;
+    
     //Locate the view at the top fo the view stack.
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     if(!window) {
         window = [[UIApplication sharedApplication].windows objectAtIndex:0];
     }
-    UIView *topView = [[window subviews] objectAtIndex:0];
+    topView = [[window subviews] objectAtIndex:0];
     
     CGPoint topPoint = [topView convertPoint:point fromView:view];
     
@@ -539,6 +541,89 @@
             self.transform = CGAffineTransformIdentity;
         } completion:nil];
     }];
+}
+
+- (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view{
+    
+    self.alpha = 0.f;
+    
+    CGPoint topPoint = [topView convertPoint:point fromView:view];
+    
+    arrowPoint = topPoint;
+    
+    //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
+    
+    CGRect topViewBounds = topView.bounds;
+    
+    float contentHeight = contentView.frame.size.height;
+    float contentWidth = contentView.frame.size.width;
+    
+    float padding = kBoxPadding;
+    
+    float boxHeight = contentHeight + 2.f*padding;
+    float boxWidth = contentWidth + 2.f*padding;
+    
+    float xOrigin = 0.f;
+    
+    //Make sure the arrow point is within the drawable bounds for the popover.
+    if(arrowPoint.x + kArrowHeight > topViewBounds.size.width - kHorizontalMargin - kBoxRadius - kArrowHorizontalPadding) {//Too far to the right
+        arrowPoint.x = topViewBounds.size.width - kHorizontalMargin - kBoxRadius - kArrowHorizontalPadding - kArrowHeight;
+        //NSLog(@"Correcting Arrow Point because it's too far to the right");
+    } else if(arrowPoint.x - kArrowHeight < kHorizontalMargin + kBoxRadius + kArrowHorizontalPadding) {//Too far to the left
+        arrowPoint.x = kHorizontalMargin + kArrowHeight + kBoxRadius + kArrowHorizontalPadding;
+        //NSLog(@"Correcting Arrow Point because it's too far to the left");
+    }
+    
+    //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
+    
+    xOrigin = arrowPoint.x - boxWidth*0.5f;
+    
+    //Check to see if the centered xOrigin value puts the box outside of the normal range.
+    if(xOrigin < CGRectGetMinX(topViewBounds) + kHorizontalMargin) {
+        xOrigin = CGRectGetMinX(topViewBounds) + kHorizontalMargin;
+    } else if(xOrigin + boxWidth > CGRectGetMaxX(topViewBounds) - kHorizontalMargin) {
+        //Check to see if the positioning puts the box out of the window towards the left
+        xOrigin = CGRectGetMaxX(topViewBounds) - kHorizontalMargin - boxWidth;
+    }
+    
+    float arrowHeight = kArrowHeight;
+    
+    float topPadding = kTopMargin;
+    
+    above = YES;
+    
+    if(topPoint.y - contentHeight - arrowHeight - topPadding < CGRectGetMinY(topViewBounds)) {
+        //Position below because it won't fit above.
+        above = NO;
+        
+        boxFrame = CGRectMake(xOrigin, arrowPoint.y + arrowHeight, boxWidth, boxHeight);
+    } else {
+        //Position above.
+        above = YES;
+        
+        boxFrame = CGRectMake(xOrigin, arrowPoint.y - arrowHeight - boxHeight, boxWidth, boxHeight);
+    }
+    
+    //NSLog(@"boxFrame:(%f,%f,%f,%f)", boxFrame.origin.x, boxFrame.origin.y, boxFrame.size.width, boxFrame.size.height);
+    
+    CGRect contentFrame = CGRectMake(boxFrame.origin.x + padding, boxFrame.origin.y + padding, contentWidth, contentHeight);
+    contentView.frame = contentFrame;
+    
+    //We set the anchorPoint here so the popover will "grow" out of the arrowPoint specified by the user.
+    //You have to set the anchorPoint before setting the frame, because the anchorPoint property will
+    //implicitly set the frame for the view, which we do not want.
+    self.layer.anchorPoint = CGPointMake(arrowPoint.x / topViewBounds.size.width, arrowPoint.y / topViewBounds.size.height);
+    self.frame = topViewBounds;
+    [self setNeedsDisplay];
+    
+    self.userInteractionEnabled = YES;
+    
+    //animate into full size
+    //First stage animates to 1.05x normal size, then second stage animates back down to 1x size.
+    //This two-stage animation creates a little "pop" on open.
+    [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationCurveEaseInOut animations:^{
+        self.alpha = 1.f;
+    } completion:nil];
 }
 
 
@@ -751,6 +836,11 @@
             [delegate popoverViewDidDismiss:self];
         }
     }];
+}
+
+- (void)animateRotationToNewPoint:(CGPoint)point inView:(UIView *)view withDuration:(NSTimeInterval)duration {
+    [self layoutAtPoint:point inView:view];
+    
 }
 
 
