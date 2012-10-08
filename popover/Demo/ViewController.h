@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "PopoverView.h"
 
-@interface ViewController : UIViewController <PopoverViewDelegate>
+@interface ViewController : UIViewController <PopoverViewDelegate, UITableViewDataSource, UITableViewDelegate> {
+    
+    PopoverView *pv;
+    
+}
 
 @end

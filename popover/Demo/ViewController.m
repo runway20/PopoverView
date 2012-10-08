@@ -66,9 +66,33 @@
     daysView.layer.borderWidth = 0.5f; //One retina pixel width
     daysView.layer.cornerRadius = 4.f;
     daysView.layer.masksToBounds = YES;
+
+    pv = [PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self]; //Show calendar with no title
+//    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self]; //Show calendar with title
     
-//    [PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self]; //Show calendar with no title
-    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self]; //Show calendar with title
+//    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    tableView.delegate = self;
+//    tableView.dataSource = self;
+//    pv = [[PopoverView showPopoverAtPoint:point inView:self.view withContentView:tableView delegate:self] retain];
+}
+
+
+
+#pragma mark - UITableView Delegate Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 25;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.text = @"text";
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.f];
+    
+    return [cell autorelease];
 }
 
 
@@ -104,7 +128,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return YES;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if(pv) {
+        [pv animateRotationToNewPoint:CGPointMake(self.view.frame.size.width*0.5f, self.view.frame.size.height*0.5f) inView:self.view withDuration:duration];
+    }
 }
 
 @end
