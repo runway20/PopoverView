@@ -56,19 +56,19 @@
 // BACKGROUND GRADIENT
 
 //bottom color white in gradient bg
-#define kGradientBottomColor [UIColor colorWithWhite:0.980f alpha:kBoxAlpha]
+#define kGradientBottomColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
 
 //top color white value in gradient bg
-#define kGradientTopColor [UIColor colorWithWhite:1.f alpha:kBoxAlpha]
+#define kGradientTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
 
 
 // TITLE GRADIENT
 
 //bottom color white value in title gradient bg
-#define kGradientTitleBottomColor [UIColor colorWithWhite:0.93f alpha:kBoxAlpha]
+#define kGradientTitleBottomColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
 
 //top color white value in title gradient bg
-#define kGradientTitleTopColor [UIColor colorWithWhite:1.f alpha:kBoxAlpha]
+#define kGradientTitleTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
 
 
 // FONTS
@@ -919,7 +919,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //// Shadow Declarations
-    UIColor* shadow = [UIColor colorWithWhite:0.f alpha:kShadowAlpha];
+    UIColor* shadow = [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kShadowAlpha];
     CGSize shadowOffset = CGSizeMake(0, 1);
     CGFloat shadowBlurRadius = 10;
     
