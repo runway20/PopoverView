@@ -278,12 +278,12 @@
         } else {
             //If the view is not flexible width, then we position it centered in the view
             //without stretching it.
-            view.frame = CGRectMake(CGRectGetMinX(boxFrame) + totalWidth*0.5f - view.frame.size.width*0.5f, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
+            view.frame = CGRectMake(floorf(CGRectGetMinX(boxFrame) + totalWidth*0.5f - view.frame.size.width*0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
         }
         
         //and if dividers are enabled, we record their position for the drawing methods
         if(kShowDividersBetweenViews && i != viewArray.count-1) {
-            CGRect dividerRect = CGRectMake(view.frame.origin.x, view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f, view.frame.size.width, 0.5f);
+            CGRect dividerRect = CGRectMake(view.frame.origin.x, floorf(view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f), view.frame.size.width, 0.5f);
             
             [((NSMutableArray *)dividerRects) addObject:[NSValue valueWithCGRect:dividerRect]];
         }
@@ -356,12 +356,12 @@
         } else {
             //If the view is not flexible width, then we position it centered in the view
             //without stretching it.
-            view.frame = CGRectMake(CGRectGetMinX(boxFrame) + totalWidth*0.5f - view.frame.size.width*0.5f, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
+            view.frame = CGRectMake(floorf(CGRectGetMinX(boxFrame) + totalWidth*0.5f - view.frame.size.width*0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
         }
         
         //and if dividers are enabled, we record their position for the drawing methods
         if(kShowDividersBetweenViews && i != viewArray.count-1) {
-            CGRect dividerRect = CGRectMake(view.frame.origin.x, view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f, view.frame.size.width, 0.5f);
+            CGRect dividerRect = CGRectMake(view.frame.origin.x, floorf(view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f), view.frame.size.width, 0.5f);
             
             [((NSMutableArray *)dividerRects) addObject:[NSValue valueWithCGRect:dividerRect]];
         }
@@ -369,7 +369,7 @@
         i++;
     }
     
-    titleLabel.frame = CGRectMake(totalWidth*0.5f - titleSize.width*0.5f, 0, titleSize.width, titleSize.height);
+    titleLabel.frame = CGRectMake(floorf(totalWidth*0.5f - titleSize.width*0.5f), 0, titleSize.width, titleSize.height);
     
     //Store the titleView as an instance variable if it is larger than 0 height (not an empty string)
     if(titleSize.height > 0) {
@@ -475,7 +475,7 @@
     
     //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
     
-    xOrigin = arrowPoint.x - boxWidth*0.5f;
+    xOrigin = floorf(arrowPoint.x - boxWidth*0.5f);
     
     //Check to see if the centered xOrigin value puts the box outside of the normal range.
     if(xOrigin < CGRectGetMinX(topViewBounds) + kHorizontalMargin) {
@@ -576,7 +576,7 @@
     
     //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
     
-    xOrigin = arrowPoint.x - boxWidth*0.5f;
+    xOrigin = floorf(arrowPoint.x - boxWidth*0.5f);
     
     //Check to see if the centered xOrigin value puts the box outside of the normal range.
     if(xOrigin < CGRectGetMinX(topViewBounds) + kHorizontalMargin) {
@@ -680,7 +680,7 @@
 - (void)showImage:(UIImage *)image withMessage:(NSString *)msg {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.alpha = 0.f;
-    imageView.frame = CGRectMake(CGRectGetMidX(contentView.bounds) - image.size.width*0.5f, CGRectGetMidY(contentView.bounds) - image.size.height*0.5f + ((self.titleView) ? 20 : 0.f), image.size.width, image.size.height);
+    imageView.frame = CGRectMake(floorf(CGRectGetMidX(contentView.bounds) - image.size.width*0.5f), floorf(CGRectGetMidY(contentView.bounds) - image.size.height*0.5f + ((self.titleView) ? 20 : 0.f)), image.size.width, image.size.height);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
     [contentView addSubview:[imageView autorelease]];
