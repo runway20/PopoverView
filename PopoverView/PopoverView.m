@@ -188,6 +188,11 @@
 - (void)dealloc {
     self.subviewsArray = nil;
     
+    if(dividerRects) {
+        [dividerRects release];
+        dividerRects = nil;
+    }
+    
     self.contentView = nil;
     self.titleView = nil;
     
