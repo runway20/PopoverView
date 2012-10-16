@@ -11,7 +11,8 @@
 #import "OCDaysView.h"
 #import <QuartzCore/QuartzCore.h> //This is just for the daysView where I call "daysView.layer" not necessary normally.
 
-#define kStringArray [NSArray arrayWithObjects:@"Definitely!", @"Kind of", @"Nope", nil]
+#define kStringArray [NSArray arrayWithObjects:@"YES", @"NO", nil]
+#define kImageArray [NSArray arrayWithObjects:[UIImage imageNamed:@"success"], [UIImage imageNamed:@"error"], nil]
 
 @interface ViewController ()
 
@@ -57,17 +58,21 @@
     
 //    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Was this helpful?" withStringArray:kStringArray delegate:self]; //Show string array defined at top of this file with title.
     
-    //Here's a little bit more advanced sample.  I create a custom view, and hand it off to the PopoverView to display for me.  I round the corners
-    OCDaysView *daysView = [[OCDaysView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
-    [daysView setMonth:10];
-    [daysView setYear:2012];
-    daysView.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.f]; //Give it a background color
-    daysView.layer.borderColor = [UIColor colorWithWhite:0.9f alpha:1.f].CGColor; //Add a border
-    daysView.layer.borderWidth = 0.5f; //One retina pixel width
-    daysView.layer.cornerRadius = 4.f;
-    daysView.layer.masksToBounds = YES;
-
-    pv = [PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self]; //Show calendar with no title
+//    [PopoverView showPopoverAtPoint:point inView:self.view withStringArray:kStringArray withImageArray:kImageArray delegate:self];
+    
+    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"DEBUG" withStringArray:kStringArray withImageArray:kImageArray delegate:self];
+    
+//    //Here's a little bit more advanced sample.  I create a custom view, and hand it off to the PopoverView to display for me.  I round the corners
+//    OCDaysView *daysView = [[OCDaysView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
+//    [daysView setMonth:10];
+//    [daysView setYear:2012];
+//    daysView.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.f]; //Give it a background color
+//    daysView.layer.borderColor = [UIColor colorWithWhite:0.9f alpha:1.f].CGColor; //Add a border
+//    daysView.layer.borderWidth = 0.5f; //One retina pixel width
+//    daysView.layer.cornerRadius = 4.f;
+//    daysView.layer.masksToBounds = YES;
+    
+//    pv = [PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self]; //Show calendar with no title
 //    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self]; //Show calendar with title
     
 //    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
