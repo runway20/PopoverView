@@ -31,8 +31,11 @@
 //Minimum distance from the side of the arrow to the beginning of curvature for the box
 #define kArrowHorizontalPadding 5.f
 
-//Alpha value for the shadow
+//Alpha value for the shadow behind the PopoverView
 #define kShadowAlpha 0.4f
+
+//Blur for the shadow behind the PopoverView
+#define kShadowBlur 3.f;
 
 //Box gradient bg alpha
 #define kBoxAlpha 0.95f
@@ -43,11 +46,17 @@
 //margin along the left and right of the box
 #define kHorizontalMargin 10.f
 
+//padding along top of icons/images
+#define kImageTopPadding 3.f
+
+//padding along bottom of icons/images
+#define kImageBottomPadding 3.f
+
 
 // DIVIDERS BETWEEN VIEWS
 
 //Bool that turns off/on the dividers
-#define kShowDividersBetweenViews YES
+#define kShowDividersBetweenViews NO 
 
 //color for the divider fill
 #define kDividerColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:0.15f]
@@ -64,6 +73,9 @@
 
 // TITLE GRADIENT
 
+//bool that turns off/on title gradient
+#define kDrawTitleGradient YES 
+
 //bottom color white value in title gradient bg
 #define kGradientTitleBottomColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
 
@@ -74,7 +86,7 @@
 // FONTS
 
 //normal text font
-#define kTextFont [UIFont fontWithName:@"HelveticaNeue" size:20.f]
+#define kTextFont [UIFont fontWithName:@"HelveticaNeue" size:16.f]
 
 //normal text color
 #define kTextColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1]
@@ -83,7 +95,7 @@
 #define kTextAlignment UITextAlignmentCenter
 
 //title font
-#define kTitleFont [UIFont fontWithName:@"HelveticaNeue" size:22.f]
+#define kTitleFont [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.f]
 
 //title text color
 #define kTitleColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1]
@@ -146,6 +158,22 @@
 + (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withTitle:title withStringArray:stringArray];
+    popoverView.delegate = delegate;
+    [popoverView release];
+    return popoverView;
+}
+
++ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
+    PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
+    [popoverView showAtPoint:point inView:view withStringArray:stringArray withImageArray:imageArray];
+    popoverView.delegate = delegate;
+    [popoverView release];
+    return popoverView;
+}
+
++ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
+    PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
+    [popoverView showAtPoint:point inView:view withTitle:title withStringArray:stringArray withImageArray:imageArray];
     popoverView.delegate = delegate;
     [popoverView release];
     return popoverView;
@@ -430,6 +458,112 @@
     }
     
     [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray autorelease]];
+}
+
+- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray {
+    //Here we do something pretty similar to the stringArray method above.
+    //We create an array of subviews that contain the image centered above a label.
+    
+    NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
+    
+    NSMutableArray *tempViewArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
+    
+    UIFont *font = kTextFont;
+    
+    for(int i = 0; i < stringArray.count; i++) {
+        NSString *string = [stringArray objectAtIndex:i];
+        
+        
+        //First we build a label for the text to set in.
+        CGSize textSize = [string sizeWithFont:font];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = font;
+        label.textAlignment = kTextAlignment;
+        label.textColor = kTextColor;
+        label.text = string;
+        label.layer.cornerRadius = 4.f;
+        
+        //Now we grab the image at the same index in the imageArray, and create
+        //a UIImageView for it.
+        UIImage *image = [imageArray objectAtIndex:i];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        //Take the larger of the two widths as the width for the container
+        float containerWidth = MAX(imageView.frame.size.width, label.frame.size.width);
+        float containerHeight = label.frame.size.height + kImageTopPadding + kImageBottomPadding + imageView.frame.size.height;
+        
+        //This container will hold both the image and the label
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+        
+        //Now we do the frame manipulations to put the imageView on top of the label, both centered
+        imageView.frame = CGRectMake(floorf(containerWidth*0.5f - imageView.frame.size.width*0.5f), kImageTopPadding, imageView.frame.size.width, imageView.frame.size.height);
+        label.frame = CGRectMake(floorf(containerWidth*0.5f - label.frame.size.width*0.5f), imageView.frame.size.height + kImageBottomPadding + kImageTopPadding, label.frame.size.width, label.frame.size.height);
+        
+        [containerView addSubview:imageView];
+        [containerView addSubview:label];
+        
+        [label release];
+        [imageView release];
+        
+        [tempViewArray addObject:containerView];
+        [containerView release];
+    }
+    
+    [self showAtPoint:point inView:view withViewArray:[tempViewArray autorelease]];
+}
+
+- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray {
+    //This method is identical to the one above except for the last line where it calls
+    //the appropriate show...withTitle:withViewArray: selector
+    
+    NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
+    
+    NSMutableArray *tempViewArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
+    
+    UIFont *font = kTextFont;
+    
+    for(int i = 0; i < stringArray.count; i++) {
+        NSString *string = [stringArray objectAtIndex:i];
+        
+        
+        //First we build a label for the text to set in.
+        CGSize textSize = [string sizeWithFont:font];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = font;
+        label.textAlignment = kTextAlignment;
+        label.textColor = kTextColor;
+        label.text = string;
+        label.layer.cornerRadius = 4.f;
+        
+        //Now we grab the image at the same index in the imageArray, and create
+        //a UIImageView for it.
+        UIImage *image = [imageArray objectAtIndex:i];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        //Take the larger of the two widths as the width for the container
+        float containerWidth = MAX(imageView.frame.size.width, label.frame.size.width);
+        float containerHeight = label.frame.size.height + kImageTopPadding + kImageBottomPadding + imageView.frame.size.height;
+        
+        //This container will hold both the image and the label
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+        
+        //Now we do the frame manipulations to put the imageView on top of the label, both centered
+        imageView.frame = CGRectMake(floorf(containerWidth*0.5f - imageView.frame.size.width*0.5f), kImageTopPadding, imageView.frame.size.width, imageView.frame.size.height);
+        label.frame = CGRectMake(floorf(containerWidth*0.5f - label.frame.size.width*0.5f), imageView.frame.size.height + kImageBottomPadding + kImageTopPadding, label.frame.size.width, label.frame.size.height);
+        
+        [containerView addSubview:imageView];
+        [containerView addSubview:label];
+        
+        [label release];
+        [imageView release];
+        
+        [tempViewArray addObject:containerView];
+        [containerView release];
+    }
+    
+    [self showAtPoint:point inView:view withTitle:title withViewArray:[tempViewArray autorelease]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView {
@@ -926,7 +1060,7 @@
     //// Shadow Declarations
     UIColor* shadow = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:kShadowAlpha];
     CGSize shadowOffset = CGSizeMake(0, 1);
-    CGFloat shadowBlurRadius = 10;
+    CGFloat shadowBlurRadius = kShadowBlur;
     
     //// Gradient Declarations
     NSArray* gradientColors = [NSArray arrayWithObjects:
@@ -955,7 +1089,7 @@
     
     
     //Draw the title background
-    {
+    if(kDrawTitleGradient) {
         //Calculate the height of the title bg
         float titleBGHeight = -1;
         
