@@ -425,15 +425,18 @@
     
     for(NSString *string in stringArray) {
         CGSize textSize = [string sizeWithFont:font];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-        label.backgroundColor = [UIColor clearColor];
-        label.font = font;
-        label.textAlignment = kTextAlignment;
-        label.textColor = kTextColor;
-        label.text = string;
-        label.layer.cornerRadius = 4.f;
+        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+        textButton.backgroundColor = [UIColor clearColor];
+        textButton.titleLabel.font = font;
+        textButton.titleLabel.textAlignment = kTextAlignment;
+        textButton.titleLabel.textColor = kTextColor;
+        [textButton setTitle:string forState:UIControlStateNormal];
+        textButton.layer.cornerRadius = 4.f;
+        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
+        [textButton setTitleColor:[UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000] forState:UIControlStateHighlighted];
+        [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        [labelArray addObject:[label autorelease]];
+        [labelArray addObject:[textButton autorelease]];
     }
     
     [self showAtPoint:point inView:view withViewArray:[labelArray autorelease]];
@@ -446,15 +449,18 @@
     
     for(NSString *string in stringArray) {
         CGSize textSize = [string sizeWithFont:font];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-        label.backgroundColor = [UIColor clearColor];
-        label.font = font;
-        label.textAlignment = kTextAlignment;
-        label.textColor = kTextColor;
-        label.text = string;
-        label.layer.cornerRadius = 4.f;
+        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+        textButton.backgroundColor = [UIColor clearColor];
+        textButton.titleLabel.font = font;
+        textButton.titleLabel.textAlignment = kTextAlignment;
+        textButton.titleLabel.textColor = kTextColor;
+        [textButton setTitle:string forState:UIControlStateNormal];
+        textButton.layer.cornerRadius = 4.f;
+        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
+        [textButton setTitleColor:[UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000] forState:UIControlStateHighlighted];
+        [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        [labelArray addObject:[label autorelease]];
+        [labelArray addObject:[textButton autorelease]];
     }
     
     [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray autorelease]];
@@ -937,12 +943,8 @@
             
             //NSLog(@"Tapped subview:%d", i);
             
-            if([view isKindOfClass:[UILabel class]]) {
-                UILabel *label = (UILabel *)view;
-                label.backgroundColor = [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
-                label.textColor = [UIColor whiteColor];
-                
-                //                [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.05f];
+            if([view isKindOfClass:[UIButton class]]) {
+                return;
             }
             
             if(delegate && [delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
@@ -962,6 +964,18 @@
         [self dismiss];
     }
     
+}
+
+- (void)didTapButton:(UIButton *)sender {
+    int index = [subviewsArray indexOfObject:sender];
+    
+    if(index == NSNotFound) {
+        return;
+    }
+    
+    if(delegate && [delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
+        [delegate popoverView:self didSelectItemAtIndex:index];
+    }
 }
 
 - (void)dismiss {
