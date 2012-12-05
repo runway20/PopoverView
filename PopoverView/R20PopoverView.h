@@ -8,28 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@class PopoverView;
+@class R20PopoverView;
 
-@protocol PopoverViewDelegate <NSObject>
+@protocol R20PopoverViewDelegate <NSObject>
 
 @optional
 
 //Delegate receives this call as soon as the item has been selected
-- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
+- (void)popoverView:(R20PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
 
 //Delegate receives this call once the popover has begun the dismissal animation
-- (void)popoverViewDidDismiss:(PopoverView *)popoverView;
+- (void)popoverViewDidDismiss:(R20PopoverView *)popoverView;
 
 @end
 
-@interface PopoverView : UIView {
+@interface R20PopoverView : UIView {
     CGRect boxFrame;
     CGSize contentSize;
     CGPoint arrowPoint;
     
     BOOL above;
     
-    id<PopoverViewDelegate> delegate;
+    id<R20PopoverViewDelegate> delegate;
     
     UIView *parentView;
     
@@ -55,32 +55,32 @@
 
 @property (nonatomic, retain) NSArray *subviewsArray;
 
-@property (nonatomic, assign) id<PopoverViewDelegate> delegate;
+@property (nonatomic, assign) id<R20PopoverViewDelegate> delegate;
 
 #pragma mark - Class Static Showing Methods
 
 //These are the main static methods you can use to display the popover.
 //Simply call [PopoverView show...] with your arguments, and the popover will be generated, added to the view stack, and notify you when it's done.
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withViewArray:(NSArray *)viewArray delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withViewArray:(NSArray *)viewArray delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView delegate:(id<R20PopoverViewDelegate>)delegate;
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate;
++ (R20PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)cView delegate:(id<R20PopoverViewDelegate>)delegate;
 
 #pragma mark - Instance Showing Methods
 

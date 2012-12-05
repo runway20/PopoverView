@@ -22,8 +22,8 @@
 		B1175C8515E3FBEE002FBFF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1175C8315E3FBEE002FBFF1 /* InfoPlist.strings */; };
 		B1175C8815E3FBEE002FBFF1 /* popoverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C8715E3FBEE002FBFF1 /* popoverTests.m */; };
 		B1175C9215E3FC07002FBFF1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */; };
-		B1175C9515E3FC13002FBFF1 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C9415E3FC13002FBFF1 /* PopoverView.m */; };
-		B1175C9615E3FC13002FBFF1 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C9415E3FC13002FBFF1 /* PopoverView.m */; };
+		B1175C9515E3FC13002FBFF1 /* R20PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C9415E3FC13002FBFF1 /* R20PopoverView.m */; };
+		B1175C9615E3FC13002FBFF1 /* R20PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C9415E3FC13002FBFF1 /* R20PopoverView.m */; };
 		B14F47581603A267003EC4FF /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47541603A267003EC4FF /* error.png */; };
 		B14F47591603A267003EC4FF /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47551603A267003EC4FF /* error@2x.png */; };
 		B14F475A1603A267003EC4FF /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47561603A267003EC4FF /* success.png */; };
@@ -63,8 +63,8 @@
 		B1175C8615E3FBEE002FBFF1 /* popoverTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popoverTests.h; sourceTree = "<group>"; };
 		B1175C8715E3FBEE002FBFF1 /* popoverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popoverTests.m; sourceTree = "<group>"; };
 		B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B1175C9315E3FC13002FBFF1 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
-		B1175C9415E3FC13002FBFF1 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		B1175C9315E3FC13002FBFF1 /* R20PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R20PopoverView.h; sourceTree = "<group>"; };
+		B1175C9415E3FC13002FBFF1 /* R20PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R20PopoverView.m; sourceTree = "<group>"; };
 		B14F47541603A267003EC4FF /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = error.png; path = popover/Images/error.png; sourceTree = SOURCE_ROOT; };
 		B14F47551603A267003EC4FF /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "error@2x.png"; path = "popover/Images/error@2x.png"; sourceTree = SOURCE_ROOT; };
 		B14F47561603A267003EC4FF /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = success.png; path = popover/Images/success.png; sourceTree = SOURCE_ROOT; };
@@ -209,8 +209,8 @@
 		B1C7262515EE822B008C4D05 /* PopoverView */ = {
 			isa = PBXGroup;
 			children = (
-				B1175C9315E3FC13002FBFF1 /* PopoverView.h */,
-				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
+				B1175C9315E3FC13002FBFF1 /* R20PopoverView.h */,
+				B1175C9415E3FC13002FBFF1 /* R20PopoverView.m */,
 			);
 			name = PopoverView;
 			path = ../PopoverView;
@@ -331,7 +331,7 @@
 				B1175C6615E3FBEE002FBFF1 /* main.m in Sources */,
 				B1175C6A15E3FBEE002FBFF1 /* AppDelegate.m in Sources */,
 				B1175C7315E3FBEE002FBFF1 /* ViewController.m in Sources */,
-				B1175C9515E3FC13002FBFF1 /* PopoverView.m in Sources */,
+				B1175C9515E3FC13002FBFF1 /* R20PopoverView.m in Sources */,
 				B1ACBE981603859A006F8461 /* OCDaysView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1175C8815E3FBEE002FBFF1 /* popoverTests.m in Sources */,
-				B1175C9615E3FC13002FBFF1 /* PopoverView.m in Sources */,
+				B1175C9615E3FC13002FBFF1 /* R20PopoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

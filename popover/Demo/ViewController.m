@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "PopoverView.h"
+#import "R20PopoverView.h"
 #import "OCDaysView.h"
 #import <QuartzCore/QuartzCore.h> //This is just for the daysView where I call "daysView.layer" not necessary normally.
 
@@ -50,17 +50,17 @@
     
     //Here are a couple of different options for how to display the Popover
     
-//    [PopoverView showPopoverAtPoint:point inView:self.view withText:@"This is a very long popover box.  As you can see, it goes to multiple lines in size." delegate:self]; //Show text wrapping popover with long string
+//    [R20PopoverView showPopoverAtPoint:point inView:self.view withText:@"This is a very long popover box.  As you can see, it goes to multiple lines in size." delegate:self]; //Show text wrapping popover with long string
     
-//    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"This is a title" withText:@"This is text" delegate:self]; //Show text with title
+//    [R20PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"This is a title" withText:@"This is text" delegate:self]; //Show text with title
     
-//    [PopoverView showPopoverAtPoint:point inView:self.view withStringArray:kStringArray delegate:self]; //Show the string array defined at top of this file
+//    [R20PopoverView showPopoverAtPoint:point inView:self.view withStringArray:kStringArray delegate:self]; //Show the string array defined at top of this file
     
-    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Was this helpful?" withStringArray:kStringArray delegate:self]; //Show string array defined at top of this file with title.
+//    [R20PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Was this helpful?" withStringArray:kStringArray delegate:self]; //Show string array defined at top of this file with title.
     
-//    [PopoverView showPopoverAtPoint:point inView:self.view withStringArray:kStringArray withImageArray:kImageArray delegate:self];
+//    [R20PopoverView showPopoverAtPoint:point inView:self.view withStringArray:kStringArray withImageArray:kImageArray delegate:self];
     
-//    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"DEBUG" withStringArray:kStringArray withImageArray:kImageArray delegate:self];
+    [R20PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"DEBUG" withStringArray:kStringArray withImageArray:kImageArray delegate:self];
     
 //    //Here's a little bit more advanced sample.  I create a custom view, and hand it off to the PopoverView to display for me.  I round the corners
 //    OCDaysView *daysView = [[OCDaysView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
@@ -72,13 +72,13 @@
 //    daysView.layer.cornerRadius = 4.f;
 //    daysView.layer.masksToBounds = YES;
     
-//    pv = [PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self]; //Show calendar with no title
-//    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self]; //Show calendar with title
+//    pv = [R20PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self]; //Show calendar with no title
+//    [R20PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self]; //Show calendar with title
     
 //    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
 //    tableView.delegate = self;
 //    tableView.dataSource = self;
-//    pv = [[PopoverView showPopoverAtPoint:point inView:self.view withContentView:tableView delegate:self] retain];
+//    pv = [[R20PopoverView showPopoverAtPoint:point inView:self.view withContentView:tableView delegate:self] retain];
 }
 
 
@@ -105,7 +105,7 @@
 
 #pragma mark - PopoverViewDelegate Methods
 
-- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index {
+- (void)popoverView:(R20PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index {
     NSLog(@"%s item:%d", __PRETTY_FUNCTION__, index);
     
     //Figure out which string was selected, store in "string"
@@ -118,7 +118,7 @@
     [popoverView performSelector:@selector(dismiss) withObject:nil afterDelay:0.5f];
 }
 
-- (void)popoverViewDidDismiss:(PopoverView *)popoverView {
+- (void)popoverViewDidDismiss:(R20PopoverView *)popoverView {
     NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 

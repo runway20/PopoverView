@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PopoverView.h"
+#import "R20PopoverView.h"
 
-@interface ViewController : UIViewController <PopoverViewDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController : UIViewController <R20PopoverViewDelegate, UITableViewDataSource, UITableViewDelegate> {
     
-    PopoverView *pv;
+    R20PopoverView *pv;
     
 }
 
