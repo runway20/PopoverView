@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0867719D1689B04F00ED150F /* PopoverView_Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
 		B1175C5515E3FBEE002FBFF1 /* popover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = popover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1175C5915E3FBEE002FBFF1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -210,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				B1175C9315E3FC13002FBFF1 /* PopoverView.h */,
+				0867719D1689B04F00ED150F /* PopoverView_Configuration.h */,
 				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
 			);
 			name = PopoverView;
