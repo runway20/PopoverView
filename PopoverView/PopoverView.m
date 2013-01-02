@@ -495,7 +495,7 @@
     if(!window) {
         window = [[UIApplication sharedApplication].windows objectAtIndex:0];
     }
-    topView = [[window subviews] objectAtIndex:0];
+    topView = window;
     
     CGPoint topPoint = [topView convertPoint:point fromView:view];
     
