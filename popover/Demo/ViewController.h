@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "PopoverView.h"
 
-@interface ViewController : UIViewController <PopoverViewDelegate, UITableViewDataSource, UITableViewDelegate> {
-    
+@interface ViewController : UIViewController <PopoverViewDelegate, UITableViewDataSource, UITableViewDelegate>
+{
     PopoverView *pv;
     
+    UILabel *tapAnywhereLabel;
+    CGPoint point;
 }
 
 @end
