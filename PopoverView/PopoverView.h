@@ -124,6 +124,7 @@
 #pragma mark - Dismissal
 //Dismisses the view, and removes it from the view stack.
 - (void)dismiss;
+- (void)dismiss:(BOOL)animated;
 
 #pragma mark - Activity Indicator Methods
 
