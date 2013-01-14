@@ -87,6 +87,8 @@
 
 //normal text color
 #define kTextColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1]
+// highlighted text color
+#define kTextHighlightColor [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000]
 
 //normal text alignment
 #define kTextAlignment UITextAlignmentCenter
