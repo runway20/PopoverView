@@ -171,7 +171,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+    // or, depending on the app setup, one of
+    // return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    // return YES;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

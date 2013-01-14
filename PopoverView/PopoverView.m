@@ -169,7 +169,7 @@
     [textView setNumberOfLines:0]; //This is so the label word wraps instead of cutting off the text
     textView.font = font;
     textView.textAlignment = kTextAlignment;
-    textView.textColor = [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
+    textView.textColor = kTextColor;
     textView.text = text;
     
     [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:[textView autorelease]]];
@@ -188,7 +188,7 @@
     [textView setNumberOfLines:0]; //This is so the label word wraps instead of cutting off the text
     textView.font = font;
     textView.textAlignment = kTextAlignment;
-    textView.textColor = [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
+    textView.textColor = kTextColor;
     textView.text = text;
     
     [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:[textView autorelease]]];
@@ -365,7 +365,7 @@
         [textButton setTitle:string forState:UIControlStateNormal];
         textButton.layer.cornerRadius = 4.f;
         [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-        [textButton setTitleColor:[UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000] forState:UIControlStateHighlighted];
+        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [labelArray addObject:[textButton autorelease]];
@@ -390,7 +390,7 @@
         [textButton setTitle:string forState:UIControlStateNormal];
         textButton.layer.cornerRadius = 4.f;
         [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-        [textButton setTitleColor:[UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000] forState:UIControlStateHighlighted];
+        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [labelArray addObject:[textButton autorelease]];
@@ -480,10 +480,7 @@
     
     // get the top view
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
-    UIWindow *topWindow = [[[UIApplication sharedApplication].windows sortedArrayUsingComparator:^NSComparisonResult(UIWindow *win1, UIWindow *win2) {
-        return win1.windowLevel - win2.windowLevel;
-    }] lastObject];
-    topView = [[topWindow subviews] lastObject];
+    topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
     
     [self setupLayout:point inView:view];
     
@@ -921,7 +918,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //// Shadow Declarations
-    UIColor* shadow = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:kShadowAlpha];
+    UIColor* shadow = [UIColor colorWithWhite:0.0f alpha:kShadowAlpha];
     CGSize shadowOffset = CGSizeMake(0, 1);
     CGFloat shadowBlurRadius = kShadowBlur;
     
@@ -1038,11 +1035,6 @@
             }
         }
     }
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
 }
 
 @end
