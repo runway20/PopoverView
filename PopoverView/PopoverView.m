@@ -19,8 +19,11 @@
 // Returns an array of UIButtons generated from an array of NSStrings
 - (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings;
 
+// Returns an array of UIButtons with images above the label generated from an array of NSStrings and UIImages
+- (NSMutableArray *)_makeVerticalButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images;
+
 // Returns an array of UIButtons with inline images generated from an array of NSStrings and UIImages
-- (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images;
+- (NSMutableArray *)_makeHorizontalButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images;
 
 // generates a UIButton from a string
 - (UIButton *)_makeButtonWithString:(NSString *)string;
@@ -378,70 +381,16 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
 {
-    //Here we do something pretty similar to the stringArray method above.
-    //We create an array of subviews that contains the strings and images centered above a label.
-    
-    
-//    NSMutableArray* tempViewArray = [self _makeTempViewsWithStrings:stringArray andImages:imageArray];
-		NSMutableArray *tempViews = [self _makeButtonsWithStrings:stringArray andImages:imageArray];
+		NSMutableArray* tempViews = [self _makeButtonsWithStrings:stringArray andImages:imageArray];
     
     [self showAtPoint:point inView:view withViewArray:tempViews];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
 {
-    NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
-    NSMutableArray* tempViewArray = [self _makeTempViewsWithStrings:stringArray andImages:imageArray];
-        
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[tempViewArray autorelease]];
-}
-
-- (NSMutableArray *)_makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray
-{
-    NSMutableArray *tempViewArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
-    
-    UIFont *font = kTextFont;
-    
-    for (int i = 0; i < stringArray.count; i++) {
-        NSString *string = [stringArray objectAtIndex:i];
-        
-        //First we build a label for the text to set in.
-        CGSize textSize = [string sizeWithFont:font];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-        label.backgroundColor = [UIColor clearColor];
-        label.font = font;
-        label.textAlignment = kTextAlignment;
-        label.textColor = kTextColor;
-        label.text = string;
-        label.layer.cornerRadius = 4.f;
-        
-        //Now we grab the image at the same index in the imageArray, and create
-        //a UIImageView for it.
-        UIImage *image = [imageArray objectAtIndex:i];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        
-        //Take the larger of the two widths as the width for the container
-        float containerWidth = MAX(imageView.frame.size.width, label.frame.size.width);
-        float containerHeight = label.frame.size.height + kImageTopPadding + kImageBottomPadding + imageView.frame.size.height;
-        
-        //This container will hold both the image and the label
-        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
-        
-        //Now we do the frame manipulations to put the imageView on top of the label, both centered
-        imageView.frame = CGRectMake(floorf(containerWidth*0.5f - imageView.frame.size.width*0.5f), kImageTopPadding, imageView.frame.size.width, imageView.frame.size.height);
-        label.frame = CGRectMake(floorf(containerWidth*0.5f - label.frame.size.width*0.5f), imageView.frame.size.height + kImageBottomPadding + kImageTopPadding, label.frame.size.width, label.frame.size.height);
-        
-        [containerView addSubview:imageView];
-        [containerView addSubview:label];
-        
-        [label release];
-        [imageView release];
-        
-        [tempViewArray addObject:containerView];
-        [containerView release];
-    }
-
-    return tempViewArray;
+    NSMutableArray* tempViews = [self _makeButtonsWithStrings:stringArray andImages:imageArray];
+  
+    [self showAtPoint:point inView:view withTitle:title withViewArray:tempViews];
 }
 
 - (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings
@@ -458,6 +407,54 @@
 - (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images
 {
 	NSAssert((strings.count == images.count), @"strings.count should equal images.count");
+	if (kImageAboveLabel) {
+		return [self _makeVerticalButtonsWithStrings:strings andImages:images];
+	} else {
+		return [self _makeHorizontalButtonsWithStrings:strings andImages:images];
+	}
+}
+
+- (NSMutableArray *)_makeVerticalButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images
+{
+	NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:strings.count];
+	
+	// create buttons and add images to them
+	for (int i = 0; i < strings.count; i++) {
+		UIButton *button = [self _makeButtonWithString:strings[i]];
+		UIImage *image = images[i];
+		[button setImage:image forState:UIControlStateNormal];
+		button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+		
+		//Take the larger of the two widths as the width for the button
+		float containerWidth = MAX(image.size.width, button.frame.size.width);
+		float containerHeight = button.frame.size.height + kImageTopPadding + kImageBottomPadding + kImageTitlePadding + image.size.height;
+		button.frame = CGRectMake(0, 0, containerWidth, containerHeight);
+		
+		[button setImage:image forState:UIControlStateNormal];
+		button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+		
+		CGSize imageSize = button.imageView.frame.size;
+		CGSize titleSize = button.titleLabel.frame.size;
+		
+		// lower the text and push it left to center it
+		button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageSize.width, -(imageSize.height + kImageTitlePadding), 0.0);
+		
+		// the text width might have changed (in case it was shortened before due to
+		// lack of space and isn't anymore now), so we get the frame size again
+		titleSize = button.titleLabel.frame.size;
+		
+		// raise the image and push it right to center it
+		button.imageEdgeInsets = UIEdgeInsetsMake(-(titleSize.height + kImageTitlePadding), 0.0, 0.0, -titleSize.width);
+		
+		[buttons addObject:button];
+	}
+
+	return [buttons autorelease];
+}
+
+- (NSMutableArray *)_makeHorizontalButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images
+{
+	NSAssert((strings.count == images.count), @"strings.count should equal images.count");
 	NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:strings.count];
 	CGFloat maxImageWidth = 0.0;
 	
@@ -467,7 +464,7 @@
 		
 		// resize the button based on the image width
 		UIImage *image = images[i];
-		button.frame = CGRectInset(button.frame, (image.size.width + kImageRightPadding) * -0.5, (kImageTopPadding + kImageBottomPadding) * -1.f);
+		button.frame = CGRectInset(button.frame, (image.size.width + kImageTitlePadding) * -0.5, (kImageTopPadding + kImageBottomPadding) * -1.f);
 		
 		[button setImage:image forState:UIControlStateNormal];
 		button.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -481,7 +478,7 @@
 		CGFloat insetWidth = (maxImageWidth - button.imageView.frame.size.width);
 		button.frame = CGRectInset(button.frame, insetWidth * -0.25, 0);
 		button.imageEdgeInsets = UIEdgeInsetsMake(0, insetWidth * 0.5, 0, 0);
-		button.titleEdgeInsets = UIEdgeInsetsMake(0, insetWidth + kImageRightPadding, 0, 0);
+		button.titleEdgeInsets = UIEdgeInsetsMake(0, insetWidth + kImageTitlePadding, 0, 0);
 	}
 	
 	return [buttons autorelease];
