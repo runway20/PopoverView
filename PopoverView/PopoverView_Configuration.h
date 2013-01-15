@@ -23,16 +23,16 @@
 #define kBoxRadius 4.f
 
 //Curvature value for the arrow.  Set to 0.f to make it linear.
-#define kArrowCurvature 6.f
+#define kArrowCurvature 0.f
 
 //Minimum distance from the side of the arrow to the beginning of curvature for the box
-#define kArrowHorizontalPadding 5.f
+#define kArrowHorizontalPadding 3.f
 
 //Alpha value for the shadow behind the PopoverView
-#define kShadowAlpha 0.4f
+#define kShadowAlpha 0.6f
 
 //Blur for the shadow behind the PopoverView
-#define kShadowBlur 3.f;
+#define kShadowBlur 5.f;
 
 //Box gradient bg alpha
 #define kBoxAlpha 0.95f
@@ -41,7 +41,7 @@
 #define kTopMargin 50.f
 
 //margin along the left and right of the box
-#define kHorizontalMargin 10.f
+#define kHorizontalMargin 5.f
 
 //padding along top of icons/images
 #define kImageTopPadding 3.f
@@ -53,19 +53,19 @@
 // DIVIDERS BETWEEN VIEWS
 
 //Bool that turns off/on the dividers
-#define kShowDividersBetweenViews NO
+#define kShowDividersBetweenViews YES
 
 //color for the divider fill
-#define kDividerColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:0.15f]
+#define kDividerColor [UIColor colorWithWhite:0.8f alpha:0.15f]
 
 
 // BACKGROUND GRADIENT
 
 //bottom color white in gradient bg
-#define kGradientBottomColor [UIColor colorWithRed:0.98f green:0.98f blue:0.98f alpha:kBoxAlpha]
+#define kGradientBottomColor [UIColor colorWithRed:0.09f green:0.09f blue:0.09f alpha:kBoxAlpha]
 
 //top color white value in gradient bg
-#define kGradientTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
+#define kGradientTopColor [UIColor colorWithRed:0.24f green:0.24f blue:0.24f alpha:kBoxAlpha]
 
 
 // TITLE GRADIENT
@@ -74,24 +74,24 @@
 #define kDrawTitleGradient YES
 
 //bottom color white value in title gradient bg
-#define kGradientTitleBottomColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
+#define kGradientTitleBottomColor [UIColor colorWithWhite:0.2 alpha:kBoxAlpha]
 
 //top color white value in title gradient bg
-#define kGradientTitleTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
+#define kGradientTitleTopColor [UIColor colorWithWhite:0.4 alpha:kBoxAlpha]
 
 
 // FONTS
 
 //normal text font
-#define kTextFont [UIFont fontWithName:@"HelveticaNeue" size:16.f]
+#define kTextFont [UIFont fontWithName:@"HelveticaNeue" size:12.f]
 
 //normal text color
-#define kTextColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1]
+#define kTextColor [UIColor colorWithWhite:0.8 alpha:1]
 // highlighted text color
-#define kTextHighlightColor [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000]
+#define kTextHighlightColor [UIColor colorWithWhite:1.0f alpha:1.000]
 
 //normal text alignment
-#define kTextAlignment UITextAlignmentCenter
+#define kTextAlignment UITextAlignmentLeft
 
 //title font
 #define kTitleFont [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.f]
