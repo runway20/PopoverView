@@ -10,6 +10,17 @@
 #import "PopoverView_Configuration.h"
 #import <QuartzCore/QuartzCore.h>
 
+#pragma mark - Private Interface
+
+@interface PopoverView()
+
+- (NSMutableArray *)_makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray;
+
+// Resturns a mutable array for UILabels generated from a NSArray of NSStrings
+- (NSMutableArray *)_makeLabelsWithStrings:(NSArray *)stringArray;
+
+@end
+
 #pragma mark - Implementation
 
 @implementation PopoverView
@@ -351,52 +362,12 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray
 {
-    NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
-    
-    UIFont *font = kTextFont;
-    
-    for (NSString *string in stringArray) {
-        CGSize textSize = [string sizeWithFont:font];
-        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-        textButton.backgroundColor = [UIColor clearColor];
-        textButton.titleLabel.font = font;
-        textButton.titleLabel.textAlignment = kTextAlignment;
-        textButton.titleLabel.textColor = kTextColor;
-        [textButton setTitle:string forState:UIControlStateNormal];
-        textButton.layer.cornerRadius = 4.f;
-        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
-        [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [labelArray addObject:[textButton autorelease]];
-    }
-    
-    [self showAtPoint:point inView:view withViewArray:[labelArray autorelease]];
+    [self showAtPoint:point inView:view withViewArray:[self _makeLabelsWithStrings:stringArray]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray
- {
-    NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
-    
-    UIFont *font = kTextFont;
-    
-    for (NSString *string in stringArray) {
-        CGSize textSize = [string sizeWithFont:font];
-        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-        textButton.backgroundColor = [UIColor clearColor];
-        textButton.titleLabel.font = font;
-        textButton.titleLabel.textAlignment = kTextAlignment;
-        textButton.titleLabel.textColor = kTextColor;
-        [textButton setTitle:string forState:UIControlStateNormal];
-        textButton.layer.cornerRadius = 4.f;
-        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
-        [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [labelArray addObject:[textButton autorelease]];
-    }
-    
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray autorelease]];
+{
+    [self showAtPoint:point inView:view withTitle:title withViewArray:[self _makeLabelsWithStrings:stringArray]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
@@ -405,7 +376,7 @@
     //We create an array of subviews that contains the strings and images centered above a label.
     
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
-    NSMutableArray* tempViewArray = [self makeTempViewsWithStrings:stringArray andImages:imageArray];
+    NSMutableArray* tempViewArray = [self _makeTempViewsWithStrings:stringArray andImages:imageArray];
     
     [self showAtPoint:point inView:view withViewArray:[tempViewArray autorelease]];
 }
@@ -413,12 +384,12 @@
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
 {
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
-    NSMutableArray* tempViewArray = [self makeTempViewsWithStrings:stringArray andImages:imageArray];
+    NSMutableArray* tempViewArray = [self _makeTempViewsWithStrings:stringArray andImages:imageArray];
         
     [self showAtPoint:point inView:view withTitle:title withViewArray:[tempViewArray autorelease]];
 }
 
-- (NSMutableArray*) makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray
+- (NSMutableArray *)_makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray
 {
     NSMutableArray *tempViewArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
     
@@ -464,6 +435,31 @@
     }
 
     return tempViewArray;
+}
+
+- (NSMutableArray *)_makeLabelsWithStrings:(NSArray *)stringArray
+{
+	NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
+	
+	UIFont *font = kTextFont;
+	
+	for (NSString *string in stringArray) {
+		CGSize textSize = [string sizeWithFont:font];
+		UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+		textButton.backgroundColor = [UIColor clearColor];
+		textButton.titleLabel.font = font;
+		textButton.titleLabel.textAlignment = kTextAlignment;
+		textButton.titleLabel.textColor = kTextColor;
+		[textButton setTitle:string forState:UIControlStateNormal];
+		textButton.layer.cornerRadius = 4.f;
+		[textButton setTitleColor:kTextColor forState:UIControlStateNormal];
+		[textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
+		[textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+		
+		[labelArray addObject:[textButton autorelease]];
+	}
+	
+	return [labelArray autorelease];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView
