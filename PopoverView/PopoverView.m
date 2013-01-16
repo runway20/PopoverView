@@ -522,9 +522,16 @@
     parentView = view;
     
     // get the top view
+		// Favor getting the topView throught the rootViewController if it exists
+		// otherwise use:
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
-    topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
-    
+		
+		if ([UIApplication sharedApplication].keyWindow.rootViewController) {
+			topView = [UIApplication sharedApplication].keyWindow.rootViewController.view; 
+		} else {
+			topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+		}
+  
     [self setupLayout:point inView:view];
     
     // Make the view small and transparent before animation
