@@ -407,7 +407,7 @@
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
     NSMutableArray* tempViewArray = [self makeTempViewsWithStrings:stringArray andImages:imageArray];
     
-    [self showAtPoint:point inView:view withViewArray:[tempViewArray autorelease]];
+    [self showAtPoint:point inView:view withViewArray:tempViewArray];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
@@ -415,7 +415,7 @@
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
     NSMutableArray* tempViewArray = [self makeTempViewsWithStrings:stringArray andImages:imageArray];
         
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[tempViewArray autorelease]];
+    [self showAtPoint:point inView:view withTitle:title withViewArray:tempViewArray];
 }
 
 - (NSMutableArray*) makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray
@@ -463,7 +463,7 @@
         [containerView release];
     }
 
-    return tempViewArray;
+    return [tempViewArray autorelease];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView
