@@ -49,9 +49,13 @@
 //padding along bottom of icons/images
 #define kImageBottomPadding 3.f
 
-// padding between icons/images
-#define kImageRightPadding 6.f
+//padding between icons/images and titles
+#define kImageTitlePadding 6.f
 
+// POSITION OF IMAGES
+
+//Bool that positions icons/images above or to the left of labels
+#define kImageAboveLabel YES
 
 // DIVIDERS BETWEEN VIEWS
 
