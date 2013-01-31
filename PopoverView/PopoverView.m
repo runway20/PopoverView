@@ -253,17 +253,10 @@
     
     totalHeight = 0;
     
-    //Now we actually change the frame element for each subview, and center the views horizontally.
+    //Now we actually change the frame element for each subview to make sure all views are the full width.
     for (UIView *view in viewArray) {
-        if ([view autoresizingMask] == UIViewAutoresizingFlexibleWidth) {
-            //Now make sure all flexible views are the full width
-            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, totalWidth, view.frame.size.height);
-        } else {
-            //If the view is not flexible width, then we position it centered in the view
-            //without stretching it.
-            view.frame = CGRectMake(floorf(CGRectGetMinX(boxFrame) + totalWidth*0.5f - view.frame.size.width*0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
-        }
-        
+				view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, totalWidth, view.frame.size.height);
+      
         //and if dividers are enabled, we record their position for the drawing methods
         if (kShowDividersBetweenViews && i != viewArray.count-1) {
             CGRect dividerRect = CGRectMake(view.frame.origin.x, floorf(view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f), view.frame.size.width, 0.5f);
@@ -316,13 +309,10 @@
         float padding = (i == viewArray.count-1) ? 0.f : kBoxPadding;
         
         totalHeight += view.frame.size.height + padding;
-        
-        if (view.frame.size.width > totalWidth) {
-            totalWidth = view.frame.size.width;
-        }
-        
-        [container addSubview:view];
-        
+				totalWidth = MAX(totalWidth, view.frame.size.width);
+              
+				[container addSubview:view];
+			
         i++;
     }
     
@@ -332,17 +322,11 @@
     }
     
     i = 0;
-    
-    for (UIView *view in viewArray) {
-        if ([view autoresizingMask] == UIViewAutoresizingFlexibleWidth) {
-            //Now make sure all flexible views are the full width
-            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, totalWidth, view.frame.size.height);
-        } else {
-            //If the view is not flexible width, then we position it centered in the view
-            //without stretching it.
-            view.frame = CGRectMake(floorf(CGRectGetMinX(boxFrame) + totalWidth*0.5f - view.frame.size.width*0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
-        }
-        
+  
+		//Now we actually change the frame element for each subview to make sure all views are the full width.
+		for (UIView *view in viewArray) {
+				view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, totalWidth, view.frame.size.height);
+      
         //and if dividers are enabled, we record their position for the drawing methods
         if (kShowDividersBetweenViews && i != viewArray.count-1) {
             CGRect dividerRect = CGRectMake(view.frame.origin.x, floorf(view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f), view.frame.size.width, 0.5f);
@@ -490,7 +474,6 @@
 	
 	CGSize textSize = [string sizeWithFont:font];
 	UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-	textButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	textButton.backgroundColor = [UIColor clearColor];
 	textButton.titleLabel.font = font;
 	textButton.titleLabel.textColor = kTextColor;
