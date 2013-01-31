@@ -14,8 +14,6 @@
 
 @interface PopoverView()
 
-- (NSMutableArray *)_makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray;
-
 // Returns an array of UIButtons generated from an array of NSStrings
 - (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings;
 
