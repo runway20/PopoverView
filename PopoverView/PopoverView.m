@@ -464,7 +464,7 @@
 		
 		// resize the button based on the image width
 		UIImage *image = images[i];
-		button.frame = CGRectInset(button.frame, (image.size.width + kImageTitlePadding) * -0.5, (kImageTopPadding + kImageBottomPadding) * -1.f);
+		button.frame = CGRectInset(button.frame, image.size.width * -0.5 - kImageTitlePadding, (kImageTopPadding + kImageBottomPadding) * -1.f);
 		
 		[button setImage:image forState:UIControlStateNormal];
 		button.imageView.contentMode = UIViewContentModeScaleAspectFit;
