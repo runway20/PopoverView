@@ -16,8 +16,14 @@
 
 - (NSMutableArray *)_makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray;
 
-// Resturns a mutable array for UILabels generated from a NSArray of NSStrings
-- (NSMutableArray *)_makeLabelsWithStrings:(NSArray *)stringArray;
+// Returns an array of UIButtons generated from an array of NSStrings
+- (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings;
+
+// Returns an array of UIButtons with inline images generated from an array of NSStrings and UIImages
+- (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images;
+
+// generates a UIButton from a string
+- (UIButton *)_makeButtonWithString:(NSString *)string;
 
 @end
 
@@ -223,7 +229,7 @@
         float padding = (i == viewArray.count-1) ? 0 : kBoxPadding;
         
         totalHeight += view.frame.size.height + padding;
-        
+			
         if (view.frame.size.width > totalWidth) {
             totalWidth = view.frame.size.width;
         }
@@ -362,12 +368,12 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray
 {
-    [self showAtPoint:point inView:view withViewArray:[self _makeLabelsWithStrings:stringArray]];
+    [self showAtPoint:point inView:view withViewArray:[self _makeButtonsWithStrings:stringArray]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray
 {
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[self _makeLabelsWithStrings:stringArray]];
+    [self showAtPoint:point inView:view withTitle:title withViewArray:[self _makeButtonsWithStrings:stringArray]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
@@ -375,10 +381,11 @@
     //Here we do something pretty similar to the stringArray method above.
     //We create an array of subviews that contains the strings and images centered above a label.
     
-    NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
-    NSMutableArray* tempViewArray = [self _makeTempViewsWithStrings:stringArray andImages:imageArray];
     
-    [self showAtPoint:point inView:view withViewArray:[tempViewArray autorelease]];
+//    NSMutableArray* tempViewArray = [self _makeTempViewsWithStrings:stringArray andImages:imageArray];
+		NSMutableArray *tempViews = [self _makeButtonsWithStrings:stringArray andImages:imageArray];
+    
+    [self showAtPoint:point inView:view withViewArray:tempViews];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
@@ -437,29 +444,72 @@
     return tempViewArray;
 }
 
-- (NSMutableArray *)_makeLabelsWithStrings:(NSArray *)stringArray
+- (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings
 {
-	NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
+	NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:strings.count];
 	
-	UIFont *font = kTextFont;
-	
-	for (NSString *string in stringArray) {
-		CGSize textSize = [string sizeWithFont:font];
-		UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
-		textButton.backgroundColor = [UIColor clearColor];
-		textButton.titleLabel.font = font;
-		textButton.titleLabel.textAlignment = kTextAlignment;
-		textButton.titleLabel.textColor = kTextColor;
-		[textButton setTitle:string forState:UIControlStateNormal];
-		textButton.layer.cornerRadius = 4.f;
-		[textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-		[textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
-		[textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
-		
-		[labelArray addObject:[textButton autorelease]];
+	for (NSString *string in strings) {
+		[buttons addObject:[self _makeButtonWithString:string]];
 	}
 	
-	return [labelArray autorelease];
+	return [buttons autorelease];
+}
+
+- (NSMutableArray *)_makeButtonsWithStrings:(NSArray *)strings andImages:(NSArray *)images
+{
+	NSAssert((strings.count == images.count), @"strings.count should equal images.count");
+	NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:strings.count];
+	CGFloat maxImageWidth = 0.0;
+	
+	// create buttons and add images to them
+	for (int i = 0; i < strings.count; i++) {
+		UIButton *button = [self _makeButtonWithString:strings[i]];
+		
+		// resize the button based on the image width
+		UIImage *image = images[i];
+		button.frame = CGRectInset(button.frame, (image.size.width + kImageRightPadding) * -0.5, (kImageTopPadding + kImageBottomPadding) * -1.f);
+		
+		[button setImage:image forState:UIControlStateNormal];
+		button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+		[buttons addObject:button];
+		
+		maxImageWidth = MAX(image.size.width, maxImageWidth);
+	}
+	
+	// resize buttons based on maxImageWidth
+	for (UIButton * button in buttons) {
+		CGFloat insetWidth = (maxImageWidth - button.imageView.frame.size.width);
+		button.frame = CGRectInset(button.frame, insetWidth * -0.25, 0);
+		button.imageEdgeInsets = UIEdgeInsetsMake(0, insetWidth * 0.5, 0, 0);
+		button.titleEdgeInsets = UIEdgeInsetsMake(0, insetWidth + kImageRightPadding, 0, 0);
+	}
+	
+	return [buttons autorelease];
+}
+
+- (UIButton *)_makeButtonWithString:(NSString *)string
+{
+	UIFont *font = kTextFont;
+	
+	CGSize textSize = [string sizeWithFont:font];
+	UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+	textButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	textButton.backgroundColor = [UIColor clearColor];
+	textButton.titleLabel.font = font;
+	textButton.titleLabel.textColor = kTextColor;
+	[textButton setTitle:string forState:UIControlStateNormal];
+	textButton.layer.cornerRadius = 4.f;
+	[textButton setTitleColor:kTextColor forState:UIControlStateNormal];
+	[textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
+	[textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+	
+	if (kTextAlignment == UITextAlignmentLeft || kTextAlignment == NSTextAlignmentLeft) {
+		textButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+	} else if (kTextAlignment == UITextAlignmentRight || kTextAlignment == NSTextAlignmentRight) {
+		textButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+	}
+	
+	return [textButton autorelease];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView

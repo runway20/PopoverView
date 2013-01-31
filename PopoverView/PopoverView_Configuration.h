@@ -49,6 +49,9 @@
 //padding along bottom of icons/images
 #define kImageBottomPadding 3.f
 
+// padding between icons/images
+#define kImageRightPadding 6.f
+
 
 // DIVIDERS BETWEEN VIEWS
 
