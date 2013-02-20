@@ -186,11 +186,10 @@
 
     if (pv) {
         // popover is visible, so we need to either reposition or dismiss it (dismising is probably best to avoid confusion)
-        bool dismiss = YES;
+        bool dismiss = NO;
         if (dismiss) {
             [pv dismiss:NO];
-        }
-        else {
+        } else {
             // move popover
             [pv animateRotationToNewPoint:center
                                    inView:self.view

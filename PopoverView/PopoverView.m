@@ -25,6 +25,8 @@
     
     UIWindow *topWindow;
     
+    UIView *topView;
+    
     UIWindow *oldWindow;
     
     NSArray *subviewsArray;
@@ -46,6 +48,20 @@
 @property (nonatomic, strong) UIView *contentView;
 
 @property (nonatomic, strong) NSArray *subviewsArray;
+
+@end
+
+#pragma mark - Rotation View Controller
+
+@interface PopoverViewRotationController : UIViewController
+
+@end
+
+@implementation PopoverViewRotationController
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
 
 @end
 
@@ -503,11 +519,16 @@
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
     
     UIWindow *newWindow = [[UIWindow alloc] initWithFrame:[[UIApplication sharedApplication] keyWindow].frame];
-//    [newWindow makeKeyAndVisible];
+    newWindow.backgroundColor = [UIColor clearColor];
+    [newWindow makeKeyAndVisible];
+    [newWindow setRootViewController:[[PopoverViewRotationController alloc] init]];
+    newWindow.rootViewController.view.backgroundColor = [UIColor clearColor];
+    newWindow.rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [newWindow setWindowLevel:UIWindowLevelAlert];
-    [newWindow setHidden:NO];
+//    [newWindow setHidden:NO];
     oldWindow = [[UIApplication sharedApplication] keyWindow];
     topWindow = newWindow;
+    topView = newWindow.rootViewController.view;
     
     [self setupLayout:point inView:view];
     
@@ -543,13 +564,13 @@
 
 -(void)setupLayout:(CGPoint)point inView:(UIView*)view
 {
-    CGPoint topPoint = [topWindow convertPoint:point fromView:view];
+    CGPoint topPoint = [topView convertPoint:point fromView:view];
 
     arrowPoint = topPoint;
 
     //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
 
-    CGRect topViewBounds = topWindow.bounds;
+    CGRect topViewBounds = topView.bounds;
     //NSLog(@"topViewBounds %@", NSStringFromCGRect(topViewBounds));
 
     float contentHeight = contentView.frame.size.height;
@@ -614,7 +635,7 @@
     [self setNeedsDisplay];
 
     [self addSubview:contentView];
-    [topWindow addSubview:self];
+    [topView addSubview:self];
 
     //Add a tap gesture recognizer to the large invisible view (self), which will detect taps anywhere on the screen.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
@@ -1066,3 +1087,4 @@
 }
 
 @end
+
