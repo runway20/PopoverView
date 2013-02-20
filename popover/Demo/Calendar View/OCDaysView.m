@@ -51,7 +51,6 @@
 	[dateParts setYear:year];
 	[dateParts setDay:1];
 	NSDate *dateOnFirst = [calendar dateFromComponents:dateParts];
-	[dateParts release];
 	NSDateComponents *weekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:dateOnFirst];
 	int weekdayOfFirst = [weekdayComponents weekday];	
     
@@ -77,7 +76,6 @@
     
     NSDate *prevDateOnFirst = [calendar dateFromComponents:prevDateParts];
     
-    [prevDateParts release];
     
     int numDaysInPrevMonth = [calendar rangeOfUnit:NSDayCalendarUnit 
 										inUnit:NSMonthCalendarUnit 
@@ -147,7 +145,6 @@
     
     NSDate *nextDateOnFirst = [calendar dateFromComponents:nextDateParts];
     
-    [nextDateParts release];
     
     NSDateComponents *nextWeekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:nextDateOnFirst];
 	int weekdayOfNextFirst = [nextWeekdayComponents weekday];
@@ -191,7 +188,6 @@
 	[dateParts setYear:year];
 	[dateParts setDay:1];
 	NSDate *dateOnFirst = [calendar dateFromComponents:dateParts];
-	[dateParts release];
 	NSDateComponents *weekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:dateOnFirst];
 	int weekdayOfFirst = [weekdayComponents weekday];	
     
