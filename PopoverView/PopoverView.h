@@ -9,33 +9,56 @@
 #import <UIKit/UIKit.h>
 
 
-#ifndef STRONG
-#if __has_feature(objc_arc)
-#define STRONG strong
-#else
-#define STRONG retain
-#endif
-#endif
+/******************************************************************/
+                /* Support both ARC and non-ARC */
 
-#ifndef WEAK
-#if __has_feature(objc_arc_weak)
+
+#ifndef SUPPORT_ARC
+#define SUPPORT_ARC
+
+#if __has_feature(objc_arc_weak)                //objc_arc_weak
 #define WEAK weak
-#elif __has_feature(objc_arc)
+#define __WEAK __weak
+#define STRONG strong
+
+#define AUTORELEASE self
+#define RELEASE self
+#define RETAIN self
+#define CFTYPECAST(exp) (__bridge exp)
+#define TYPECAST(exp) (__bridge_transfer exp)
+#define CFRELEASE(exp) CFRelease(exp)
+#define DEALLOC self
+
+#elif __has_feature(objc_arc)                   //objc_arc
 #define WEAK unsafe_unretained
-#else
+#define __WEAK __unsafe_unretained
+#define STRONG strong
+
+#define AUTORELEASE self
+#define RELEASE self
+#define RETAIN self
+#define CFTYPECAST(exp) (__bridge exp)
+#define TYPECAST(exp) (__bridge_transfer exp)
+#define CFRELEASE(exp) CFRelease(exp)
+#define DEALLOC self
+
+#else                                           //none
 #define WEAK assign
+#define __WEAK
+#define STRONG retain
+
+#define AUTORELEASE autorelease
+#define RELEASE release
+#define RETAIN retain
+#define CFTYPECAST(exp) (exp)
+#define TYPECAST(exp) (exp)
+#define CFRELEASE(exp) CFRelease(exp)
+#define DEALLOC dealloc
+
 #endif
 #endif
 
-#if __has_feature(objc_arc)
-#define AUTORELEASE(exp) exp
-#define RELEASE(exp) exp
-#define RETAIN(exp) exp
-#else
-#define AUTORELEASE(exp) [exp autorelease]
-#define RELEASE(exp) [exp release]
-#define RETAIN(exp) [exp retain]
-#endif
+/******************************************************************/
 
 
 @class PopoverView;
@@ -59,7 +82,7 @@
     
     BOOL above;
     
-    id<PopoverViewDelegate> delegate;
+    __WEAK id<PopoverViewDelegate> delegate;
     
     UIView *parentView;
     
