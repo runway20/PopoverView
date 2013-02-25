@@ -8,6 +8,36 @@
 
 #import <UIKit/UIKit.h>
 
+
+#ifndef STRONG
+#if __has_feature(objc_arc)
+#define STRONG strong
+#else
+#define STRONG retain
+#endif
+#endif
+
+#ifndef WEAK
+#if __has_feature(objc_arc_weak)
+#define WEAK weak
+#elif __has_feature(objc_arc)
+#define WEAK unsafe_unretained
+#else
+#define WEAK assign
+#endif
+#endif
+
+#if __has_feature(objc_arc)
+#define AUTORELEASE(exp) exp
+#define RELEASE(exp) exp
+#define RETAIN(exp) exp
+#else
+#define AUTORELEASE(exp) [exp autorelease]
+#define RELEASE(exp) [exp release]
+#define RETAIN(exp) [exp retain]
+#endif
+
+
 @class PopoverView;
 
 @protocol PopoverViewDelegate <NSObject>
@@ -49,13 +79,13 @@
     BOOL showDividerRects;
 }
 
-@property (nonatomic, retain) UIView *titleView;
+@property (nonatomic, STRONG) UIView *titleView;
 
-@property (nonatomic, retain) UIView *contentView;
+@property (nonatomic, STRONG) UIView *contentView;
 
-@property (nonatomic, retain) NSArray *subviewsArray;
+@property (nonatomic, STRONG) NSArray *subviewsArray;
 
-@property (nonatomic, assign) id<PopoverViewDelegate> delegate;
+@property (nonatomic, WEAK) id<PopoverViewDelegate> delegate;
 
 #pragma mark - Class Static Showing Methods
 
