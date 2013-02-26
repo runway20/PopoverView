@@ -491,7 +491,7 @@
     // animate into full size
     // First stage animates to 1.05x normal size, then second stage animates back down to 1x size.
     // This two-stage animation creates a little "pop" on open.
-    [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.alpha = 1.f;
         self.transform = CGAffineTransformMakeScale(1.05f, 1.05f);
     } completion:^(BOOL finished) {
@@ -509,7 +509,7 @@
     [self setupLayout:point inView:view];
     
     // animate back to full opacity
-    [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.alpha = 1.f;
     } completion:nil];
 }
@@ -678,7 +678,7 @@
         }
     }
     
-    [UIView animateWithDuration:0.2f delay:0.2f options:UIViewAnimationCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.2f delay:0.2f options:UIViewAnimationOptionCurveEaseOut animations:^{
         imageView.alpha = 1.f;
         imageView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
@@ -708,7 +708,7 @@
         }
     }
     
-    [UIView animateWithDuration:0.1f delay:0.1f options:UIViewAnimationCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.1f delay:0.1f options:UIViewAnimationOptionCurveEaseOut animations:^{
         imageView.alpha = 1.f;
         imageView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
@@ -739,7 +739,7 @@
         }
     }
     
-    [UIView animateWithDuration:0.1f delay:0.1f options:UIViewAnimationCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.1f delay:0.1f options:UIViewAnimationOptionCurveEaseOut animations:^{
         imageView.alpha = 1.f;
         imageView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {

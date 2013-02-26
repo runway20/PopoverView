@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-/******************************************************************/
-                /* Support both ARC and non-ARC */
-
+/**************** Support both ARC and non-ARC ********************/
 
 #ifndef SUPPORT_ARC
 #define SUPPORT_ARC
