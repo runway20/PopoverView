@@ -1035,6 +1035,15 @@
             }
         }
     }
+    
+    //Draw border if we need to
+    //The border is done last because it needs to be drawn on top of everything else
+    if (kDrawBorder) {
+        [kBorderColor setStroke];
+        popoverPath.lineWidth = kBorderWidth;
+        [popoverPath stroke];
+    }
+    
 }
 
 @end
