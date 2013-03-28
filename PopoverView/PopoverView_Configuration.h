@@ -90,8 +90,14 @@
 // highlighted text color
 #define kTextHighlightColor [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000]
 
-//normal text alignment
-#define kTextAlignment NSTextAlignmentCenter
+//normal text alignment and word wrapping
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
+#define kTextAlignment		NSTextAlignmentCenter
+#define kTextLineBreakMode	NSLineBreakByWordWrapping
+#else
+#define kTextAlignment		UITextAlignmentCenter
+#define kTextLineBreakMode	UILineBreakModeWordWrap
+#endif
 
 //title font
 #define kTitleFont [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.f]

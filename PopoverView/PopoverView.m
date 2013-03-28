@@ -170,7 +170,7 @@
     UIFont *font = kTextFont;
     
     CGSize screenSize = [self screenSize];
-    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:kTextLineBreakMode];
     
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
     textView.backgroundColor = [UIColor clearColor];
@@ -189,7 +189,7 @@
     UIFont *font = kTextFont;
     
     CGSize screenSize = [self screenSize];
-    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:kTextLineBreakMode];
     
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
     textView.backgroundColor = [UIColor clearColor];
