@@ -69,6 +69,15 @@
     return popoverView;
 }
 
++ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withAttributedStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate
+{
+	PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
+    [popoverView showAtPoint:point inView:view withTitle:title withAttributedStringArray:stringArray];
+    popoverView.delegate = delegate;
+    [popoverView RELEASE];
+    return popoverView;
+}
+
 + (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withStringArray:stringArray withImageArray:imageArray];
@@ -388,6 +397,31 @@
         textButton.titleLabel.textAlignment = kTextAlignment;
         textButton.titleLabel.textColor = kTextColor;
         [textButton setTitle:string forState:UIControlStateNormal];
+        textButton.layer.cornerRadius = 4.f;
+        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
+        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
+        [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [labelArray addObject:[textButton AUTORELEASE]];
+    }
+    
+    [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray AUTORELEASE]];
+}
+
+- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withAttributedStringArray:(NSArray *)stringArray
+{
+	NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
+    
+    UIFont *font = kTextFont;
+    
+    for (NSAttributedString *attributedString in stringArray) {
+        CGSize textSize = [attributedString.string sizeWithFont:font];
+        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
+        textButton.backgroundColor = [UIColor clearColor];
+        textButton.titleLabel.font = font;
+        textButton.titleLabel.textAlignment = kTextAlignment;
+        textButton.titleLabel.textColor = kTextColor;
+		[textButton setAttributedTitle:attributedString forState:UIControlStateNormal];
         textButton.layer.cornerRadius = 4.f;
         [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
         [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
