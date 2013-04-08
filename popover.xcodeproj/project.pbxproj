@@ -16,30 +16,14 @@
 		B1175C6D15E3FBEE002FBFF1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1175C6B15E3FBEE002FBFF1 /* MainStoryboard_iPhone.storyboard */; };
 		B1175C7015E3FBEE002FBFF1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1175C6E15E3FBEE002FBFF1 /* MainStoryboard_iPad.storyboard */; };
 		B1175C7315E3FBEE002FBFF1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C7215E3FBEE002FBFF1 /* ViewController.m */; };
-		B1175C7B15E3FBEE002FBFF1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C7A15E3FBEE002FBFF1 /* SenTestingKit.framework */; };
-		B1175C7C15E3FBEE002FBFF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5915E3FBEE002FBFF1 /* UIKit.framework */; };
-		B1175C7D15E3FBEE002FBFF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */; };
-		B1175C8515E3FBEE002FBFF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1175C8315E3FBEE002FBFF1 /* InfoPlist.strings */; };
-		B1175C8815E3FBEE002FBFF1 /* popoverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C8715E3FBEE002FBFF1 /* popoverTests.m */; };
 		B1175C9215E3FC07002FBFF1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */; };
 		B1175C9515E3FC13002FBFF1 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C9415E3FC13002FBFF1 /* PopoverView.m */; };
-		B1175C9615E3FC13002FBFF1 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1175C9415E3FC13002FBFF1 /* PopoverView.m */; };
 		B14F47581603A267003EC4FF /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47541603A267003EC4FF /* error.png */; };
 		B14F47591603A267003EC4FF /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47551603A267003EC4FF /* error@2x.png */; };
 		B14F475A1603A267003EC4FF /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47561603A267003EC4FF /* success.png */; };
 		B14F475B1603A267003EC4FF /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B14F47571603A267003EC4FF /* success@2x.png */; };
 		B1ACBE981603859A006F8461 /* OCDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ACBE971603859A006F8461 /* OCDaysView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B1175C7E15E3FBEE002FBFF1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1175C4C15E3FBEE002FBFF1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B1175C5415E3FBEE002FBFF1;
-			remoteInfo = popover;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0867719D1689B04F00ED150F /* PopoverView_Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
@@ -57,12 +41,7 @@
 		B1175C6F15E3FBEE002FBFF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		B1175C7115E3FBEE002FBFF1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B1175C7215E3FBEE002FBFF1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B1175C7915E3FBEE002FBFF1 /* popoverTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = popoverTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1175C7A15E3FBEE002FBFF1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B1175C8215E3FBEE002FBFF1 /* popoverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "popoverTests-Info.plist"; sourceTree = "<group>"; };
-		B1175C8415E3FBEE002FBFF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B1175C8615E3FBEE002FBFF1 /* popoverTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popoverTests.h; sourceTree = "<group>"; };
-		B1175C8715E3FBEE002FBFF1 /* popoverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popoverTests.m; sourceTree = "<group>"; };
 		B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1175C9315E3FC13002FBFF1 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		B1175C9415E3FC13002FBFF1 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
@@ -86,16 +65,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B1175C7515E3FBEE002FBFF1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1175C7B15E3FBEE002FBFF1 /* SenTestingKit.framework in Frameworks */,
-				B1175C7C15E3FBEE002FBFF1 /* UIKit.framework in Frameworks */,
-				B1175C7D15E3FBEE002FBFF1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -104,7 +73,6 @@
 			children = (
 				B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */,
 				B1175C5F15E3FBEE002FBFF1 /* popover */,
-				B1175C8015E3FBEE002FBFF1 /* popoverTests */,
 				B1175C5815E3FBEE002FBFF1 /* Frameworks */,
 				B1175C5615E3FBEE002FBFF1 /* Products */,
 			);
@@ -114,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				B1175C5515E3FBEE002FBFF1 /* popover.app */,
-				B1175C7915E3FBEE002FBFF1 /* popoverTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,25 +119,6 @@
 			);
 			name = "Supporting Files";
 			path = Demo;
-			sourceTree = "<group>";
-		};
-		B1175C8015E3FBEE002FBFF1 /* popoverTests */ = {
-			isa = PBXGroup;
-			children = (
-				B1175C8615E3FBEE002FBFF1 /* popoverTests.h */,
-				B1175C8715E3FBEE002FBFF1 /* popoverTests.m */,
-				B1175C8115E3FBEE002FBFF1 /* Supporting Files */,
-			);
-			path = popoverTests;
-			sourceTree = "<group>";
-		};
-		B1175C8115E3FBEE002FBFF1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B1175C8215E3FBEE002FBFF1 /* popoverTests-Info.plist */,
-				B1175C8315E3FBEE002FBFF1 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B1ACBE941603858D006F8461 /* Demo Calendar View - Not Important */ = {
@@ -238,25 +186,6 @@
 			productReference = B1175C5515E3FBEE002FBFF1 /* popover.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B1175C7815E3FBEE002FBFF1 /* popoverTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B1175C8E15E3FBEE002FBFF1 /* Build configuration list for PBXNativeTarget "popoverTests" */;
-			buildPhases = (
-				B1175C7415E3FBEE002FBFF1 /* Sources */,
-				B1175C7515E3FBEE002FBFF1 /* Frameworks */,
-				B1175C7615E3FBEE002FBFF1 /* Resources */,
-				B1175C7715E3FBEE002FBFF1 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B1175C7F15E3FBEE002FBFF1 /* PBXTargetDependency */,
-			);
-			name = popoverTests;
-			productName = popoverTests;
-			productReference = B1175C7915E3FBEE002FBFF1 /* popoverTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -279,7 +208,6 @@
 			projectRoot = "";
 			targets = (
 				B1175C5415E3FBEE002FBFF1 /* popover */,
-				B1175C7815E3FBEE002FBFF1 /* popoverTests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,31 +227,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B1175C7615E3FBEE002FBFF1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1175C8515E3FBEE002FBFF1 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B1175C7715E3FBEE002FBFF1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1175C5115E3FBEE002FBFF1 /* Sources */ = {
@@ -338,24 +242,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B1175C7415E3FBEE002FBFF1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1175C8815E3FBEE002FBFF1 /* popoverTests.m in Sources */,
-				B1175C9615E3FC13002FBFF1 /* PopoverView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B1175C7F15E3FBEE002FBFF1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B1175C5415E3FBEE002FBFF1 /* popover */;
-			targetProxy = B1175C7E15E3FBEE002FBFF1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B1175C6215E3FBEE002FBFF1 /* InfoPlist.strings */ = {
@@ -380,14 +267,6 @@
 				B1175C6F15E3FBEE002FBFF1 /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		B1175C8315E3FBEE002FBFF1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B1175C8415E3FBEE002FBFF1 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -468,40 +347,6 @@
 			};
 			name = Release;
 		};
-		B1175C8F15E3FBEE002FBFF1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/popover.app/popover";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "popover/popover-Prefix.pch";
-				INFOPLIST_FILE = "popoverTests/popoverTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		B1175C9015E3FBEE002FBFF1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/popover.app/popover";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "popover/popover-Prefix.pch";
-				INFOPLIST_FILE = "popoverTests/popoverTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,15 +364,6 @@
 			buildConfigurations = (
 				B1175C8C15E3FBEE002FBFF1 /* Debug */,
 				B1175C8D15E3FBEE002FBFF1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B1175C8E15E3FBEE002FBFF1 /* Build configuration list for PBXNativeTarget "popoverTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B1175C8F15E3FBEE002FBFF1 /* Debug */,
-				B1175C9015E3FBEE002FBFF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
