@@ -98,3 +98,15 @@
 
 //title text color
 #define kTitleColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1]
+
+
+// BORDER
+
+//bool that turns off/on the border
+#define kDrawBorder NO
+
+//border color
+#define kBorderColor [UIColor blackColor]
+
+//border width
+#define kBorderWidth 1.f
