@@ -863,8 +863,6 @@
     
     float radius = kBoxRadius; //Radius of the curvature.
     
-    float cpOffset = kCPOffset; //Control Point Offset.  Modifies how "curved" the corners are.
-    
     
     /*
      LT2            RT1
@@ -886,7 +884,7 @@
     
     UIBezierPath *popoverPath = [UIBezierPath bezierPath];
     [popoverPath moveToPoint:CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + radius)];//LT1
-    [popoverPath addCurveToPoint:CGPointMake(xMin + radius, yMin) controlPoint1:CGPointMake(xMin, yMin + radius - cpOffset) controlPoint2:CGPointMake(xMin + radius - cpOffset, yMin)];//LT2
+    [popoverPath addArcWithCenter:CGPointMake(xMin + radius, yMin+radius) radius:radius startAngle:M_PI endAngle:M_PI_2 + M_PI clockwise:YES];//LT2
     
     //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
     //In this case, the arrow is located between LT2 and RT1
@@ -897,9 +895,9 @@
     }
     
     [popoverPath addLineToPoint:CGPointMake(xMax - radius, yMin)];//RT1
-    [popoverPath addCurveToPoint:CGPointMake(xMax, yMin + radius) controlPoint1:CGPointMake(xMax - radius + cpOffset, yMin) controlPoint2:CGPointMake(xMax, yMin + radius - cpOffset)];//RT2
+    [popoverPath addArcWithCenter:CGPointMake(xMax - radius, yMin+radius) radius:radius startAngle:M_PI_2 + M_PI endAngle:0 clockwise:YES];//RT2
     [popoverPath addLineToPoint:CGPointMake(xMax, yMax - radius)];//RB1
-    [popoverPath addCurveToPoint:CGPointMake(xMax - radius, yMax) controlPoint1:CGPointMake(xMax, yMax - radius + cpOffset) controlPoint2:CGPointMake(xMax - radius + cpOffset, yMax)];//RB2
+    [popoverPath addArcWithCenter:CGPointMake(xMax - radius, yMax - radius) radius:radius startAngle:0 endAngle:M_PI_2 clockwise:YES];//RB2
     
     //If the popover is positioned above the arrowPoint, then we know that the arrow must be on the bottom of the popover.
     //In this case, the arrow is located somewhere between LB1 and RB2
@@ -910,7 +908,7 @@
     }
     
     [popoverPath addLineToPoint:CGPointMake(xMin + radius, yMax)];//LB1
-    [popoverPath addCurveToPoint:CGPointMake(xMin, yMax - radius) controlPoint1:CGPointMake(xMin + radius - cpOffset, yMax) controlPoint2:CGPointMake(xMin, yMax - radius + cpOffset)];//LB2
+    [popoverPath addArcWithCenter:CGPointMake(xMin + radius, yMax - radius) radius:radius startAngle:M_PI_2 endAngle:M_PI clockwise:YES];//LB2
     [popoverPath closePath];
     
     //// General Declarations
@@ -968,7 +966,7 @@
             UIBezierPath *titleBGPath = [UIBezierPath bezierPath];
             [titleBGPath moveToPoint:startingPoint];
             [titleBGPath addLineToPoint:CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + radius)];//LT1
-            [titleBGPath addCurveToPoint:CGPointMake(xMin + radius, yMin) controlPoint1:CGPointMake(xMin, yMin + radius - cpOffset) controlPoint2:CGPointMake(xMin + radius - cpOffset, yMin)];//LT2
+            [titleBGPath addArcWithCenter:CGPointMake(xMin + radius, yMin+radius) radius:radius startAngle:M_PI endAngle:M_PI_2 + M_PI clockwise:YES];//LT2
             
             //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
             //In this case, the arrow is located between LT2 and RT1
@@ -979,7 +977,7 @@
             }
             
             [titleBGPath addLineToPoint:CGPointMake(xMax - radius, yMin)];//RT1
-            [titleBGPath addCurveToPoint:CGPointMake(xMax, yMin + radius) controlPoint1:CGPointMake(xMax - radius + cpOffset, yMin) controlPoint2:CGPointMake(xMax, yMin + radius - cpOffset)];//RT2
+            [titleBGPath addArcWithCenter:CGPointMake(xMax - radius, yMin+radius) radius:radius startAngle:M_PI_2 + M_PI endAngle:0 clockwise:YES];//RT2
             [titleBGPath addLineToPoint:endingPoint];
             [titleBGPath addLineToPoint:startingPoint];
             [titleBGPath closePath];
