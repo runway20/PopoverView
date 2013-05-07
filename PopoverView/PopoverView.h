@@ -108,6 +108,72 @@
 
 @property (nonatomic, WEAK) id<PopoverViewDelegate> delegate;
 
+#pragma mark - Appearance
+
+@property (nonatomic) BOOL showArrow;
+
+// DIVIDERS BETWEEN VIEWS
+
+//Bool that turns off/on the dividers
+@property (nonatomic) BOOL showDividersBetweenViews;
+
+//color for the divider fill
+@property (nonatomic, STRONG) UIColor *dividerColor;
+
+
+// BACKGROUND GRADIENT
+
+//bottom color white in gradient bg
+@property (nonatomic, STRONG) UIColor *gradientBottomColor;
+
+//top color white value in gradient bg
+@property (nonatomic, STRONG) UIColor *gradientTopColor;
+
+
+// TITLE GRADIENT
+
+//bool that turns off/on title gradient
+@property (nonatomic) BOOL drawTitleGradient;
+
+//bottom color white value in title gradient bg
+@property (nonatomic, STRONG) UIColor *gradientTitleBottomColor;
+
+//top color white value in title gradient bg
+@property (nonatomic, STRONG) UIColor *gradientTitleTopColor;
+
+
+// FONTS
+
+//normal text font
+@property (nonatomic, STRONG) UIFont *textFont;
+
+//normal text color
+@property (nonatomic, STRONG) UIColor *textColor;
+
+// highlighted text color
+@property (nonatomic, STRONG) UIColor *textHighlightColor;
+
+//normal text alignment
+@property (nonatomic) UITextAlignment textAlignment;
+
+//title font
+@property (nonatomic, STRONG) UIFont *titleFont;
+
+//title text color
+@property (nonatomic, STRONG) UIColor *titleColor;
+
+
+// BORDER
+
+//bool that turns off/on the border
+@property (nonatomic) BOOL drawBorder;
+
+//border color
+@property (nonatomic, STRONG) UIColor *borderColor;
+
+//border width
+@property (nonatomic) CGFloat borderWidth;
+
 #pragma mark - Class Static Showing Methods
 
 //These are the main static methods you can use to display the popover.

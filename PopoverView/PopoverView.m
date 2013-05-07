@@ -113,8 +113,10 @@
         
         self.titleView = nil;
         self.contentView = nil;
+
+        [self setPropertiesFromConfiguration];
         
-        showDividerRects = kShowDividersBetweenViews;
+        showDividerRects = self.showDividersBetweenViews;
     }
     return self;
 }
@@ -134,7 +136,25 @@
     [super DEALLOC];
 }
 
-
+- (void)setPropertiesFromConfiguration {
+    self.showArrow = YES;
+    self.showDividersBetweenViews = kShowDividersBetweenViews;
+    self.dividerColor = kDividerColor;
+    self.gradientBottomColor = kGradientBottomColor;
+    self.gradientTopColor = kGradientTopColor;
+    self.drawTitleGradient = kDrawTitleGradient;
+    self.gradientTitleBottomColor = kGradientTitleBottomColor;
+    self.gradientTitleTopColor = kGradientTitleTopColor;
+    self.textFont = kTextFont;
+    self.textColor = kTextColor;
+    self.textHighlightColor = kTextHighlightColor;
+    self.textAlignment = kTextAlignment;
+    self.titleFont = kTitleFont;
+    self.titleColor = kTitleColor;
+    self.drawBorder = kDrawBorder;
+    self.borderColor = kBorderColor;
+    self.borderWidth = kBorderWidth;
+}
 
 #pragma mark - Display methods
 
@@ -158,7 +178,7 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text
 {
-    UIFont *font = kTextFont;
+    UIFont *font = self.textFont;
     
     CGSize screenSize = [self screenSize];
     CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:UILineBreakModeWordWrap];
@@ -168,8 +188,8 @@
     textView.userInteractionEnabled = NO;
     [textView setNumberOfLines:0]; //This is so the label word wraps instead of cutting off the text
     textView.font = font;
-    textView.textAlignment = kTextAlignment;
-    textView.textColor = kTextColor;
+    textView.textAlignment = self.textAlignment;
+    textView.textColor = self.textColor;
     textView.text = text;
     
     [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
@@ -177,7 +197,7 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text
 {
-    UIFont *font = kTextFont;
+    UIFont *font = self.textFont;
     
     CGSize screenSize = [self screenSize];
     CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:UILineBreakModeWordWrap];
@@ -187,8 +207,8 @@
     textView.userInteractionEnabled = NO;
     [textView setNumberOfLines:0]; //This is so the label word wraps instead of cutting off the text
     textView.font = font;
-    textView.textAlignment = kTextAlignment;
-    textView.textColor = kTextColor;
+    textView.textAlignment = self.textAlignment;
+    textView.textColor = self.textColor;
     textView.text = text;
     
     [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
@@ -223,7 +243,7 @@
     }
     
     //If dividers are enabled, then we allocate the divider rect array.  This will hold NSValues
-    if (kShowDividersBetweenViews) {
+    if (self.showDividersBetweenViews) {
         dividerRects = [[NSMutableArray alloc] initWithCapacity:viewArray.count-1];
     }
     
@@ -245,7 +265,7 @@
         }
         
         //and if dividers are enabled, we record their position for the drawing methods
-        if (kShowDividersBetweenViews && i != viewArray.count-1) {
+        if (self.showDividersBetweenViews && i != viewArray.count-1) {
             CGRect dividerRect = CGRectMake(view.frame.origin.x, floorf(view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f), view.frame.size.width, 0.5f);
             
             [((NSMutableArray *)dividerRects) addObject:[NSValue valueWithCGRect:dividerRect]];
@@ -269,12 +289,12 @@
     UIView *container = [[UIView alloc] initWithFrame:CGRectZero];
     
     //Create a label for the title text.
-    CGSize titleSize = [title sizeWithFont:kTitleFont];
+    CGSize titleSize = [title sizeWithFont:self.titleFont];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.f, 0.f, titleSize.width, titleSize.height)];
     titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.font = kTitleFont;
+    titleLabel.font = self.titleFont;
     titleLabel.textAlignment = UITextAlignmentCenter;
-    titleLabel.textColor = kTitleColor;
+    titleLabel.textColor = self.titleColor;
     titleLabel.text = title;
     
     //Make sure that the title's label will have non-zero height.  If it has zero height, then we don't allocate any space
@@ -307,7 +327,7 @@
     }
     
     //If dividers are enabled, then we allocate the divider rect array.  This will hold NSValues
-    if (kShowDividersBetweenViews) {
+    if (self.showDividersBetweenViews) {
         dividerRects = [[NSMutableArray alloc] initWithCapacity:viewArray.count-1];
     }
     
@@ -324,7 +344,7 @@
         }
         
         //and if dividers are enabled, we record their position for the drawing methods
-        if (kShowDividersBetweenViews && i != viewArray.count-1) {
+        if (self.showDividersBetweenViews && i != viewArray.count-1) {
             CGRect dividerRect = CGRectMake(view.frame.origin.x, floorf(view.frame.origin.y + view.frame.size.height + kBoxPadding*0.5f), view.frame.size.width, 0.5f);
             
             [((NSMutableArray *)dividerRects) addObject:[NSValue valueWithCGRect:dividerRect]];
@@ -353,19 +373,19 @@
 {
     NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
     
-    UIFont *font = kTextFont;
+    UIFont *font = self.textFont;
     
     for (NSString *string in stringArray) {
         CGSize textSize = [string sizeWithFont:font];
         UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
         textButton.backgroundColor = [UIColor clearColor];
         textButton.titleLabel.font = font;
-        textButton.titleLabel.textAlignment = kTextAlignment;
-        textButton.titleLabel.textColor = kTextColor;
+        textButton.titleLabel.textAlignment = self.textAlignment;
+        textButton.titleLabel.textColor = self.textColor;
         [textButton setTitle:string forState:UIControlStateNormal];
         textButton.layer.cornerRadius = 4.f;
-        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
+        [textButton setTitleColor:self.textColor forState:UIControlStateNormal];
+        [textButton setTitleColor:self.textHighlightColor forState:UIControlStateHighlighted];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [labelArray addObject:[textButton AUTORELEASE]];
@@ -378,19 +398,19 @@
  {
     NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
     
-    UIFont *font = kTextFont;
+    UIFont *font = self.textFont;
     
     for (NSString *string in stringArray) {
         CGSize textSize = [string sizeWithFont:font];
         UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
         textButton.backgroundColor = [UIColor clearColor];
         textButton.titleLabel.font = font;
-        textButton.titleLabel.textAlignment = kTextAlignment;
-        textButton.titleLabel.textColor = kTextColor;
+        textButton.titleLabel.textAlignment = self.textAlignment;
+        textButton.titleLabel.textColor = self.textColor;
         [textButton setTitle:string forState:UIControlStateNormal];
         textButton.layer.cornerRadius = 4.f;
-        [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
-        [textButton setTitleColor:kTextHighlightColor forState:UIControlStateHighlighted];
+        [textButton setTitleColor:self.textColor forState:UIControlStateNormal];
+        [textButton setTitleColor:self.textHighlightColor forState:UIControlStateHighlighted];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [labelArray addObject:[textButton AUTORELEASE]];
@@ -422,7 +442,7 @@
 {
     NSMutableArray *tempViewArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
     
-    UIFont *font = kTextFont;
+    UIFont *font = self.textFont;
     
     for (int i = 0; i < stringArray.count; i++) {
         NSString *string = [stringArray objectAtIndex:i];
@@ -432,8 +452,8 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
         label.backgroundColor = [UIColor clearColor];
         label.font = font;
-        label.textAlignment = kTextAlignment;
-        label.textColor = kTextColor;
+        label.textAlignment = self.textAlignment;
+        label.textColor = self.textColor;
         label.text = string;
         label.layer.cornerRadius = 4.f;
         
@@ -556,7 +576,7 @@
         xOrigin = CGRectGetMaxX(topViewBounds) - kHorizontalMargin - boxWidth;
     }
 
-    float arrowHeight = kArrowHeight;
+    float arrowHeight = self.showArrow ? kArrowHeight : 0;
 
     float topPadding = kTopMargin;
 
@@ -565,12 +585,12 @@
     if (topPoint.y - contentHeight - arrowHeight - topPadding < CGRectGetMinY(topViewBounds)) {
         //Position below because it won't fit above.
         above = NO;
-        
+
         boxFrame = CGRectMake(xOrigin, arrowPoint.y + arrowHeight, boxWidth, boxHeight);
     } else {
         //Position above.
         above = YES;
-        
+
         boxFrame = CGRectMake(xOrigin, arrowPoint.y - arrowHeight - boxHeight, boxWidth, boxHeight);
     }
 
@@ -890,7 +910,7 @@
     
     //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
     //In this case, the arrow is located between LT2 and RT1
-    if (!above) {
+    if (self.showArrow && !above) {
         [popoverPath addLineToPoint:CGPointMake(arrowPoint.x - kArrowHeight, yMin)];//left side
         [popoverPath addCurveToPoint:arrowPoint controlPoint1:CGPointMake(arrowPoint.x - kArrowHeight + kArrowCurvature, yMin) controlPoint2:arrowPoint];//actual arrow point
         [popoverPath addCurveToPoint:CGPointMake(arrowPoint.x + kArrowHeight, yMin) controlPoint1:arrowPoint controlPoint2:CGPointMake(arrowPoint.x + kArrowHeight - kArrowCurvature, yMin)];//right side
@@ -903,7 +923,7 @@
     
     //If the popover is positioned above the arrowPoint, then we know that the arrow must be on the bottom of the popover.
     //In this case, the arrow is located somewhere between LB1 and RB2
-    if (above) {
+    if (self.showArrow && above) {
         [popoverPath addLineToPoint:CGPointMake(arrowPoint.x + kArrowHeight, yMax)];//right side
         [popoverPath addCurveToPoint:arrowPoint controlPoint1:CGPointMake(arrowPoint.x + kArrowHeight - kArrowCurvature, yMax) controlPoint2:arrowPoint];//arrow point
         [popoverPath addCurveToPoint:CGPointMake(arrowPoint.x - kArrowHeight, yMax) controlPoint1:arrowPoint controlPoint2:CGPointMake(arrowPoint.x - kArrowHeight + kArrowCurvature, yMax)];
@@ -924,15 +944,15 @@
     
     //// Gradient Declarations
     NSArray* gradientColors = [NSArray arrayWithObjects:
-                               (id)kGradientTopColor.CGColor,
-                               (id)kGradientBottomColor.CGColor, nil];
+                               (id)self.gradientTopColor.CGColor,
+                               (id)self.gradientBottomColor.CGColor, nil];
     CGFloat gradientLocations[] = {0, 1};
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFTYPECAST(CFArrayRef)gradientColors), gradientLocations);
     
     
     //These floats are the top and bottom offsets for the gradient drawing so the drawing includes the arrows.
-    float bottomOffset = (above ? kArrowHeight : 0.f);
-    float topOffset = (!above ? kArrowHeight : 0.f);
+    float bottomOffset = (self.showArrow && above ? kArrowHeight : 0.f);
+    float topOffset = (self.showArrow && !above ? kArrowHeight : 0.f);
     
     //Draw the actual gradient and shadow.
     CGContextSaveGState(context);
@@ -949,7 +969,7 @@
     
     
     //Draw the title background
-    if (kDrawTitleGradient) {
+    if (self.drawTitleGradient) {
         //Calculate the height of the title bg
         float titleBGHeight = -1;
         
@@ -972,7 +992,7 @@
             
             //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
             //In this case, the arrow is located between LT2 and RT1
-            if (!above) {
+            if (self.showArrow && !above) {
                 [titleBGPath addLineToPoint:CGPointMake(arrowPoint.x - kArrowHeight, yMin)];//left side
                 [titleBGPath addCurveToPoint:arrowPoint controlPoint1:CGPointMake(arrowPoint.x - kArrowHeight + kArrowCurvature, yMin) controlPoint2:arrowPoint];//actual arrow point
                 [titleBGPath addCurveToPoint:CGPointMake(arrowPoint.x + kArrowHeight, yMin) controlPoint1:arrowPoint controlPoint2:CGPointMake(arrowPoint.x + kArrowHeight - kArrowCurvature, yMin)];//right side
@@ -990,14 +1010,14 @@
             
             //// Gradient Declarations
             NSArray* gradientColors = [NSArray arrayWithObjects:
-                                       (id)kGradientTitleTopColor.CGColor,
-                                       (id)kGradientTitleBottomColor.CGColor, nil];
+                                       (id)self.gradientTitleTopColor.CGColor,
+                                       (id)self.gradientTitleBottomColor.CGColor, nil];
             CGFloat gradientLocations[] = {0, 1};
             CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFTYPECAST(CFArrayRef)gradientColors), gradientLocations);
             
             
             //These floats are the top and bottom offsets for the gradient drawing so the drawing includes the arrows.
-            float topOffset = (!above ? kArrowHeight : 0.f);
+            float topOffset = (self.showArrow && !above ? kArrowHeight : 0.f);
             
             //Draw the actual gradient and shadow.
             CGContextSaveGState(context);
@@ -1021,7 +1041,7 @@
     
     //Draw the divider rects if we need to
     {
-        if (kShowDividersBetweenViews && showDividerRects) {
+        if (self.showDividersBetweenViews && showDividerRects) {
             if (dividerRects && dividerRects.count > 0) {
                 for (NSValue *value in dividerRects) {
                     CGRect rect = value.CGRectValue;
@@ -1029,7 +1049,7 @@
                     rect.origin.y += contentView.frame.origin.y;
                     
                     UIBezierPath *dividerPath = [UIBezierPath bezierPathWithRect:rect];
-                    [kDividerColor setFill];
+                    [self.dividerColor setFill];
                     [dividerPath fill];
                 }
             }
@@ -1038,9 +1058,9 @@
     
     //Draw border if we need to
     //The border is done last because it needs to be drawn on top of everything else
-    if (kDrawBorder) {
-        [kBorderColor setStroke];
-        popoverPath.lineWidth = kBorderWidth;
+    if (self.drawBorder) {
+        [self.borderColor setStroke];
+        popoverPath.lineWidth = self.borderWidth;
         [popoverPath stroke];
     }
     
