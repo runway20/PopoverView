@@ -110,69 +110,109 @@
 
 #pragma mark - Appearance
 
-@property (nonatomic) BOOL showArrow;
+//Height/width of the actual arrow
+@property (nonatomic) CGFloat arrowHeight UI_APPEARANCE_SELECTOR;
+
+//padding within the box for the contentView
+@property (nonatomic) CGFloat boxPadding UI_APPEARANCE_SELECTOR;
+
+//control point offset for rounding corners of the main popover box
+@property (nonatomic) CGFloat CPOffset UI_APPEARANCE_SELECTOR;
+
+//radius for the rounded corners of the main popover box
+@property (nonatomic) CGFloat boxRadius UI_APPEARANCE_SELECTOR;
+
+//Curvature value for the arrow.  Set to 0.f to make it linear.
+@property (nonatomic) CGFloat arrowCurvature UI_APPEARANCE_SELECTOR;
+
+//Minimum distance from the side of the arrow to the beginning of curvature for the box
+@property (nonatomic) CGFloat arrowHorizontalPadding UI_APPEARANCE_SELECTOR;
+
+//Alpha value for the shadow behind the PopoverView
+@property (nonatomic) CGFloat shadowAlpha UI_APPEARANCE_SELECTOR;
+
+//Blur for the shadow behind the PopoverView
+@property (nonatomic) CGFloat shadowBlur UI_APPEARANCE_SELECTOR;
+
+//Box gradient bg alpha
+@property (nonatomic) CGFloat boxAlpha UI_APPEARANCE_SELECTOR;
+
+//Padding along top of screen to allow for any nav/status bars
+@property (nonatomic) CGFloat topMargin UI_APPEARANCE_SELECTOR;
+
+//margin along the left and right of the box
+@property (nonatomic) CGFloat horizontalMargin UI_APPEARANCE_SELECTOR;
+
+//padding along top of icons/images
+@property (nonatomic) CGFloat imageTopPadding UI_APPEARANCE_SELECTOR;
+
+//padding along bottom of icons/images
+@property (nonatomic) CGFloat imageBottomPadding UI_APPEARANCE_SELECTOR;
+
+// show popover arrow
+@property (nonatomic) NSInteger showArrow UI_APPEARANCE_SELECTOR;
 
 // DIVIDERS BETWEEN VIEWS
 
 //Bool that turns off/on the dividers
-@property (nonatomic) BOOL showDividersBetweenViews;
+@property (nonatomic) NSInteger showDividersBetweenViews UI_APPEARANCE_SELECTOR;
 
 //color for the divider fill
-@property (nonatomic, STRONG) UIColor *dividerColor;
+@property (nonatomic, STRONG) UIColor *dividerColor UI_APPEARANCE_SELECTOR;
 
 
 // BACKGROUND GRADIENT
 
 //bottom color white in gradient bg
-@property (nonatomic, STRONG) UIColor *gradientBottomColor;
+@property (nonatomic, STRONG) UIColor *gradientBottomColor UI_APPEARANCE_SELECTOR;
 
 //top color white value in gradient bg
-@property (nonatomic, STRONG) UIColor *gradientTopColor;
+@property (nonatomic, STRONG) UIColor *gradientTopColor UI_APPEARANCE_SELECTOR;
 
 
 // TITLE GRADIENT
 
 //bool that turns off/on title gradient
-@property (nonatomic) BOOL drawTitleGradient;
+@property (nonatomic) NSInteger drawTitleGradient UI_APPEARANCE_SELECTOR;
 
 //bottom color white value in title gradient bg
-@property (nonatomic, STRONG) UIColor *gradientTitleBottomColor;
+@property (nonatomic, STRONG) UIColor *gradientTitleBottomColor UI_APPEARANCE_SELECTOR;
 
 //top color white value in title gradient bg
-@property (nonatomic, STRONG) UIColor *gradientTitleTopColor;
+@property (nonatomic, STRONG) UIColor *gradientTitleTopColor UI_APPEARANCE_SELECTOR;
 
 
 // FONTS
 
 //normal text font
-@property (nonatomic, STRONG) UIFont *textFont;
+@property (nonatomic, STRONG) UIFont *textFont UI_APPEARANCE_SELECTOR;
 
 //normal text color
-@property (nonatomic, STRONG) UIColor *textColor;
+@property (nonatomic, STRONG) UIColor *textColor UI_APPEARANCE_SELECTOR;
 
 // highlighted text color
-@property (nonatomic, STRONG) UIColor *textHighlightColor;
+@property (nonatomic, STRONG) UIColor *textHighlightColor UI_APPEARANCE_SELECTOR;
 
 //normal text alignment
-@property (nonatomic) UITextAlignment textAlignment;
+@property (nonatomic) UITextAlignment textAlignment UI_APPEARANCE_SELECTOR;
 
 //title font
-@property (nonatomic, STRONG) UIFont *titleFont;
+@property (nonatomic, STRONG) UIFont *titleFont UI_APPEARANCE_SELECTOR;
 
 //title text color
-@property (nonatomic, STRONG) UIColor *titleColor;
+@property (nonatomic, STRONG) UIColor *titleColor UI_APPEARANCE_SELECTOR;
 
 
 // BORDER
 
 //bool that turns off/on the border
-@property (nonatomic) BOOL drawBorder;
+@property (nonatomic) NSInteger drawBorder UI_APPEARANCE_SELECTOR;
 
 //border color
-@property (nonatomic, STRONG) UIColor *borderColor;
+@property (nonatomic, STRONG) UIColor *borderColor UI_APPEARANCE_SELECTOR;
 
 //border width
-@property (nonatomic) CGFloat borderWidth;
+@property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
 
 #pragma mark - Class Static Showing Methods
 

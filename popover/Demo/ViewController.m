@@ -25,7 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    // PopoverView can be styled using appearance
+    //[[PopoverView appearance] setGradientBottomColor:[UIColor redColor]];
+
+    // Do any additional setup after loading the view, typically from a nib.
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     [self.view addGestureRecognizer:[tap autorelease]];
