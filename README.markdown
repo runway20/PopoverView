@@ -7,7 +7,7 @@ For More Information, please see our full blog post:
 
 ***
 
-<img src="http://blog.getsherpa.com/images/postImages/popoverMap.png" width="320" height="480" />
+<img src="http://www.getosito.com/img/postImages/popoverMap.png" width="320" height="480" />
 
 ***
 
@@ -24,7 +24,7 @@ OCDaysView *daysView = [[OCDaysView alloc] initWithFrame:CGRectMake(0, 0, 150, 1
 
 As you may note, I have two versions of the display code here.  One of them displays the `daysView` as a single `contentView` with no title, and the other displays the same view with a "October 2012" title.
 
-<img src="http://blog.getsherpa.com/images/postImages/popoverCal1.png" width="320" height="480" />
+<img src="http://www.getosito.com/img/postImages/popoverCal1.png" width="320" height="480" />
 
 ***
 
@@ -34,6 +34,8 @@ The structure of the demo project is very simple.  The PopoverView.h and .m file
 ***
 
 ##License##
+
+(MIT Licensed)
 
 Copyright (c) 2012 Runway 20 Inc.
 
