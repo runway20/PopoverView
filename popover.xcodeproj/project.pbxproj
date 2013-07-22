@@ -72,6 +72,8 @@
 		B14F47571603A267003EC4FF /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "success@2x.png"; path = "popover/Images/success@2x.png"; sourceTree = SOURCE_ROOT; };
 		B1ACBE961603859A006F8461 /* OCDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDaysView.h; sourceTree = "<group>"; };
 		B1ACBE971603859A006F8461 /* OCDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCDaysView.m; sourceTree = "<group>"; };
+		E7F6CF2A179D542E00C944E3 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
+		E7F6CF2B179D573700C944E3 /* PopoverView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PopoverView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		B1175C4A15E3FBEE002FBFF1 = {
 			isa = PBXGroup;
 			children = (
+				E7F6CF2B179D573700C944E3 /* PopoverView.podspec */,
 				B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */,
 				B1175C5F15E3FBEE002FBFF1 /* popover */,
 				B1175C8015E3FBEE002FBFF1 /* popoverTests */,
@@ -213,6 +216,7 @@
 				B1175C9315E3FC13002FBFF1 /* PopoverView.h */,
 				0867719D1689B04F00ED150F /* PopoverView_Configuration.h */,
 				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
+				E7F6CF2A179D542E00C944E3 /* PopoverViewCompatibility.h */,
 			);
 			name = PopoverView;
 			path = ../PopoverView;
@@ -450,6 +454,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "popover/Demo/popover-Prefix.pch";
 				INFOPLIST_FILE = "popover/Demo/popover-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "C183E71C-4BA9-4B64-B7E5-BA551FF1F744";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C183E71C-4BA9-4B64-B7E5-BA551FF1F744";
@@ -463,6 +468,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "popover/Demo/popover-Prefix.pch";
 				INFOPLIST_FILE = "popover/Demo/popover-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
