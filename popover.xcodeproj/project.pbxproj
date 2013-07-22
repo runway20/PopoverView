@@ -73,6 +73,7 @@
 		B1ACBE961603859A006F8461 /* OCDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDaysView.h; sourceTree = "<group>"; };
 		B1ACBE971603859A006F8461 /* OCDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCDaysView.m; sourceTree = "<group>"; };
 		E7F6CF2A179D542E00C944E3 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
+		E7F6CF2B179D573700C944E3 /* PopoverView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PopoverView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 		B1175C4A15E3FBEE002FBFF1 = {
 			isa = PBXGroup;
 			children = (
+				E7F6CF2B179D573700C944E3 /* PopoverView.podspec */,
 				B1175C9115E3FC07002FBFF1 /* QuartzCore.framework */,
 				B1175C5F15E3FBEE002FBFF1 /* popover */,
 				B1175C8015E3FBEE002FBFF1 /* popoverTests */,
