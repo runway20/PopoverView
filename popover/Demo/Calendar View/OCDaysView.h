@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopoverViewCompatibility.h"
 
 @interface OCDaysView : UIView {
     int startCellX;
