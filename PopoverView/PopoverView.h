@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopoverViewCompatibility.h"
 
 
 /**************** Support both ARC and non-ARC ********************/
