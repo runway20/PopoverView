@@ -913,6 +913,13 @@
     [popoverPath addCurveToPoint:CGPointMake(xMin, yMax - radius) controlPoint1:CGPointMake(xMin + radius - cpOffset, yMax) controlPoint2:CGPointMake(xMin, yMax - radius + cpOffset)];//LB2
     [popoverPath closePath];
     
+    //Convert the path to mask
+    CAShapeLayer *shapeMask = [[CAShapeLayer alloc] init];
+    shapeMask.frame = self.bounds;
+    shapeMask.path = popoverPath.CGPath;
+    self.layer.mask = shapeMask;
+    [shapeMask RELEASE];
+    
     //// General Declarations
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = UIGraphicsGetCurrentContext();
