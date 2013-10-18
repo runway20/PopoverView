@@ -815,6 +815,10 @@
 
 - (void)dismiss:(BOOL)animated
 {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(popoverViewWillDismiss:)]) {
+        [delegate popoverViewWillDismiss:self];
+    }
+    
     if (!animated)
     {
         [self dismissComplete];
