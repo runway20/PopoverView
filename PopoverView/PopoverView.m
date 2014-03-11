@@ -14,11 +14,6 @@
 
 @implementation PopoverView
 
-@synthesize subviewsArray;
-@synthesize contentView;
-@synthesize titleView;
-@synthesize delegate;
-
 #pragma mark - Static Methods
 
 + (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate {
@@ -542,8 +537,8 @@
     CGRect topViewBounds = topView.bounds;
     //NSLog(@"topViewBounds %@", NSStringFromCGRect(topViewBounds));
 
-    float contentHeight = contentView.frame.size.height;
-    float contentWidth = contentView.frame.size.width;
+    float contentHeight = _contentView.frame.size.height;
+    float contentWidth = _contentView.frame.size.width;
 
     float padding = self.boxPadding;
 
@@ -594,7 +589,7 @@
     //NSLog(@"boxFrame:(%f,%f,%f,%f)", boxFrame.origin.x, boxFrame.origin.y, boxFrame.size.width, boxFrame.size.height);
 
     CGRect contentFrame = CGRectMake(boxFrame.origin.x + padding, boxFrame.origin.y + padding, contentWidth, contentHeight);
-    contentView.frame = contentFrame;
+    _contentView.frame = contentFrame;
 
     //We set the anchorPoint here so the popover will "grow" out of the arrowPoint specified by the user.
     //You have to set the anchorPoint before setting the frame, because the anchorPoint property will
@@ -603,7 +598,7 @@
     self.frame = topViewBounds;
     [self setNeedsDisplay];
 
-    [self addSubview:contentView];
+    [self addSubview:_contentView];
     [topView addSubview:self];
 
     //Add a tap gesture recognizer to the large invisible view (self), which will detect taps anywhere on the screen.
@@ -620,13 +615,13 @@
 //Animates in a progress indicator, and removes
 - (void)showActivityIndicatorWithMessage:(NSString *)msg
 {
-    if ([titleView isKindOfClass:[UILabel class]]) {
-        ((UILabel *)titleView).text = msg;
+    if ([_titleView isKindOfClass:[UILabel class]]) {
+        ((UILabel *)_titleView).text = msg;
     }
     
-    if (subviewsArray && (subviewsArray.count > 0)) {
+    if (_subviewsArray && (_subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.2f animations:^{
-            for (UIView *view in subviewsArray) {
+            for (UIView *view in _subviewsArray) {
                 view.alpha = 0.f;
             }
         }];
@@ -643,16 +638,16 @@
     }
     
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.frame = CGRectMake(CGRectGetMidX(contentView.bounds) - 10.f, CGRectGetMidY(contentView.bounds) - 10.f + 20.f, 20.f, 20.f);
-    [contentView addSubview:activityIndicator];
+    activityIndicator.frame = CGRectMake(CGRectGetMidX(_contentView.bounds) - 10.f, CGRectGetMidY(_contentView.bounds) - 10.f + 20.f, 20.f, 20.f);
+    [_contentView addSubview:activityIndicator];
     
     [activityIndicator startAnimating];
 }
 
 - (void)hideActivityIndicatorWithMessage:(NSString *)msg
 {
-    if ([titleView isKindOfClass:[UILabel class]]) {
-        ((UILabel *)titleView).text = msg;
+    if ([_titleView isKindOfClass:[UILabel class]]) {
+        ((UILabel *)_titleView).text = msg;
     }
     
     [activityIndicator stopAnimating];
@@ -668,14 +663,14 @@
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.alpha = 0.f;
-    imageView.frame = CGRectMake(floorf(CGRectGetMidX(contentView.bounds) - image.size.width*0.5f), floorf(CGRectGetMidY(contentView.bounds) - image.size.height*0.5f + ((self.titleView) ? 20 : 0.f)), image.size.width, image.size.height);
+    imageView.frame = CGRectMake(floorf(CGRectGetMidX(_contentView.bounds) - image.size.width*0.5f), floorf(CGRectGetMidY(_contentView.bounds) - image.size.height*0.5f + ((self.titleView) ? 20 : 0.f)), image.size.width, image.size.height);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
-    [contentView addSubview:imageView];
+    [_contentView addSubview:imageView];
     
-    if (subviewsArray && (subviewsArray.count > 0)) {
+    if (_subviewsArray && (_subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.2f animations:^{
-            for (UIView *view in subviewsArray) {
+            for (UIView *view in _subviewsArray) {
                 view.alpha = 0.f;
             }
         }];
@@ -687,8 +682,8 @@
     }
     
     if (msg) {
-        if ([titleView isKindOfClass:[UILabel class]]) {
-            ((UILabel *)titleView).text = msg;
+        if ([_titleView isKindOfClass:[UILabel class]]) {
+            ((UILabel *)_titleView).text = msg;
         }
     }
     
@@ -704,14 +699,14 @@
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"error"]];
     imageView.alpha = 0.f;
-    imageView.frame = CGRectMake(CGRectGetMidX(contentView.bounds) - 20.f, CGRectGetMidY(contentView.bounds) - 20.f + ((self.titleView) ? 20 : 0.f), 40.f, 40.f);
+    imageView.frame = CGRectMake(CGRectGetMidX(_contentView.bounds) - 20.f, CGRectGetMidY(_contentView.bounds) - 20.f + ((self.titleView) ? 20 : 0.f), 40.f, 40.f);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
-    [contentView addSubview:imageView];
+    [_contentView addSubview:imageView];
     
-    if (subviewsArray && (subviewsArray.count > 0)) {
+    if (_subviewsArray && (_subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.1f animations:^{
-            for (UIView *view in subviewsArray) {
+            for (UIView *view in _subviewsArray) {
                 view.alpha = 0.f;
             }
         }];
@@ -735,14 +730,14 @@
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"success"]];
     imageView.alpha = 0.f;
-    imageView.frame = CGRectMake(CGRectGetMidX(contentView.bounds) - 20.f, CGRectGetMidY(contentView.bounds) - 20.f + ((self.titleView) ? 20 : 0.f), 40.f, 40.f);
+    imageView.frame = CGRectMake(CGRectGetMidX(_contentView.bounds) - 20.f, CGRectGetMidY(_contentView.bounds) - 20.f + ((self.titleView) ? 20 : 0.f), 40.f, 40.f);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
-    [contentView addSubview:imageView];
+    [_contentView addSubview:imageView];
     
-    if (subviewsArray && (subviewsArray.count > 0)) {
+    if (_subviewsArray && (_subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.1f animations:^{
-            for (UIView *view in subviewsArray) {
+            for (UIView *view in _subviewsArray) {
                 view.alpha = 0.f;
             }
         }];
@@ -766,16 +761,16 @@
 
 - (void)tapped:(UITapGestureRecognizer *)tap
 {    
-    CGPoint point = [tap locationInView:contentView];
+    CGPoint point = [tap locationInView:_contentView];
     
     //NSLog(@"point:(%f,%f)", point.x, point.y);
     
     BOOL found = NO;
     
-    //NSLog(@"subviewsArray:%@", subviewsArray);
+    //NSLog(@"_subviewsArray:%@", _subviewsArray);
     
-    for (int i = 0; i < subviewsArray.count && !found; i++) {
-        UIView *view = [subviewsArray objectAtIndex:i];
+    for (int i = 0; i < _subviewsArray.count && !found; i++) {
+        UIView *view = [_subviewsArray objectAtIndex:i];
         
         //NSLog(@"Rect:(%f,%f,%f,%f)", view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
         
@@ -790,15 +785,15 @@
                 return;
             }
             
-            if (delegate && [delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
-                [delegate popoverView:self didSelectItemAtIndex:i];
+            if (_delegate && [_delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
+                [_delegate popoverView:self didSelectItemAtIndex:i];
             }
             
             break;
         }
     }
     
-    if (!found && CGRectContainsPoint(contentView.bounds, point)) {
+    if (!found && CGRectContainsPoint(_contentView.bounds, point)) {
         found = YES;
         //NSLog(@"popover box contains point, ignoring user input");
     }
@@ -811,14 +806,14 @@
 
 - (void)didTapButton:(UIButton *)sender
 {
-    int index = [subviewsArray indexOfObject:sender];
+    int index = [_subviewsArray indexOfObject:sender];
     
     if (index == NSNotFound) {
         return;
     }
     
-    if (delegate && [delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
-        [delegate popoverView:self didSelectItemAtIndex:index];
+    if (_delegate && [_delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
+        [_delegate popoverView:self didSelectItemAtIndex:index];
     }
 }
 
@@ -849,7 +844,7 @@
     [self removeFromSuperview];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(popoverViewDidDismiss:)]) {
-        [delegate popoverViewDidDismiss:self];
+        [_delegate popoverViewDidDismiss:self];
     }
 }
 
@@ -969,8 +964,8 @@
         
         //NSLog(@"titleView:%@", titleView);
         
-        if (titleView != nil) {
-            titleBGHeight = self.boxPadding*2.f + titleView.frame.size.height;
+        if (_titleView != nil) {
+            titleBGHeight = self.boxPadding*2.f + _titleView.frame.size.height;
         }
         
         
@@ -1039,8 +1034,8 @@
             if (dividerRects && dividerRects.count > 0) {
                 for (NSValue *value in dividerRects) {
                     CGRect rect = value.CGRectValue;
-                    rect.origin.x += contentView.frame.origin.x;
-                    rect.origin.y += contentView.frame.origin.y;
+                    rect.origin.x += _contentView.frame.origin.x;
+                    rect.origin.y += _contentView.frame.origin.y;
                     
                     UIBezierPath *dividerPath = [UIBezierPath bezierPathWithRect:rect];
                     [self.dividerColor setFill];

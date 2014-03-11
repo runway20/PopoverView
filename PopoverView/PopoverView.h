@@ -29,20 +29,12 @@
     CGPoint arrowPoint;
     
     BOOL above;
-    
-    __weak id<PopoverViewDelegate> delegate;
-    
+
     UIView *parentView;
     
     UIView *topView;
-    
-    NSArray *subviewsArray;
-    
+
     NSArray *dividerRects;
-    
-    UIView *contentView;
-    
-    UIView *titleView;
     
     UIActivityIndicatorView *activityIndicator;
     
