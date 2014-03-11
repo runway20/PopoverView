@@ -32,14 +32,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-    [self.view addGestureRecognizer:[tap autorelease]];
+    [self.view addGestureRecognizer:tap];
     
     // Create a label centered on the screen
     tapAnywhereLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     tapAnywhereLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     tapAnywhereLabel.text = @"Tap Anywhere";
     tapAnywhereLabel.textAlignment = UITextAlignmentCenter;
-    [self.view addSubview:[tapAnywhereLabel autorelease]];
+    [self.view addSubview:tapAnywhereLabel];
 }
 
 #pragma mark - User Interaction Methods
@@ -114,7 +114,6 @@
 //                                   inView:self.view
 //                          withContentView:tableView
 //                                 delegate:self];
-    [pv retain];
 }
 
 #pragma mark - DEMO - UITableView Delegate Methods
@@ -135,7 +134,7 @@
     cell.textLabel.text = @"text";
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.f];
     
-    return [cell autorelease];
+    return cell;
 }
 
 #pragma mark - PopoverViewDelegate Methods
@@ -162,7 +161,7 @@
 - (void)popoverViewDidDismiss:(PopoverView *)popoverView
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [pv release], pv = nil;
+    pv = nil;
 }
 
 #pragma mark - UIViewController Methods
@@ -170,7 +169,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [pv release], pv = nil;
+    pv = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

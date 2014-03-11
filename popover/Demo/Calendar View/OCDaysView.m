@@ -51,7 +51,6 @@
 	[dateParts setYear:year];
 	[dateParts setDay:1];
 	NSDate *dateOnFirst = [calendar dateFromComponents:dateParts];
-	[dateParts release];
 	NSDateComponents *weekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:dateOnFirst];
 	int weekdayOfFirst = [weekdayComponents weekday];	
     
@@ -77,7 +76,6 @@
     
     NSDate *prevDateOnFirst = [calendar dateFromComponents:prevDateParts];
     
-    [prevDateParts release];
     
     int numDaysInPrevMonth = [calendar rangeOfUnit:NSDayCalendarUnit 
 										inUnit:NSMonthCalendarUnit 
@@ -97,7 +95,7 @@
 //        CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2);
         CGRect dayHeader2Frame = CGRectMake((i)*hDiff, 0, 21, 14);
         [[UIColor colorWithWhite:0.6f alpha:1.0f] setFill];
-        [str drawInRect: dayHeader2Frame withFont: [UIFont fontWithName: @"Helvetica" size: 12] lineBreakMode: UILineBreakModeWordWrap alignment: UITextAlignmentCenter];
+        [str drawInRect: dayHeader2Frame withFont: [UIFont fontWithName: @"Helvetica" size: 12] lineBreakMode: NSLineBreakByWordWrapping alignment: UITextAlignmentCenter];
         CGContextRestoreGState(context);
     }
     
@@ -120,7 +118,7 @@
                 } else {
                     [[UIColor colorWithWhite:0.2f alpha:1.f] setFill];
                 }
-                [str drawInRect: dayHeader2Frame withFont: [UIFont fontWithName: @"Helvetica" size: 12] lineBreakMode: UILineBreakModeWordWrap alignment: UITextAlignmentCenter];
+                [str drawInRect: dayHeader2Frame withFont: [UIFont fontWithName: @"Helvetica" size: 12] lineBreakMode: NSLineBreakByWordWrapping alignment: UITextAlignmentCenter];
                 CGContextRestoreGState(context);
                 
                 finalRow = i;
@@ -147,7 +145,6 @@
     
     NSDate *nextDateOnFirst = [calendar dateFromComponents:nextDateParts];
     
-    [nextDateParts release];
     
     NSDateComponents *nextWeekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:nextDateOnFirst];
 	int weekdayOfNextFirst = [nextWeekdayComponents weekday];
@@ -163,7 +160,7 @@
 //            CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2);
             CGRect dayHeader2Frame = CGRectMake((i)*hDiff, finalRow * vDiff, 21, 14);
             [[UIColor colorWithWhite:0.6f alpha:1.0f] setFill];
-            [str drawInRect: dayHeader2Frame withFont: [UIFont fontWithName: @"Helvetica" size: 12] lineBreakMode: UILineBreakModeWordWrap alignment: UITextAlignmentCenter];
+            [str drawInRect: dayHeader2Frame withFont: [UIFont fontWithName: @"Helvetica" size: 12] lineBreakMode: NSLineBreakByWordWrapping alignment: UITextAlignmentCenter];
             CGContextRestoreGState(context);
         }
     }
@@ -191,7 +188,6 @@
 	[dateParts setYear:year];
 	[dateParts setDay:1];
 	NSDate *dateOnFirst = [calendar dateFromComponents:dateParts];
-	[dateParts release];
 	NSDateComponents *weekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:dateOnFirst];
 	int weekdayOfFirst = [weekdayComponents weekday];	
     
