@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80198F5DFA3EB7A8C8C72B15 /* PopoverView+ShowMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8019879E2142E10BFD5C58BE /* PopoverView+ShowMethods.m */; };
 		B1175C5A15E3FBEE002FBFF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5915E3FBEE002FBFF1 /* UIKit.framework */; };
 		B1175C5C15E3FBEE002FBFF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */; };
 		B1175C5E15E3FBEE002FBFF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5D15E3FBEE002FBFF1 /* CoreGraphics.framework */; };
@@ -27,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		0867719D1689B04F00ED150F /* PopoverView_Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
+		8019879E2142E10BFD5C58BE /* PopoverView+ShowMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PopoverView+ShowMethods.m"; sourceTree = "<group>"; };
+		80198F358CF75849CCB4CECA /* PopoverView+ShowMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PopoverView+ShowMethods.h"; sourceTree = "<group>"; };
 		B1175C5515E3FBEE002FBFF1 /* popover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = popover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1175C5915E3FBEE002FBFF1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,8 @@
 				B1175C9315E3FC13002FBFF1 /* PopoverView.h */,
 				0867719D1689B04F00ED150F /* PopoverView_Configuration.h */,
 				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
+				8019879E2142E10BFD5C58BE /* PopoverView+ShowMethods.m */,
+				80198F358CF75849CCB4CECA /* PopoverView+ShowMethods.h */,
 			);
 			name = PopoverView;
 			path = ../PopoverView;
@@ -241,6 +246,7 @@
 				B1175C7315E3FBEE002FBFF1 /* ViewController.m in Sources */,
 				B1175C9515E3FC13002FBFF1 /* PopoverView.m in Sources */,
 				B1ACBE981603859A006F8461 /* OCDaysView.m in Sources */,
+				80198F5DFA3EB7A8C8C72B15 /* PopoverView+ShowMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
