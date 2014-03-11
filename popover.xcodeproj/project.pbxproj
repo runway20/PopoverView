@@ -51,7 +51,6 @@
 		B14F47571603A267003EC4FF /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "success@2x.png"; path = "popover/Images/success@2x.png"; sourceTree = SOURCE_ROOT; };
 		B1ACBE961603859A006F8461 /* OCDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDaysView.h; sourceTree = "<group>"; };
 		B1ACBE971603859A006F8461 /* OCDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCDaysView.m; sourceTree = "<group>"; };
-		E7F6CF2A179D542E00C944E3 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
 		E7F6CF2B179D573700C944E3 /* PopoverView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = PopoverView.podspec; path = ../../PopoverView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -164,7 +163,6 @@
 				B1175C9315E3FC13002FBFF1 /* PopoverView.h */,
 				0867719D1689B04F00ED150F /* PopoverView_Configuration.h */,
 				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
-				E7F6CF2A179D542E00C944E3 /* PopoverViewCompatibility.h */,
 			);
 			name = PopoverView;
 			path = ../PopoverView;

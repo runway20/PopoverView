@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PopoverViewCompatibility.h"
 
 
 @class PopoverView;

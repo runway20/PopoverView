@@ -38,7 +38,7 @@
     tapAnywhereLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     tapAnywhereLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     tapAnywhereLabel.text = @"Tap Anywhere";
-    tapAnywhereLabel.textAlignment = UITextAlignmentCenter;
+    tapAnywhereLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:tapAnywhereLabel];
 }
 
