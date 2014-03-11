@@ -10,56 +10,6 @@
 #import "PopoverViewCompatibility.h"
 
 
-/**************** Support both ARC and non-ARC ********************/
-
-#ifndef SUPPORT_ARC
-#define SUPPORT_ARC
-
-#if __has_feature(objc_arc_weak)                //objc_arc_weak
-#define WEAK weak
-#define __WEAK __weak
-#define STRONG strong
-
-#define AUTORELEASE self
-#define RELEASE self
-#define RETAIN self
-#define CFTYPECAST(exp) (__bridge exp)
-#define TYPECAST(exp) (__bridge_transfer exp)
-#define CFRELEASE(exp) CFRelease(exp)
-#define DEALLOC self
-
-#elif __has_feature(objc_arc)                   //objc_arc
-#define WEAK unsafe_unretained
-#define __WEAK __unsafe_unretained
-#define STRONG strong
-
-#define AUTORELEASE self
-#define RELEASE self
-#define RETAIN self
-#define CFTYPECAST(exp) (__bridge exp)
-#define TYPECAST(exp) (__bridge_transfer exp)
-#define CFRELEASE(exp) CFRelease(exp)
-#define DEALLOC self
-
-#else                                           //none
-#define WEAK assign
-#define __WEAK
-#define STRONG retain
-
-#define AUTORELEASE autorelease
-#define RELEASE release
-#define RETAIN retain
-#define CFTYPECAST(exp) (exp)
-#define TYPECAST(exp) (exp)
-#define CFRELEASE(exp) CFRelease(exp)
-#define DEALLOC dealloc
-
-#endif
-#endif
-
-/******************************************************************/
-
-
 @class PopoverView;
 
 @protocol PopoverViewDelegate <NSObject>
@@ -81,7 +31,7 @@
     
     BOOL above;
     
-    __WEAK id<PopoverViewDelegate> delegate;
+    __weak id<PopoverViewDelegate> delegate;
     
     UIView *parentView;
     
@@ -101,13 +51,13 @@
     BOOL showDividerRects;
 }
 
-@property (nonatomic, STRONG) UIView *titleView;
+@property (nonatomic, strong) UIView *titleView;
 
-@property (nonatomic, STRONG) UIView *contentView;
+@property (nonatomic, strong) UIView *contentView;
 
-@property (nonatomic, STRONG) NSArray *subviewsArray;
+@property (nonatomic, strong) NSArray *subviewsArray;
 
-@property (nonatomic, WEAK) id<PopoverViewDelegate> delegate;
+@property (nonatomic, weak) id<PopoverViewDelegate> delegate;
 
 #pragma mark - Appearance
 
@@ -159,16 +109,16 @@
 @property (nonatomic) NSInteger showDividersBetweenViews UI_APPEARANCE_SELECTOR;
 
 //color for the divider fill
-@property (nonatomic, STRONG) UIColor *dividerColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *dividerColor UI_APPEARANCE_SELECTOR;
 
 
 // BACKGROUND GRADIENT
 
 //bottom color white in gradient bg
-@property (nonatomic, STRONG) UIColor *gradientBottomColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *gradientBottomColor UI_APPEARANCE_SELECTOR;
 
 //top color white value in gradient bg
-@property (nonatomic, STRONG) UIColor *gradientTopColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *gradientTopColor UI_APPEARANCE_SELECTOR;
 
 
 // TITLE GRADIENT
@@ -177,31 +127,31 @@
 @property (nonatomic) NSInteger drawTitleGradient UI_APPEARANCE_SELECTOR;
 
 //bottom color white value in title gradient bg
-@property (nonatomic, STRONG) UIColor *gradientTitleBottomColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *gradientTitleBottomColor UI_APPEARANCE_SELECTOR;
 
 //top color white value in title gradient bg
-@property (nonatomic, STRONG) UIColor *gradientTitleTopColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *gradientTitleTopColor UI_APPEARANCE_SELECTOR;
 
 
 // FONTS
 
 //normal text font
-@property (nonatomic, STRONG) UIFont *textFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIFont *textFont UI_APPEARANCE_SELECTOR;
 
 //normal text color
-@property (nonatomic, STRONG) UIColor *textColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *textColor UI_APPEARANCE_SELECTOR;
 
 // highlighted text color
-@property (nonatomic, STRONG) UIColor *textHighlightColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *textHighlightColor UI_APPEARANCE_SELECTOR;
 
 //normal text alignment
-@property (nonatomic) UITextAlignment textAlignment UI_APPEARANCE_SELECTOR;
+@property (nonatomic) NSTextAlignment textAlignment UI_APPEARANCE_SELECTOR;
 
 //title font
-@property (nonatomic, STRONG) UIFont *titleFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIFont *titleFont UI_APPEARANCE_SELECTOR;
 
 //title text color
-@property (nonatomic, STRONG) UIColor *titleColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *titleColor UI_APPEARANCE_SELECTOR;
 
 
 // BORDER
@@ -210,7 +160,7 @@
 @property (nonatomic) NSInteger drawBorder UI_APPEARANCE_SELECTOR;
 
 //border color
-@property (nonatomic, STRONG) UIColor *borderColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *borderColor UI_APPEARANCE_SELECTOR;
 
 //border width
 @property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;

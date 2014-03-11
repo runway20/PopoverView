@@ -25,7 +25,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withText:text];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -33,7 +32,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withTitle:title withText:text];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -41,7 +39,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withViewArray:viewArray];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -49,7 +46,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withTitle:title withViewArray:viewArray];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -57,7 +53,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withStringArray:stringArray];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -65,7 +60,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withTitle:title withStringArray:stringArray];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -73,7 +67,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withStringArray:stringArray withImageArray:imageArray];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -81,7 +74,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withTitle:title withStringArray:stringArray withImageArray:imageArray];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -89,7 +81,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withTitle:title withContentView:cView];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -97,7 +88,6 @@
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
     [popoverView showAtPoint:point inView:view withContentView:cView];
     popoverView.delegate = delegate;
-    [popoverView RELEASE];
     return popoverView;
 }
 
@@ -126,14 +116,11 @@
     self.subviewsArray = nil;
     
     if (dividerRects) {
-        [dividerRects RELEASE];
         dividerRects = nil;
     }
     
     self.contentView = nil;
     self.titleView = nil;
-    
-    [super DEALLOC];
 }
 
 - (void)setPropertiesFromConfiguration {
@@ -153,20 +140,20 @@
     _imageBottomPadding = kImageBottomPadding;
     _showArrow = YES;
     _showDividersBetweenViews = kShowDividersBetweenViews;
-    _dividerColor = [kDividerColor RETAIN];
-    _gradientBottomColor = [kGradientBottomColor RETAIN];
-    _gradientTopColor = [kGradientTopColor RETAIN];
+    _dividerColor = kDividerColor;
+    _gradientBottomColor = kGradientBottomColor;
+    _gradientTopColor = kGradientTopColor;
     _drawTitleGradient = kDrawTitleGradient;
-    _gradientTitleBottomColor = [kGradientTitleBottomColor RETAIN];
-    _gradientTitleTopColor = [kGradientTitleTopColor RETAIN];
-    _textFont = [kTextFont RETAIN];
-    _textColor = [kTextColor RETAIN];
-    _textHighlightColor = [kTextHighlightColor RETAIN];
-    _textAlignment = (UITextAlignment) kTextAlignment;
-    _titleFont = [kTitleFont RETAIN];
-    _titleColor = [kTitleColor RETAIN];
+    _gradientTitleBottomColor = kGradientTitleBottomColor;
+    _gradientTitleTopColor = kGradientTitleTopColor;
+    _textFont = kTextFont;
+    _textColor = kTextColor;
+    _textHighlightColor = kTextHighlightColor;
+    _textAlignment = kTextAlignment;
+    _titleFont = kTitleFont;
+    _titleColor = kTitleColor;
     _drawBorder = kDrawBorder;
-    _borderColor = [kBorderColor RETAIN];
+    _borderColor = kBorderColor;
     _borderWidth = kBorderWidth;
 }
 
@@ -206,7 +193,7 @@
     textView.textColor = self.textColor;
     textView.text = text;
     
-    [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
+    [self showAtPoint:point inView:view withViewArray:@[textView]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text
@@ -225,7 +212,7 @@
     textView.textColor = self.textColor;
     textView.text = text;
     
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
+    [self showAtPoint:point inView:view withTitle:title withViewArray:@[textView]];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withViewArray:(NSArray *)viewArray
@@ -295,7 +282,7 @@
     
     self.subviewsArray = viewArray;
     
-    [self showAtPoint:point inView:view withContentView:[container AUTORELEASE]];
+    [self showAtPoint:point inView:view withContentView:container];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray
@@ -374,13 +361,13 @@
         self.titleView = titleLabel;
     }
     
-    [container addSubview:[titleLabel AUTORELEASE]];
+    [container addSubview:titleLabel];
     
     container.frame = CGRectMake(0, 0, totalWidth, totalHeight);
     
     self.subviewsArray = viewArray;
     
-    [self showAtPoint:point inView:view withContentView:[container AUTORELEASE]];
+    [self showAtPoint:point inView:view withContentView:container];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray
@@ -402,10 +389,10 @@
         [textButton setTitleColor:self.textHighlightColor forState:UIControlStateHighlighted];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        [labelArray addObject:[textButton AUTORELEASE]];
+        [labelArray addObject:textButton];
     }
     
-    [self showAtPoint:point inView:view withViewArray:[labelArray AUTORELEASE]];
+    [self showAtPoint:point inView:view withViewArray:labelArray];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray
@@ -427,10 +414,10 @@
         [textButton setTitleColor:self.textHighlightColor forState:UIControlStateHighlighted];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        [labelArray addObject:[textButton AUTORELEASE]];
+        [labelArray addObject:textButton];
     }
     
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray AUTORELEASE]];
+    [self showAtPoint:point inView:view withTitle:title withViewArray:labelArray];
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
@@ -490,14 +477,11 @@
         [containerView addSubview:imageView];
         [containerView addSubview:label];
         
-        [label RELEASE];
-        [imageView RELEASE];
         
         [tempViewArray addObject:containerView];
-        [containerView RELEASE];
     }
 
-    return [tempViewArray AUTORELEASE];
+    return tempViewArray;
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView
@@ -627,7 +611,6 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     tap.cancelsTouchesInView = NO; // Allow touches through to a UITableView or other touchable view, as suggested by Dimajp.
     [self addGestureRecognizer:tap];
-    [tap RELEASE];
 
     self.userInteractionEnabled = YES;
 }
@@ -656,7 +639,6 @@
     }
     
     if (activityIndicator) {
-        [activityIndicator RELEASE];
         [activityIndicator removeFromSuperview];
         activityIndicator = nil;
     }
@@ -678,7 +660,6 @@
     [UIView animateWithDuration:0.1f animations:^{
         activityIndicator.alpha = 0.f;
     } completion:^(BOOL finished) {
-        [activityIndicator RELEASE];
         [activityIndicator removeFromSuperview];
         activityIndicator = nil;
     }];
@@ -691,7 +672,7 @@
     imageView.frame = CGRectMake(floorf(CGRectGetMidX(contentView.bounds) - image.size.width*0.5f), floorf(CGRectGetMidY(contentView.bounds) - image.size.height*0.5f + ((self.titleView) ? 20 : 0.f)), image.size.width, image.size.height);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
-    [contentView addSubview:[imageView AUTORELEASE]];
+    [contentView addSubview:imageView];
     
     if (subviewsArray && (subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.2f animations:^{
@@ -727,7 +708,7 @@
     imageView.frame = CGRectMake(CGRectGetMidX(contentView.bounds) - 20.f, CGRectGetMidY(contentView.bounds) - 20.f + ((self.titleView) ? 20 : 0.f), 40.f, 40.f);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
-    [contentView addSubview:[imageView AUTORELEASE]];
+    [contentView addSubview:imageView];
     
     if (subviewsArray && (subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.1f animations:^{
@@ -758,7 +739,7 @@
     imageView.frame = CGRectMake(CGRectGetMidX(contentView.bounds) - 20.f, CGRectGetMidY(contentView.bounds) - 20.f + ((self.titleView) ? 20 : 0.f), 40.f, 40.f);
     imageView.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     
-    [contentView addSubview:[imageView AUTORELEASE]];
+    [contentView addSubview:imageView];
     
     if (subviewsArray && (subviewsArray.count > 0)) {
         [UIView animateWithDuration:0.1f animations:^{
@@ -961,7 +942,7 @@
                                (id)self.gradientTopColor.CGColor,
                                (id)self.gradientBottomColor.CGColor, nil];
     CGFloat gradientLocations[] = {0, 1};
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFTYPECAST(CFArrayRef)gradientColors), gradientLocations);
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradientColors, gradientLocations);
     
     
     //These floats are the top and bottom offsets for the gradient drawing so the drawing includes the arrows.
@@ -1027,7 +1008,7 @@
                                        (id)self.gradientTitleTopColor.CGColor,
                                        (id)self.gradientTitleBottomColor.CGColor, nil];
             CGFloat gradientLocations[] = {0, 1};
-            CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFTYPECAST(CFArrayRef)gradientColors), gradientLocations);
+            CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradientColors, gradientLocations);
             
             
             //These floats are the top and bottom offsets for the gradient drawing so the drawing includes the arrows.
