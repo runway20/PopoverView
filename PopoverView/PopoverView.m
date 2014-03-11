@@ -89,8 +89,7 @@
     //NSLog(@"point:%f,%f", point.x, point.y);
     
     self.contentView = cView;
-    parentView = view;
-    
+
     // get the top view
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
     topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];

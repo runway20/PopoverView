@@ -25,13 +25,10 @@
 
 @interface PopoverView : UIView {
     CGRect boxFrame;
-    CGSize contentSize;
     CGPoint arrowPoint;
     
     BOOL above;
 
-    UIView *parentView;
-    
     UIView *topView;
 
     NSArray *dividerRects;
@@ -97,7 +94,7 @@
 // DIVIDERS BETWEEN VIEWS
 
 //Bool that turns off/on the dividers
-@property (nonatomic) NSInteger showDividersBetweenViews UI_APPEARANCE_SELECTOR;
+@property (nonatomic) BOOL showDividersBetweenViews UI_APPEARANCE_SELECTOR;
 
 //color for the divider fill
 @property (nonatomic, strong) UIColor *dividerColor UI_APPEARANCE_SELECTOR;
