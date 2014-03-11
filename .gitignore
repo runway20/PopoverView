@@ -1,7 +1,10 @@
 build/
-
 .DS_Store
-
-*.xcuserstate
-
-*.xcscheme
+.idea/
+*.xcodeproj/project.xcworkspace/xcuserdata/**
+*.xcodeproj/xcuserdata/**
+*.xcworkspace/project.xcworkspace/xcuserdata/**
+*.xcworkspace/xcuserdata/**
+**/*.xcodeproj/project.xcworkspace/xcuserdata/**
+**/*.xcodeproj/xcuserdata/**
+*.xccheckout
