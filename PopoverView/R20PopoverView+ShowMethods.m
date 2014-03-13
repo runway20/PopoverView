@@ -2,10 +2,10 @@
 // Created by Jindrich Dolezy on 11.03.14.
 //
 
-#import "PopoverView+ShowMethods.h"
+#import "R20PopoverView+ShowMethods.h"
 
 
-@implementation PopoverView (ShowMethods)
+@implementation R20PopoverView (ShowMethods)
 
 #pragma mark - instance show methods
 

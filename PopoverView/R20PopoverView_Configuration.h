@@ -28,10 +28,10 @@
 //Minimum distance from the side of the arrow to the beginning of curvature for the box
 #define kArrowHorizontalPadding 5.f
 
-//Alpha value for the shadow behind the PopoverView
+//Alpha value for the shadow behind the R20PopoverView
 #define kShadowAlpha 0.4f
 
-//Blur for the shadow behind the PopoverView
+//Blur for the shadow behind the R20PopoverView
 #define kShadowBlur 3.f;
 
 //Box gradient bg alpha

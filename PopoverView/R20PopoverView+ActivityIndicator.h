@@ -3,9 +3,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PopoverView.h"
+#import "R20PopoverView.h"
 
-@interface PopoverView (ActivityIndicator)
+@interface R20PopoverView (ActivityIndicator)
 
 @property (nonatomic, weak) UIActivityIndicatorView *activityIndicator;
 

@@ -1,18 +1,18 @@
 //
-//  PopoverView.m
+//  R20PopoverView.m
 //  Embark
 //
 //  Created by Oliver Rickard on 20/08/2012.
 //
 //
 
-#import "PopoverView.h"
-#import "PopoverView_Configuration.h"
+#import "R20PopoverView.h"
+#import "R20PopoverView_Configuration.h"
 #import <QuartzCore/QuartzCore.h>
 
 #pragma mark - Implementation
 
-@implementation PopoverView {
+@implementation R20PopoverView {
     //Instance variable that can change at runtime
     BOOL showDividerRects;
 }

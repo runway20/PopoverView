@@ -3,9 +3,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PopoverView.h"
+#import "R20PopoverView.h"
 
-@interface PopoverView (ShowImage)
+@interface R20PopoverView (ShowImage)
 
 #pragma mark - Custom Image Showing
 

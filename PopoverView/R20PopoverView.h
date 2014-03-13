@@ -1,5 +1,5 @@
 //
-//  PopoverView.h
+//  R20PopoverView.h
 //  Embark
 //
 //  Created by Oliver Rickard on 20/08/2012.
@@ -9,22 +9,22 @@
 #import <UIKit/UIKit.h>
 
 
-@class PopoverView;
+@class R20PopoverView;
 
 @protocol PopoverViewDelegate <NSObject>
 
 @optional
 
 //Delegate receives this call as soon as the item has been selected
-- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSUInteger)index;
+- (void)popoverView:(R20PopoverView *)popoverView didSelectItemAtIndex:(NSUInteger)index;
 
 //Delegate receives this call once the popover has begun the dismissal animation
-- (void)popoverViewDidDismiss:(PopoverView *)popoverView;
+- (void)popoverViewDidDismiss:(R20PopoverView *)popoverView;
 
 @end
 
 
-@interface PopoverView : UIView
+@interface R20PopoverView : UIView
 
 @property (nonatomic, readonly, strong) UIView *topView;
 
@@ -62,10 +62,10 @@
 //Minimum distance from the side of the arrow to the beginning of curvature for the box
 @property (nonatomic) CGFloat arrowHorizontalPadding UI_APPEARANCE_SELECTOR;
 
-//Alpha value for the shadow behind the PopoverView
+//Alpha value for the shadow behind the R20PopoverView
 @property (nonatomic) CGFloat shadowAlpha UI_APPEARANCE_SELECTOR;
 
-//Blur for the shadow behind the PopoverView
+//Blur for the shadow behind the R20PopoverView
 @property (nonatomic) CGFloat shadowBlur UI_APPEARANCE_SELECTOR;
 
 //Box gradient bg alpha
@@ -161,10 +161,10 @@
 //round).
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)contentView;
 
-//Lays out the PopoverView at a point once all of the views have already been setup elsewhere
+//Lays out the R20PopoverView at a point once all of the views have already been setup elsewhere
 - (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view;
 
-//Lays out the PopoverView at a point once all of the views have already been setup elsewhere with
+//Lays out the R20PopoverView at a point once all of the views have already been setup elsewhere with
 //specified animation duration
 - (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view duration:(NSTimeInterval)duration;
 

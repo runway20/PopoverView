@@ -2,10 +2,10 @@
 // Created by Jindrich Dolezy on 13.03.14.
 //
 
-#import "PopoverView+ActivityIndicator.h"
+#import "R20PopoverView+ActivityIndicator.h"
 
 
-@implementation PopoverView (ActivityIndicator)
+@implementation R20PopoverView (ActivityIndicator)
 
 #pragma mark - Activity Indicator
 

@@ -2,10 +2,10 @@
 // Created by Jindrich Dolezy on 13.03.14.
 //
 
-#import "PopoverView+ShowImage.h"
+#import "R20PopoverView+ShowImage.h"
 
 
-@implementation PopoverView (ShowImage)
+@implementation R20PopoverView (ShowImage)
 
 #pragma mark - Custom Image Showing
 
