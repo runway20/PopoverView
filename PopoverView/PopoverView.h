@@ -25,6 +25,8 @@
 
 @interface PopoverView : UIView
 
+@property (nonatomic, readonly, strong) UIView *topView;
+
 @property (nonatomic, strong) UIView *titleView;
 
 @property (nonatomic, strong) UIView *contentView;
@@ -32,6 +34,8 @@
 @property (nonatomic, strong) NSArray *subviewsArray;
 
 @property (nonatomic, readonly) CGRect popoverFrame;
+@property (nonatomic, readonly) CGPoint arrowPoint;
+@property (nonatomic, readonly) BOOL arrowAbove;
 
 @property (nonatomic, strong) NSArray *dividerRects;
 
@@ -109,6 +113,8 @@
 
 //top color white value in title gradient bg
 @property (nonatomic, strong) UIColor *gradientTitleTopColor UI_APPEARANCE_SELECTOR;
+
+@property (nonatomic, strong) UIColor *titleSeparatorColor UI_APPEARANCE_SELECTOR;
 
 
 // FONTS

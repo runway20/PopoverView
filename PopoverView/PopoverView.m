@@ -13,12 +13,6 @@
 #pragma mark - Implementation
 
 @implementation PopoverView {
-    CGPoint arrowPoint;
-
-    BOOL above;
-
-    UIView *topView;
-
     //Instance variable that can change at runtime
     BOOL showDividerRects;
 }
@@ -26,8 +20,7 @@
 
 #pragma mark - View Lifecycle
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -35,14 +28,9 @@
 
         [self setPropertiesFromConfiguration];
 
-        showDividerRects = self.showDividersBetweenViews;
+        showDividerRects = YES;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    NSLog(@"dealloc");
 }
 
 - (void)setPropertiesFromConfiguration {
@@ -68,6 +56,7 @@
     _drawTitleGradient = kDrawTitleGradient;
     _gradientTitleBottomColor = kGradientTitleBottomColor;
     _gradientTitleTopColor = kGradientTitleTopColor;
+    _titleSeparatorColor = kTitleSeparatorColor;
     _textFont = kTextFont;
     _textColor = kTextColor;
     _textHighlightColor = kTextHighlightColor;
@@ -81,17 +70,14 @@
 
 #pragma mark - Display methods
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)cView {
-
-    //NSLog(@"point:%f,%f", point.x, point.y);
-
-    self.contentView = cView;
+- (void)showAtPoint:(CGPoint)point inView:(UIView *)parentView withContentView:(UIView *)contentView {
+    self.contentView = contentView;
 
     // get the top view
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
-    topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    _topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
 
-    [self setupLayout:point inView:view];
+    [self setupLayout:point inView:parentView];
 
     // Make the view small and transparent before animation
     self.alpha = 0.f;
@@ -114,12 +100,11 @@
     [self layoutAtPoint:point inView:view duration:0.2f];
 }
 
-- (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view duration:(NSTimeInterval)duration
-{
+- (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view duration:(NSTimeInterval)duration {
     // make transparent
     self.alpha = 0.f;
 
-    [self setupLayout:point inView:view];
+    [self setupLayout:point inView:view]; // TODO do not call setupLayout twice!
 
     // animate back to full opacity
     [UIView animateWithDuration:duration delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -127,41 +112,32 @@
     } completion:nil];
 }
 
--(void)setupLayout:(CGPoint)point inView:(UIView*)view
-{
-    CGPoint topPoint = [topView convertPoint:point fromView:view];
+- (void)setupLayout:(CGPoint)point inView:(UIView *)view {
+    CGPoint topPoint = [self.topView convertPoint:point fromView:view];
+    CGRect topViewBounds = self.topView.bounds;
 
-    arrowPoint = topPoint;
+    CGFloat contentHeight = CGRectGetHeight(self.contentView.frame);
+    CGFloat contentWidth = CGRectGetWidth(self.contentView.frame);
 
-    //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
+    CGFloat padding = self.boxPadding;
 
-    CGRect topViewBounds = topView.bounds;
-    //NSLog(@"topViewBounds %@", NSStringFromCGRect(topViewBounds));
+    CGFloat boxHeight = contentHeight + 2.f * padding;
+    CGFloat boxWidth = contentWidth + 2.f * padding;
 
-    float contentHeight = _contentView.frame.size.height;
-    float contentWidth = _contentView.frame.size.width;
-
-    float padding = self.boxPadding;
-
-    float boxHeight = contentHeight + 2.f*padding;
-    float boxWidth = contentWidth + 2.f*padding;
-
-    float xOrigin = 0.f;
 
     //Make sure the arrow point is within the drawable bounds for the popover.
-    if (arrowPoint.x + self.arrowHeight > topViewBounds.size.width - self.horizontalMargin - self.boxRadius - self.arrowHorizontalPadding) {//Too far to the right
-        arrowPoint.x = topViewBounds.size.width - self.horizontalMargin - self.boxRadius - self.arrowHorizontalPadding - self.arrowHeight;
-        //NSLog(@"Correcting Arrow Point because it's too far to the right");
-    } else if (arrowPoint.x - self.arrowHeight < self.horizontalMargin + self.boxRadius + self.arrowHorizontalPadding) {//Too far to the left
-        arrowPoint.x = self.horizontalMargin + self.arrowHeight + self.boxRadius + self.arrowHorizontalPadding;
-        //NSLog(@"Correcting Arrow Point because it's too far to the left");
+    _arrowPoint = topPoint;
+    if (_arrowPoint.x + self.arrowHeight > topViewBounds.size.width - self.horizontalMargin - self.boxRadius - self.arrowHorizontalPadding) {//Too far to the right
+        //Correcting Arrow Point because it's too far to the right
+        _arrowPoint.x = topViewBounds.size.width - self.horizontalMargin - self.boxRadius - self.arrowHorizontalPadding - self.arrowHeight;
+    } else if (_arrowPoint.x - self.arrowHeight < self.horizontalMargin + self.boxRadius + self.arrowHorizontalPadding) {//Too far to the left
+        //Correcting Arrow Point because it's too far to the left
+        _arrowPoint.x = self.horizontalMargin + self.arrowHeight + self.boxRadius + self.arrowHorizontalPadding;
     }
 
-    //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
-
-    xOrigin = floorf(arrowPoint.x - boxWidth*0.5f);
 
     //Check to see if the centered xOrigin value puts the box outside of the normal range.
+    CGFloat xOrigin = floorf(self.arrowPoint.x - boxWidth * 0.5f);
     if (xOrigin < CGRectGetMinX(topViewBounds) + self.horizontalMargin) {
         xOrigin = CGRectGetMinX(topViewBounds) + self.horizontalMargin;
     } else if (xOrigin + boxWidth > CGRectGetMaxX(topViewBounds) - self.horizontalMargin) {
@@ -169,38 +145,35 @@
         xOrigin = CGRectGetMaxX(topViewBounds) - self.horizontalMargin - boxWidth;
     }
 
-    float arrowHeight = self.showArrow ? self.arrowHeight : 0;
 
-    float topPadding = self.topMargin;
-
-    above = YES;
-
+    // Check if arrow should be shown above or below the popover
+    CGFloat arrowHeight = self.showArrow ? self.arrowHeight : 0;
+    CGFloat topPadding = self.topMargin;
     if (topPoint.y - contentHeight - arrowHeight - topPadding < CGRectGetMinY(topViewBounds)) {
         //Position below because it won't fit above.
-        above = NO;
-
-        _popoverFrame = CGRectMake(xOrigin, arrowPoint.y + arrowHeight, boxWidth, boxHeight);
+        _arrowAbove = NO;
+        _popoverFrame = CGRectMake(xOrigin, self.arrowPoint.y + arrowHeight, boxWidth, boxHeight);
     } else {
         //Position above.
-        above = YES;
-
-        _popoverFrame = CGRectMake(xOrigin, arrowPoint.y - arrowHeight - boxHeight, boxWidth, boxHeight);
+        _arrowAbove = YES;
+        _popoverFrame = CGRectMake(xOrigin, self.arrowPoint.y - arrowHeight - boxHeight, boxWidth, boxHeight);
     }
 
-    //NSLog(@"_popoverFrame:(%f,%f,%f,%f)", _popoverFrame.origin.x, _popoverFrame.origin.y, _popoverFrame.size.width, _popoverFrame.size.height);
 
-    CGRect contentFrame = CGRectMake(self.popoverFrame.origin.x + padding, self.popoverFrame.origin.y + padding, contentWidth, contentHeight);
-    _contentView.frame = contentFrame;
+    // Calculate content view position
+    self.contentView.frame = CGRectMake(self.popoverFrame.origin.x + padding, self.popoverFrame.origin.y + padding, contentWidth, contentHeight);
+
 
     //We set the anchorPoint here so the popover will "grow" out of the arrowPoint specified by the user.
     //You have to set the anchorPoint before setting the frame, because the anchorPoint property will
     //implicitly set the frame for the view, which we do not want.
-    self.layer.anchorPoint = CGPointMake(arrowPoint.x / topViewBounds.size.width, arrowPoint.y / topViewBounds.size.height);
+    self.layer.anchorPoint = CGPointMake(self.arrowPoint.x / topViewBounds.size.width, self.arrowPoint.y / topViewBounds.size.height);
     self.frame = topViewBounds;
     [self setNeedsDisplay];
 
-    [self addSubview:_contentView];
-    [topView addSubview:self];
+    [self addSubview:self.contentView];
+    [self.topView addSubview:self];
+
 
     //Add a tap gesture recognizer to the large invisible view (self), which will detect taps anywhere on the screen.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
@@ -211,14 +184,14 @@
 }
 
 - (void)hideAllSubviewsWithDuration:(NSTimeInterval)duration {
-    if (self.subviewsArray.count > 0) {
+    if (self.subviewsArray.count > 0) { // TODO : get rid of subviews array?
         [UIView animateWithDuration:duration animations:^{
             for (UIView *view in self.subviewsArray) {
                 view.alpha = 0.f;
             }
         }];
 
-        if (showDividerRects) {
+        if (showDividerRects) { // TODO : rename this property
             showDividerRects = NO;
             [self setNeedsDisplay];
         }
@@ -227,14 +200,13 @@
 
 - (void)setTitleViewText:(NSString *)msg {
     if ([self.titleView isKindOfClass:[UILabel class]]) {
-        ((UILabel *)self.titleView).text = msg;
+        ((UILabel *) self.titleView).text = msg;
     }
 }
 
 #pragma mark - User Interaction
 
-- (void)tapped:(UITapGestureRecognizer *)tap
-{
+- (void)tapped:(UITapGestureRecognizer *)tap {
     CGPoint point = [tap locationInView:self.contentView];
     __block BOOL found = NO;
 
@@ -262,8 +234,7 @@
     }
 }
 
-- (void)didTapButton:(UIButton *)sender
-{
+- (void)didTapButton:(UIButton *)sender {
     NSUInteger index = [self.subviewsArray indexOfObject:sender];
 
     if (index != NSNotFound && [self.delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {
@@ -271,19 +242,15 @@
     }
 }
 
-- (void)dismiss
-{
+- (void)dismiss {
     [self dismiss:YES];
 }
 
-- (void)dismiss:(BOOL)animated
-{
-    if (!animated)
-    {
+- (void)dismiss:(BOOL)animated {
+    if (!animated) {
         [self dismissComplete];
     }
-    else
-    {
+    else {
         [UIView animateWithDuration:0.3f animations:^{
             self.alpha = 0.1f;
             self.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
@@ -293,8 +260,7 @@
     }
 }
 
-- (void)dismissComplete
-{
+- (void)dismissComplete {
     [self removeFromSuperview];
 
     if ([self.delegate respondsToSelector:@selector(popoverViewDidDismiss:)]) {
@@ -305,6 +271,25 @@
 #pragma mark - Drawing Routines
 
 - (UIBezierPath *)createPopoverPathFromFrame:(CGRect)frame radius:(CGFloat)radius cpOffset:(CGFloat)cpOffset {
+    // Build the popover path
+    /*
+     LT2            RT1
+     LT1⌜⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⌝RT2
+     |               |
+     |    popover    |
+     |               |
+     LB2⌞_______________⌟RB1
+     LB1           RB2
+
+     Traverse rectangle in clockwise order, starting at LT1
+     L = Left
+     R = Right
+     T = Top
+     B = Bottom
+     1,2 = order of traversal for any given corner
+
+     */
+
     CGFloat xMin = CGRectGetMinX(frame);
     CGFloat yMin = CGRectGetMinY(frame);
 
@@ -317,10 +302,10 @@
 
     //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
     //In this case, the arrow is located between LT2 and RT1
-    if (self.showArrow && !above) {
-        [popoverPath addLineToPoint:CGPointMake(arrowPoint.x - self.arrowHeight, yMin)];//left side
-        [popoverPath addCurveToPoint:arrowPoint controlPoint1:CGPointMake(arrowPoint.x - self.arrowHeight + self.arrowCurvature, yMin) controlPoint2:arrowPoint];//actual arrow point
-        [popoverPath addCurveToPoint:CGPointMake(arrowPoint.x + self.arrowHeight, yMin) controlPoint1:arrowPoint controlPoint2:CGPointMake(arrowPoint.x + self.arrowHeight - self.arrowCurvature, yMin)];//right side
+    if (self.showArrow && !self.arrowAbove) {
+        [popoverPath addLineToPoint:CGPointMake(self.arrowPoint.x - self.arrowHeight, yMin)];//left side
+        [popoverPath addCurveToPoint:self.arrowPoint controlPoint1:CGPointMake(self.arrowPoint.x - self.arrowHeight + self.arrowCurvature, yMin) controlPoint2:self.arrowPoint];//actual arrow point
+        [popoverPath addCurveToPoint:CGPointMake(self.arrowPoint.x + self.arrowHeight, yMin) controlPoint1:self.arrowPoint controlPoint2:CGPointMake(self.arrowPoint.x + self.arrowHeight - self.arrowCurvature, yMin)];//right side
     }
 
     [popoverPath addLineToPoint:CGPointMake(xMax - radius, yMin)];//RT1
@@ -330,10 +315,10 @@
 
     //If the popover is positioned above the arrowPoint, then we know that the arrow must be on the bottom of the popover.
     //In this case, the arrow is located somewhere between LB1 and RB2
-    if (self.showArrow && above) {
-        [popoverPath addLineToPoint:CGPointMake(arrowPoint.x + self.arrowHeight, yMax)];//right side
-        [popoverPath addCurveToPoint:arrowPoint controlPoint1:CGPointMake(arrowPoint.x + self.arrowHeight - self.arrowCurvature, yMax) controlPoint2:arrowPoint];//arrow point
-        [popoverPath addCurveToPoint:CGPointMake(arrowPoint.x - self.arrowHeight, yMax) controlPoint1:arrowPoint controlPoint2:CGPointMake(arrowPoint.x - self.arrowHeight + self.arrowCurvature, yMax)];
+    if (self.showArrow && self.arrowAbove) {
+        [popoverPath addLineToPoint:CGPointMake(self.arrowPoint.x + self.arrowHeight, yMax)];//right side
+        [popoverPath addCurveToPoint:self.arrowPoint controlPoint1:CGPointMake(self.arrowPoint.x + self.arrowHeight - self.arrowCurvature, yMax) controlPoint2:self.arrowPoint];//arrow point
+        [popoverPath addCurveToPoint:CGPointMake(self.arrowPoint.x - self.arrowHeight, yMax) controlPoint1:self.arrowPoint controlPoint2:CGPointMake(self.arrowPoint.x - self.arrowHeight + self.arrowCurvature, yMax)];
     }
 
     [popoverPath addLineToPoint:CGPointMake(xMin + radius, yMax)];//LB1
@@ -344,36 +329,17 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     CGRect frame = self.popoverFrame;
     CGFloat radius = self.boxRadius; //Radius of the curvature.
     CGFloat cpOffset = self.CPOffset; //Control Point Offset.  Modifies how "curved" the corners are.
 
-    // Build the popover path
-    /*
-     LT2            RT1
-     LT1⌜⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⌝RT2
-     |               |
-     |    popover    |
-     |               |
-     LB2⌞_______________⌟RB1
-     LB1           RB2
-     
-     Traverse rectangle in clockwise order, starting at LT1
-     L = Left
-     R = Right
-     T = Top
-     B = Bottom
-     1,2 = order of traversal for any given corner
-     
-     */
     UIBezierPath *popoverPath = [self createPopoverPathFromFrame:frame radius:radius cpOffset:cpOffset];
     [self drawBackgroundAtFrame:frame popoverPath:popoverPath];
 
     //Draw the title background
     if (self.drawTitleGradient) {
-       [self drawTitleGradientAtRect:frame radius:radius cpOffset:cpOffset];
+        [self drawTitleGradientAtRect:frame radius:radius cpOffset:cpOffset];
     }
 
     //Draw the divider rects if we need to
@@ -397,21 +363,21 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     //// Shadow Declarations
-    UIColor* shadow = [UIColor colorWithWhite:0.0f alpha:self.shadowAlpha];
+    UIColor *shadow = [UIColor colorWithWhite:0.0f alpha:self.shadowAlpha];
     CGSize shadowOffset = CGSizeMake(0, 1);
     CGFloat shadowBlurRadius = self.shadowBlur;
 
     //// Gradient Declarations
-    NSArray* gradientColors = [NSArray arrayWithObjects:
-            (id)self.gradientTopColor.CGColor,
-            (id)self.gradientBottomColor.CGColor, nil];
+    NSArray *gradientColors = [NSArray arrayWithObjects:
+            (id) self.gradientTopColor.CGColor,
+            (id) self.gradientBottomColor.CGColor, nil];
     CGFloat gradientLocations[] = {0, 1};
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradientColors, gradientLocations);
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) gradientColors, gradientLocations);
 
 
     //These floats are the top and bottom offsets for the gradient drawing so the drawing includes the arrows.
-    CGFloat bottomOffset = (self.showArrow && above ? self.arrowHeight : 0.f);
-    CGFloat topOffset = (self.showArrow && !above ? self.arrowHeight : 0.f);
+    CGFloat bottomOffset = (self.showArrow && self.arrowAbove ? self.arrowHeight : 0.f);
+    CGFloat topOffset = (self.showArrow && !self.arrowAbove ? self.arrowHeight : 0.f);
 
     //Draw the actual gradient and shadow.
     CGContextSaveGState(context);
@@ -437,7 +403,7 @@
     CGFloat titleBGHeight = -1;
 
     if (self.titleView != nil) {
-        titleBGHeight = self.boxPadding*2.f + self.titleView.frame.size.height;
+        titleBGHeight = self.boxPadding * 2.f + self.titleView.frame.size.height;
     }
 
 
@@ -453,10 +419,10 @@
 
         //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
         //In this case, the arrow is located between LT2 and RT1
-        if (self.showArrow && !above) {
-            [titleBGPath addLineToPoint:CGPointMake(arrowPoint.x - self.arrowHeight, yMin)];//left side
-            [titleBGPath addCurveToPoint:arrowPoint controlPoint1:CGPointMake(arrowPoint.x - self.arrowHeight + self.arrowCurvature, yMin) controlPoint2:arrowPoint];//actual arrow point
-            [titleBGPath addCurveToPoint:CGPointMake(arrowPoint.x + self.arrowHeight, yMin) controlPoint1:arrowPoint controlPoint2:CGPointMake(arrowPoint.x + self.arrowHeight - self.arrowCurvature, yMin)];//right side
+        if (self.showArrow && !self.arrowAbove) {
+            [titleBGPath addLineToPoint:CGPointMake(self.arrowPoint.x - self.arrowHeight, yMin)];//left side
+            [titleBGPath addCurveToPoint:self.arrowPoint controlPoint1:CGPointMake(self.arrowPoint.x - self.arrowHeight + self.arrowCurvature, yMin) controlPoint2:self.arrowPoint];//actual arrow point
+            [titleBGPath addCurveToPoint:CGPointMake(self.arrowPoint.x + self.arrowHeight, yMin) controlPoint1:self.arrowPoint controlPoint2:CGPointMake(self.arrowPoint.x + self.arrowHeight - self.arrowCurvature, yMin)];//right side
         }
 
         [titleBGPath addLineToPoint:CGPointMake(xMax - radius, yMin)];//RT1
@@ -470,15 +436,15 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
 
         //// Gradient Declarations
-        NSArray* gradientColors = [NSArray arrayWithObjects:
-                (id)self.gradientTitleTopColor.CGColor,
-                (id)self.gradientTitleBottomColor.CGColor, nil];
+        NSArray *gradientColors = [NSArray arrayWithObjects:
+                (id) self.gradientTitleTopColor.CGColor,
+                (id) self.gradientTitleBottomColor.CGColor, nil];
         CGFloat gradientLocations[] = {0, 1};
-        CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradientColors, gradientLocations);
+        CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) gradientColors, gradientLocations);
 
 
         //These floats are the top and bottom offsets for the gradient drawing so the drawing includes the arrows.
-        CGFloat topOffset = (self.showArrow && !above ? self.arrowHeight : 0.f);
+        CGFloat topOffset = (self.showArrow && !self.arrowAbove ? self.arrowHeight : 0.f);
 
         //Draw the actual gradient and shadow.
         CGContextSaveGState(context);
@@ -489,7 +455,7 @@
         CGContextRestoreGState(context);
 
         UIBezierPath *dividerLine = [UIBezierPath bezierPathWithRect:CGRectMake(startingPoint.x, startingPoint.y, (endingPoint.x - startingPoint.x), 0.5f)];
-        [[UIColor colorWithRed:0.741 green:0.741 blue:0.741 alpha:0.5f] setFill]; // TODO : header divider line color
+        [self.titleSeparatorColor setFill];
         [dividerLine fill];
 
         //// Cleanup

@@ -79,6 +79,7 @@
 //top color white value in title gradient bg
 #define kGradientTitleTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
 
+#define kTitleSeparatorColor [UIColor colorWithRed:0.741 green:0.741 blue:0.741 alpha:0.5f]
 
 // FONTS
 
