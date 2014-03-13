@@ -16,34 +16,24 @@
 @optional
 
 //Delegate receives this call as soon as the item has been selected
-- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index;
+- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSUInteger)index;
 
 //Delegate receives this call once the popover has begun the dismissal animation
 - (void)popoverViewDidDismiss:(PopoverView *)popoverView;
 
 @end
 
-@interface PopoverView : UIView {
-    CGRect boxFrame;
-    CGPoint arrowPoint;
-    
-    BOOL above;
-
-    UIView *topView;
-
-    NSArray *dividerRects;
-    
-    UIActivityIndicatorView *activityIndicator;
-    
-    //Instance variable that can change at runtime
-    BOOL showDividerRects;
-}
+@interface PopoverView : UIView
 
 @property (nonatomic, strong) UIView *titleView;
 
 @property (nonatomic, strong) UIView *contentView;
 
 @property (nonatomic, strong) NSArray *subviewsArray;
+
+@property (nonatomic, readonly) CGRect popoverFrame;
+
+@property (nonatomic, strong) NSArray *dividerRects;
 
 @property (nonatomic, weak) id<PopoverViewDelegate> delegate;
 
@@ -164,37 +154,22 @@
 //Lays out the PopoverView at a point once all of the views have already been setup elsewhere
 - (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view;
 
+//Lays out the PopoverView at a point once all of the views have already been setup elsewhere with
+//specified animation duration
+- (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view duration:(NSTimeInterval)duration;
+
 #pragma mark - Other Interaction
-//This method animates the rotation of the PopoverView to a new point
-- (void)animateRotationToNewPoint:(CGPoint)point inView:(UIView *)view withDuration:(NSTimeInterval)duration;
+
+// Hides all subviews and separators in popover with animation of specified duration
+- (void)hideAllSubviewsWithDuration:(NSTimeInterval)duration;
+
+// If title view is label, set specified message as its text
+- (void)setTitleViewText:(NSString *)msg;
+
 
 #pragma mark - Dismissal
 //Dismisses the view, and removes it from the view stack.
 - (void)dismiss;
 - (void)dismiss:(BOOL)animated;
 
-#pragma mark - Activity Indicator Methods
-
-//Shows the activity indicator, and changes the title (if the title is available, and is a UILabel).
-- (void)showActivityIndicatorWithMessage:(NSString *)msg;
-
-//Hides the activity indicator, and changes the title (if the title is available) to the msg
-- (void)hideActivityIndicatorWithMessage:(NSString *)msg;
-
-#pragma mark - Custom Image Showing
-
-//Animate in, and display the image provided here.
-- (void)showImage:(UIImage *)image withMessage:(NSString *)msg;
-
-#pragma mark - Error/Success Methods
-
-//Shows (and animates in) an error X in the contentView
-- (void)showError;
-
-//Shows (and animates in) a success checkmark in the contentView
-- (void)showSuccess;
-
 @end
-
-
-#import "PopoverView+ShowMethods.h"

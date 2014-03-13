@@ -144,6 +144,7 @@
     }
 
     //If dividers are enabled, then we allocate the divider rect array.  This will hold NSValues
+    NSMutableArray *dividerRects = nil;
     if (self.showDividersBetweenViews) {
         dividerRects = [[NSMutableArray alloc] initWithCapacity:viewArray.count - 1];
     }
@@ -162,7 +163,7 @@
         } else {
             //If the view is not flexible width, then we position it centered in the view
             //without stretching it.
-            view.frame = CGRectMake(floorf(CGRectGetMinX(boxFrame) + totalWidth * 0.5f - view.frame.size.width * 0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
+            view.frame = CGRectMake(floorf(CGRectGetMinX(self.popoverFrame) + totalWidth * 0.5f - view.frame.size.width * 0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
         }
 
         //and if dividers are enabled, we record their position for the drawing methods
@@ -179,6 +180,8 @@
 
         i++;
     }
+
+    self.dividerRects = dividerRects;
 
     self.subviewsArray = viewArray;
 
@@ -227,6 +230,7 @@
     }
 
     //If dividers are enabled, then we allocate the divider rect array.  This will hold NSValues
+    NSMutableArray *dividerRects = nil;
     if (self.showDividersBetweenViews) {
         dividerRects = [[NSMutableArray alloc] initWithCapacity:viewArray.count - 1];
     }
@@ -240,7 +244,7 @@
         } else {
             //If the view is not flexible width, then we position it centered in the view
             //without stretching it.
-            view.frame = CGRectMake(floorf(CGRectGetMinX(boxFrame) + totalWidth * 0.5f - view.frame.size.width * 0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
+            view.frame = CGRectMake(floorf(CGRectGetMinX(self.popoverFrame) + totalWidth * 0.5f - view.frame.size.width * 0.5f), view.frame.origin.y, view.frame.size.width, view.frame.size.height);
         }
 
         //and if dividers are enabled, we record their position for the drawing methods
@@ -264,6 +268,7 @@
 
     container.frame = CGRectMake(0, 0, totalWidth, totalHeight);
 
+    self.dividerRects = dividerRects;
     self.subviewsArray = viewArray;
 
     [self showAtPoint:point inView:view withContentView:container];
