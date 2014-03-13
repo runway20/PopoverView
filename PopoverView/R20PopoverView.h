@@ -89,7 +89,8 @@
 // DIVIDERS BETWEEN VIEWS
 
 //Bool that turns off/on the dividers
-@property (nonatomic) BOOL showDividersBetweenViews UI_APPEARANCE_SELECTOR;
+// hack - if we want to use appearance we must use NSUInteger instead of BOOL
+@property (nonatomic) NSUInteger showDividersBetweenViews UI_APPEARANCE_SELECTOR;
 
 //color for the divider fill
 @property (nonatomic, strong) UIColor *dividerColor UI_APPEARANCE_SELECTOR;
@@ -154,6 +155,12 @@
 - (instancetype)initWithFrame:(CGRect)frame delegate:(id<PopoverViewDelegate>)delegate;
 
 #pragma mark - Instance Showing Methods
+
+// This is kinda hacky solution for UIAppearance to work properly. Problem is that appearance properties are set only
+// after adding this view to superview. But we are using them in show methods, so we need to add this to superview
+// first in order to get right values. This method is called first in all other show methods.
+// If you are not using appearance you can safely ignore this.
+- (void)prepareForAppearance;
 
 //Adds/animates in the popover to the top of the view stack with the arrow pointing at the "point"
 //within the specified view.  The contentView will be added to the popover, and should have either

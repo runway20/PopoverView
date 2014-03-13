@@ -15,6 +15,8 @@
 @implementation R20PopoverView {
     //Instance variable that can change at runtime
     BOOL showDividerRects;
+
+    BOOL _preparedForAppearance;
 }
 
 
@@ -35,6 +37,7 @@
         [self setPropertiesFromConfiguration];
 
         showDividerRects = YES;
+        _preparedForAppearance = NO;
     }
     return self;
 }
@@ -76,12 +79,21 @@
 
 #pragma mark - Display methods
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)parentView withContentView:(UIView *)contentView {
-    self.contentView = contentView;
+- (void)prepareForAppearance {
+    if (_preparedForAppearance)
+        return;
 
     // get the top view
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
     _topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    [self.topView addSubview:self];
+    _preparedForAppearance = YES;
+}
+
+- (void)showAtPoint:(CGPoint)point inView:(UIView *)parentView withContentView:(UIView *)contentView {
+    self.contentView = contentView;
+
+    [self prepareForAppearance];
 
     [self setupLayout:point inView:parentView];
 
@@ -178,7 +190,6 @@
     [self setNeedsDisplay];
 
     [self addSubview:self.contentView];
-    [self.topView addSubview:self];
 
 
     //Add a tap gesture recognizer to the large invisible view (self), which will detect taps anywhere on the screen.

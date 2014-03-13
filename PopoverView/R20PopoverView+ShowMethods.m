@@ -10,6 +10,8 @@
 #pragma mark - instance show methods
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text {
+    [self prepareForAppearance];
+
     UIFont *font = self.textFont;
 
     CGSize screenSize = [self screenSize];
@@ -28,6 +30,8 @@
 }
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)parentView withTitle:(NSString *)title withViewArray:(NSArray *)viewArray {
+    [self prepareForAppearance];
+
     UIView *container = [[UIView alloc] initWithFrame:CGRectZero];
 
     UILabel *titleLabel = nil;
@@ -126,6 +130,7 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray {
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
+    [self prepareForAppearance];
 
     NSMutableArray *tempViewArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
 
