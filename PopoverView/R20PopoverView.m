@@ -264,10 +264,13 @@
 }
 
 - (void)dismiss:(BOOL)animated {
+    if ([self.delegate respondsToSelector:@selector(popoverViewWillDismiss:)]) {
+        [self.delegate popoverViewWillDismiss:self];
+    }
+
     if (!animated) {
         [self dismissComplete];
-    }
-    else {
+    } else {
         [UIView animateWithDuration:0.3f animations:^{
             self.alpha = 0.1f;
             self.transform = CGAffineTransformMakeScale(0.1f, 0.1f);

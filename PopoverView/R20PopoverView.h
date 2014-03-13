@@ -18,8 +18,11 @@
 //Delegate receives this call as soon as the item has been selected
 - (void)popoverView:(R20PopoverView *)popoverView didSelectItemAtIndex:(NSUInteger)index;
 
-//Delegate receives this call once the popover has begun the dismissal animation
+//Delegate receives this call once the popover has finished the dismissal animation
 - (void)popoverViewDidDismiss:(R20PopoverView *)popoverView;
+
+//Delegate receives this call once the popover has begun the dismissal animation
+- (void)popoverViewWillDismiss:(R20PopoverView *)popoverView;
 
 @end
 
