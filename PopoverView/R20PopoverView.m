@@ -26,7 +26,7 @@
     return [self initWithFrame:frame delegate:nil];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame delegate:(id<PopoverViewDelegate>)delegate {
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id <PopoverViewDelegate>)delegate {
     self = [super initWithFrame:frame];
     if (self) {
         _delegate = delegate;
@@ -355,6 +355,13 @@
     CGFloat cpOffset = self.CPOffset; //Control Point Offset.  Modifies how "curved" the corners are.
 
     UIBezierPath *popoverPath = [self createPopoverPathFromFrame:frame radius:radius cpOffset:cpOffset];
+
+    //Convert the path to mask
+    CAShapeLayer *shapeMask = [[CAShapeLayer alloc] init];
+    shapeMask.frame = self.bounds;
+    shapeMask.path = popoverPath.CGPath;
+    self.layer.mask = shapeMask;
+
     [self drawBackgroundAtFrame:frame popoverPath:popoverPath];
 
     //Draw the title background
