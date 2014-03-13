@@ -16,42 +16,27 @@
 #define kStringArray @[@"YES", @"NO"]
 #define kImageArray @[[UIImage imageNamed:@"success"], [UIImage imageNamed:@"error"]]
 
-@interface ViewController ()
+@interface ViewController () <PopoverViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, weak) IBOutlet UILabel *tapAnywhereLabel;
+@property (nonatomic, strong) PopoverView *popoverView;
 
 @end
 
+
 @implementation ViewController
 
-#pragma mark - Setup Methods
+#pragma mark EXAMPLE CODE IS HERE
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (IBAction)tapped:(UITapGestureRecognizer *)tap {
+    CGPoint point = [tap locationInView:self.view];
+    //NSLog(@"tapped at %@", NSStringFromCGPoint(point));
+
+    // Here are a couple of different options for how to display the Popover
 
     // PopoverView can be styled using appearance
     //[[PopoverView appearance] setGradientBottomColor:[UIColor redColor]];
 
-    // Do any additional setup after loading the view, typically from a nib.
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-    [self.view addGestureRecognizer:tap];
-
-    // Create a label centered on the screen
-    tapAnywhereLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
-    tapAnywhereLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
-    tapAnywhereLabel.text = @"Tap Anywhere";
-    tapAnywhereLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:tapAnywhereLabel];
-}
-
-#pragma mark - User Interaction Methods
-
-#pragma mark EXAMPLE CODE IS HERE
-
-- (void)tapped:(UITapGestureRecognizer *)tap {
-    point = [tap locationInView:self.view];
-    //NSLog(@"tapped at %@", NSStringFromCGPoint(point));
-
-    // Here are a couple of different options for how to display the Popover
 
 //    pv = [PopoverView showPopoverAtPoint:point
 //                                  inView:self.view
@@ -68,7 +53,7 @@
 //                         withStringArray:kStringArray
 //                                delegate:self]; // Show the string array defined at top of this file
 
-    pv = [PopoverView showPopoverAtPoint:point
+    self.popoverView = [PopoverView showPopoverAtPoint:point
             inView:self.view
             withTitle:@"Was this helpful?"
             withStringArray:kStringArray
@@ -156,33 +141,23 @@
 
 - (void)popoverViewDidDismiss:(PopoverView *)popoverView {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    pv = nil;
+    self.popoverView = nil;
 }
 
 #pragma mark - UIViewController Methods
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-    // or, depending on the app setup, one of
-    // return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-    // return YES;
-}
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     // get new center coords
     CGPoint center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
 
-    // move label's center
-    tapAnywhereLabel.center = center;
-
-    if (pv) {
+    if (self.popoverView) {
         // popover is visible, so we need to either reposition or dismiss it (dismising is probably best to avoid confusion)
-        BOOL dismiss = YES;
+        BOOL dismiss = NO;
         if (dismiss) {
-            [pv dismiss:NO];
+            [self.popoverView dismiss:NO];
         } else {
             // move popover
-            [pv layoutAtPoint:center inView:self.view duration:duration];
+            [self.popoverView layoutAtPoint:center inView:self.view duration:duration];
         }
     }
 }
