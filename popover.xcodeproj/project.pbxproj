@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		80198078DFF571E9CC7FA8AD /* PopoverView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 801980FB41AF9D335AFB5B90 /* PopoverView+ActivityIndicator.m */; };
+		80198320C47EA9EAF540DB83 /* PopoverView+StaticShowMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8019835F4B7C6AB97C96E812 /* PopoverView+StaticShowMethods.m */; };
 		8019851EA808F5F8C14F4CCD /* PopoverView+ShowImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80198773C358531E10DB0BB9 /* PopoverView+ShowImage.m */; };
 		80198F5DFA3EB7A8C8C72B15 /* PopoverView+ShowMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8019879E2142E10BFD5C58BE /* PopoverView+ShowMethods.m */; };
 		B1175C5A15E3FBEE002FBFF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5915E3FBEE002FBFF1 /* UIKit.framework */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0867719D1689B04F00ED150F /* PopoverView_Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
 		801980FB41AF9D335AFB5B90 /* PopoverView+ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PopoverView+ActivityIndicator.m"; sourceTree = "<group>"; };
+		80198289CCB31BDA9A825DB2 /* PopoverView+StaticShowMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PopoverView+StaticShowMethods.h"; sourceTree = "<group>"; };
+		8019835F4B7C6AB97C96E812 /* PopoverView+StaticShowMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PopoverView+StaticShowMethods.m"; sourceTree = "<group>"; };
 		80198673DAE1BEC6ABA1D46C /* PopoverView+ShowImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PopoverView+ShowImage.h"; sourceTree = "<group>"; };
 		80198773C358531E10DB0BB9 /* PopoverView+ShowImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PopoverView+ShowImage.m"; sourceTree = "<group>"; };
 		8019879E2142E10BFD5C58BE /* PopoverView+ShowMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PopoverView+ShowMethods.m"; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				80198C4DD7846A4B791A6B02 /* PopoverView+ActivityIndicator.h */,
 				80198773C358531E10DB0BB9 /* PopoverView+ShowImage.m */,
 				80198673DAE1BEC6ABA1D46C /* PopoverView+ShowImage.h */,
+				8019835F4B7C6AB97C96E812 /* PopoverView+StaticShowMethods.m */,
+				80198289CCB31BDA9A825DB2 /* PopoverView+StaticShowMethods.h */,
 			);
 			name = PopoverView;
 			path = ../PopoverView;
@@ -255,6 +260,7 @@
 				80198F5DFA3EB7A8C8C72B15 /* PopoverView+ShowMethods.m in Sources */,
 				80198078DFF571E9CC7FA8AD /* PopoverView+ActivityIndicator.m in Sources */,
 				8019851EA808F5F8C14F4CCD /* PopoverView+ShowImage.m in Sources */,
+				80198320C47EA9EAF540DB83 /* PopoverView+StaticShowMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

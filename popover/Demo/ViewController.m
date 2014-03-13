@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PopoverView.h"
 #import "PopoverView+ShowMethods.h"
+#import "PopoverView+StaticShowMethods.h"
 #import "PopoverView+ShowImage.h"
 #import "OCDaysView.h"
 #import <QuartzCore/QuartzCore.h> //This is just for the daysView where I call "daysView.layer" not necessary normally.

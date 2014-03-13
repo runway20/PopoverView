@@ -20,9 +20,15 @@
 
 #pragma mark - View Lifecycle
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [self initWithFrame:frame delegate:nil];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<PopoverViewDelegate>)delegate {
     self = [super initWithFrame:frame];
     if (self) {
+        _delegate = delegate;
+
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
 

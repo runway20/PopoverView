@@ -23,6 +23,7 @@
 
 @end
 
+
 @interface PopoverView : UIView
 
 @property (nonatomic, readonly, strong) UIView *topView;
@@ -148,6 +149,9 @@
 
 //border width
 @property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
+
+
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<PopoverViewDelegate>)delegate;
 
 #pragma mark - Instance Showing Methods
 
