@@ -28,10 +28,10 @@
 //Minimum distance from the side of the arrow to the beginning of curvature for the box
 #define kArrowHorizontalPadding 5.f
 
-//Alpha value for the shadow behind the PopoverView
+//Alpha value for the shadow behind the R20PopoverView
 #define kShadowAlpha 0.4f
 
-//Blur for the shadow behind the PopoverView
+//Blur for the shadow behind the R20PopoverView
 #define kShadowBlur 3.f;
 
 //Box gradient bg alpha
@@ -79,6 +79,7 @@
 //top color white value in title gradient bg
 #define kGradientTitleTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
 
+#define kTitleSeparatorColor [UIColor colorWithRed:0.741 green:0.741 blue:0.741 alpha:0.5f]
 
 // FONTS
 
@@ -91,7 +92,7 @@
 #define kTextHighlightColor [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000]
 
 //normal text alignment
-#define kTextAlignment UITextAlignmentCenter
+#define kTextAlignment NSTextAlignmentCenter
 
 //title font
 #define kTitleFont [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.f]
