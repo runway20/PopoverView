@@ -797,7 +797,7 @@
 
 - (void)didTapButton:(UIButton *)sender
 {
-    int index = [subviewsArray indexOfObject:sender];
+    NSUInteger index = [subviewsArray indexOfObject:sender];
     
     if (index == NSNotFound) {
         return;
