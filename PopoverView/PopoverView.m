@@ -159,7 +159,6 @@
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text
 {
     UIFont *font = kTextFont;
-    UIColor *patternColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navBarPattern.png"]];
     CGSize screenSize = [self screenSize];
     CGRect textRect = [text boundingRectWithSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f)
                                          options:NSStringDrawingUsesLineFragmentOrigin
@@ -174,7 +173,7 @@
     [textView setNumberOfLines:0]; //This is so the label word wraps instead of cutting off the text
     textView.font = font;
     textView.textAlignment = kTextAlignment;
-    textView.textColor = patternColor;
+    textView.textColor = kTextColor;
     textView.text = text;
     
     [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
