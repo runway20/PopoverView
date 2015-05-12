@@ -825,6 +825,7 @@
             self.alpha = 0.1f;
             self.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
         } completion:^(BOOL finished) {
+            self.transform = CGAffineTransformIdentity;
             [self dismissComplete];
         }];
     }
