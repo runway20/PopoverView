@@ -833,11 +833,11 @@
 
 - (void)dismissComplete
 {
-    [self removeFromSuperview];
-    
     if (self.delegate && [self.delegate respondsToSelector:@selector(popoverViewDidDismiss:)]) {
         [delegate popoverViewDidDismiss:self];
     }
+
+    [self removeFromSuperview];
 }
 
 - (void)animateRotationToNewPoint:(CGPoint)point inView:(UIView *)view withDuration:(NSTimeInterval)duration
