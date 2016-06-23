@@ -21,81 +21,81 @@
 
 #pragma mark - Static Methods
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withText:text];
+    [popoverView showAtRect:rect inView:view withText:text];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withTitle:title withText:text];
+    [popoverView showAtRect:rect inView:view withTitle:title withText:text];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withViewArray:(NSArray *)viewArray delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withViewArray:(NSArray *)viewArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withViewArray:viewArray];
+    [popoverView showAtRect:rect inView:view withViewArray:viewArray];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withTitle:title withViewArray:viewArray];
+    [popoverView showAtRect:rect inView:view withTitle:title withViewArray:viewArray];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withStringArray:stringArray];
+    [popoverView showAtRect:rect inView:view withStringArray:stringArray];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withTitle:title withStringArray:stringArray];
+    [popoverView showAtRect:rect inView:view withTitle:title withStringArray:stringArray];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withStringArray:stringArray withImageArray:imageArray];
+    [popoverView showAtRect:rect inView:view withStringArray:stringArray withImageArray:imageArray];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withTitle:title withStringArray:stringArray withImageArray:imageArray];
+    [popoverView showAtRect:rect inView:view withTitle:title withStringArray:stringArray withImageArray:imageArray];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withTitle:title withContentView:cView];
+    [popoverView showAtRect:rect inView:view withTitle:title withContentView:cView];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
 }
 
-+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate {
++ (PopoverView *)showPopoverAtRect:(CGRect)rect inView:(UIView *)view withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate {
     PopoverView *popoverView = [[PopoverView alloc] initWithFrame:CGRectZero];
-    [popoverView showAtPoint:point inView:view withContentView:cView];
+    [popoverView showAtRect:rect inView:view withContentView:cView];
     popoverView.delegate = delegate;
     [popoverView RELEASE];
     return popoverView;
@@ -156,7 +156,7 @@
     return size;
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withText:(NSString *)text
 {
     UIFont *font = kTextFont;
     
@@ -172,10 +172,10 @@
     textView.textColor = kTextColor;
     textView.text = text;
     
-    [self showAtPoint:point inView:view withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
+    [self showAtRect:rect inView:view withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text
 {
     UIFont *font = kTextFont;
     
@@ -191,10 +191,10 @@
     textView.textColor = kTextColor;
     textView.text = text;
     
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
+    [self showAtRect:rect inView:view withTitle:title withViewArray:[NSArray arrayWithObject:[textView AUTORELEASE]]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withViewArray:(NSArray *)viewArray
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withViewArray:(NSArray *)viewArray
 {
     UIView *container = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -261,10 +261,10 @@
     
     self.subviewsArray = viewArray;
     
-    [self showAtPoint:point inView:view withContentView:[container AUTORELEASE]];
+    [self showAtRect:rect inView:view withContentView:[container AUTORELEASE]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withViewArray:(NSArray *)viewArray
 {
     UIView *container = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -346,10 +346,10 @@
     
     self.subviewsArray = viewArray;
     
-    [self showAtPoint:point inView:view withContentView:[container AUTORELEASE]];
+    [self showAtRect:rect inView:view withContentView:[container AUTORELEASE]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withStringArray:(NSArray *)stringArray
 {
     NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
     
@@ -371,11 +371,11 @@
         [labelArray addObject:[textButton AUTORELEASE]];
     }
     
-    [self showAtPoint:point inView:view withViewArray:[labelArray AUTORELEASE]];
+    [self showAtRect:rect inView:view withViewArray:[labelArray AUTORELEASE]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray
- {
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray
+{
     NSMutableArray *labelArray = [[NSMutableArray alloc] initWithCapacity:stringArray.count];
     
     UIFont *font = kTextFont;
@@ -396,10 +396,10 @@
         [labelArray addObject:[textButton AUTORELEASE]];
     }
     
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[labelArray AUTORELEASE]];
+    [self showAtRect:rect inView:view withTitle:title withViewArray:[labelArray AUTORELEASE]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
 {
     //Here we do something pretty similar to the stringArray method above.
     //We create an array of subviews that contains the strings and images centered above a label.
@@ -407,15 +407,15 @@
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
     NSMutableArray* tempViewArray = [self makeTempViewsWithStrings:stringArray andImages:imageArray];
     
-    [self showAtPoint:point inView:view withViewArray:tempViewArray];
+    [self showAtRect:rect inView:view withViewArray:tempViewArray];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray withImageArray:(NSArray *)imageArray
 {
     NSAssert((stringArray.count == imageArray.count), @"stringArray.count should equal imageArray.count");
     NSMutableArray* tempViewArray = [self makeTempViewsWithStrings:stringArray andImages:imageArray];
-        
-    [self showAtPoint:point inView:view withTitle:title withViewArray:tempViewArray];
+    
+    [self showAtRect:rect inView:view withTitle:title withViewArray:tempViewArray];
 }
 
 - (NSMutableArray*) makeTempViewsWithStrings:(NSArray *)stringArray andImages:(NSArray *)imageArray
@@ -462,16 +462,16 @@
         [tempViewArray addObject:containerView];
         [containerView RELEASE];
     }
-
+    
     return [tempViewArray AUTORELEASE];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withTitle:(NSString *)title withContentView:(UIView *)cView
 {
-    [self showAtPoint:point inView:view withTitle:title withViewArray:[NSArray arrayWithObject:cView]];
+    [self showAtRect:rect inView:view withTitle:title withViewArray:[NSArray arrayWithObject:cView]];
 }
 
-- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)cView {
+- (void)showAtRect:(CGRect)rect inView:(UIView *)view withContentView:(UIView *)cView {
     
     //NSLog(@"point:%f,%f", point.x, point.y);
     
@@ -482,7 +482,7 @@
     // http://stackoverflow.com/questions/3843411/getting-reference-to-the-top-most-view-window-in-ios-application/8045804#8045804
     topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
     
-    [self setupLayout:point inView:view];
+    [self setupLayout:rect inView:view];
     
     // Make the view small and transparent before animation
     self.alpha = 0.f;
@@ -501,12 +501,12 @@
     }];
 }
 
-- (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view
+- (void)layoutAtRect:(CGRect)rect inView:(UIView *)view
 {
     // make transparent
     self.alpha = 0.f;
     
-    [self setupLayout:point inView:view];
+    [self setupLayout:rect inView:view];
     
     // animate back to full opacity
     [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -514,27 +514,50 @@
     } completion:nil];
 }
 
--(void)setupLayout:(CGPoint)point inView:(UIView*)view
+- (CGPoint)arrowPointInRect:(CGRect)rect inView:(UIView *)view
 {
-    CGPoint topPoint = [topView convertPoint:point fromView:view];
+    CGRect convertedRect = [topView convertRect:rect fromView:view];
+    
+    CGPoint topPoint = CGPointMake(convertedRect.origin.x + convertedRect.size.width / 2, CGRectGetMinY(convertedRect));
+    CGPoint bottomPoint = CGPointMake(convertedRect.origin.x + convertedRect.size.width / 2, CGRectGetMaxY(convertedRect));
+    
+    CGRect topViewBounds = topView.bounds;
+    
+    float contentHeight = contentView.frame.size.height;
+    
+    float arrowHeight = kArrowHeight;
+    
+    float topPadding = kTopMargin;
+    
+    if (topPoint.y - contentHeight - arrowHeight - topPadding < CGRectGetMinY(topViewBounds)) {
+        //Position below because it won't fit above.
+        above = NO;
+        return bottomPoint;
+    } else {
+        //Position above.
+        above = YES;
+        return topPoint;
+    }
+}
 
-    arrowPoint = topPoint;
-
+-(void)setupLayout:(CGRect)rect inView:(UIView*)view
+{
+    arrowPoint = [self arrowPointInRect:rect inView:view];
     //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
-
+    
     CGRect topViewBounds = topView.bounds;
     //NSLog(@"topViewBounds %@", NSStringFromCGRect(topViewBounds));
-
+    
     float contentHeight = contentView.frame.size.height;
     float contentWidth = contentView.frame.size.width;
-
+    
     float padding = kBoxPadding;
-
+    
     float boxHeight = contentHeight + 2.f*padding;
     float boxWidth = contentWidth + 2.f*padding;
-
+    
     float xOrigin = 0.f;
-
+    
     //Make sure the arrow point is within the drawable bounds for the popover.
     if (arrowPoint.x + kArrowHeight > topViewBounds.size.width - kHorizontalMargin - kBoxRadius - kArrowHorizontalPadding) {//Too far to the right
         arrowPoint.x = topViewBounds.size.width - kHorizontalMargin - kBoxRadius - kArrowHorizontalPadding - kArrowHeight;
@@ -543,11 +566,11 @@
         arrowPoint.x = kHorizontalMargin + kArrowHeight + kBoxRadius + kArrowHorizontalPadding;
         //NSLog(@"Correcting Arrow Point because it's too far to the left");
     }
-
+    
     //NSLog(@"arrowPoint:%f,%f", arrowPoint.x, arrowPoint.y);
-
+    
     xOrigin = floorf(arrowPoint.x - boxWidth*0.5f);
-
+    
     //Check to see if the centered xOrigin value puts the box outside of the normal range.
     if (xOrigin < CGRectGetMinX(topViewBounds) + kHorizontalMargin) {
         xOrigin = CGRectGetMinX(topViewBounds) + kHorizontalMargin;
@@ -555,46 +578,36 @@
         //Check to see if the positioning puts the box out of the window towards the left
         xOrigin = CGRectGetMaxX(topViewBounds) - kHorizontalMargin - boxWidth;
     }
-
+    
     float arrowHeight = kArrowHeight;
-
-    float topPadding = kTopMargin;
-
-    above = YES;
-
-    if (topPoint.y - contentHeight - arrowHeight - topPadding < CGRectGetMinY(topViewBounds)) {
-        //Position below because it won't fit above.
-        above = NO;
-        
+    
+    if (!above) {
         boxFrame = CGRectMake(xOrigin, arrowPoint.y + arrowHeight, boxWidth, boxHeight);
     } else {
-        //Position above.
-        above = YES;
-        
         boxFrame = CGRectMake(xOrigin, arrowPoint.y - arrowHeight - boxHeight, boxWidth, boxHeight);
     }
-
+    
     //NSLog(@"boxFrame:(%f,%f,%f,%f)", boxFrame.origin.x, boxFrame.origin.y, boxFrame.size.width, boxFrame.size.height);
-
+    
     CGRect contentFrame = CGRectMake(boxFrame.origin.x + padding, boxFrame.origin.y + padding, contentWidth, contentHeight);
     contentView.frame = contentFrame;
-
+    
     //We set the anchorPoint here so the popover will "grow" out of the arrowPoint specified by the user.
     //You have to set the anchorPoint before setting the frame, because the anchorPoint property will
     //implicitly set the frame for the view, which we do not want.
     self.layer.anchorPoint = CGPointMake(arrowPoint.x / topViewBounds.size.width, arrowPoint.y / topViewBounds.size.height);
     self.frame = topViewBounds;
     [self setNeedsDisplay];
-
+    
     [self addSubview:contentView];
     [topView addSubview:self];
-
+    
     //Add a tap gesture recognizer to the large invisible view (self), which will detect taps anywhere on the screen.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     tap.cancelsTouchesInView = NO; // Allow touches through to a UITableView or other touchable view, as suggested by Dimajp.
     [self addGestureRecognizer:tap];
     [tap RELEASE];
-
+    
     self.userInteractionEnabled = YES;
 }
 
@@ -751,7 +764,7 @@
 #pragma mark - User Interaction
 
 - (void)tapped:(UITapGestureRecognizer *)tap
-{    
+{
     CGPoint point = [tap locationInView:contentView];
     
     //NSLog(@"point:(%f,%f)", point.x, point.y);
@@ -840,9 +853,9 @@
     [self removeFromSuperview];
 }
 
-- (void)animateRotationToNewPoint:(CGPoint)point inView:(UIView *)view withDuration:(NSTimeInterval)duration
+- (void)animateRotationToNewRect:(CGRect)rect inView:(UIView *)view withDuration:(NSTimeInterval)duration
 {
-    [self layoutAtPoint:point inView:view];
+    [self layoutAtRect:rect inView:view];
 }
 
 #pragma mark - Drawing Routines
@@ -863,8 +876,6 @@
     float yMax = CGRectGetMaxY(frame);
     
     float radius = kBoxRadius; //Radius of the curvature.
-    
-    float cpOffset = kCPOffset; //Control Point Offset.  Modifies how "curved" the corners are.
     
     
     /*
@@ -887,7 +898,7 @@
     
     UIBezierPath *popoverPath = [UIBezierPath bezierPath];
     [popoverPath moveToPoint:CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + radius)];//LT1
-    [popoverPath addCurveToPoint:CGPointMake(xMin + radius, yMin) controlPoint1:CGPointMake(xMin, yMin + radius - cpOffset) controlPoint2:CGPointMake(xMin + radius - cpOffset, yMin)];//LT2
+    [popoverPath addArcWithCenter:CGPointMake(xMin + radius, yMin+radius) radius:radius startAngle:M_PI endAngle:M_PI_2 + M_PI clockwise:YES];//LT2
     
     //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
     //In this case, the arrow is located between LT2 and RT1
@@ -898,9 +909,9 @@
     }
     
     [popoverPath addLineToPoint:CGPointMake(xMax - radius, yMin)];//RT1
-    [popoverPath addCurveToPoint:CGPointMake(xMax, yMin + radius) controlPoint1:CGPointMake(xMax - radius + cpOffset, yMin) controlPoint2:CGPointMake(xMax, yMin + radius - cpOffset)];//RT2
+    [popoverPath addArcWithCenter:CGPointMake(xMax - radius, yMin+radius) radius:radius startAngle:M_PI_2 + M_PI endAngle:0 clockwise:YES];//RT2
     [popoverPath addLineToPoint:CGPointMake(xMax, yMax - radius)];//RB1
-    [popoverPath addCurveToPoint:CGPointMake(xMax - radius, yMax) controlPoint1:CGPointMake(xMax, yMax - radius + cpOffset) controlPoint2:CGPointMake(xMax - radius + cpOffset, yMax)];//RB2
+    [popoverPath addArcWithCenter:CGPointMake(xMax - radius, yMax - radius) radius:radius startAngle:0 endAngle:M_PI_2 clockwise:YES];//RB2
     
     //If the popover is positioned above the arrowPoint, then we know that the arrow must be on the bottom of the popover.
     //In this case, the arrow is located somewhere between LB1 and RB2
@@ -911,7 +922,7 @@
     }
     
     [popoverPath addLineToPoint:CGPointMake(xMin + radius, yMax)];//LB1
-    [popoverPath addCurveToPoint:CGPointMake(xMin, yMax - radius) controlPoint1:CGPointMake(xMin + radius - cpOffset, yMax) controlPoint2:CGPointMake(xMin, yMax - radius + cpOffset)];//LB2
+    [popoverPath addArcWithCenter:CGPointMake(xMin + radius, yMax - radius) radius:radius startAngle:M_PI_2 endAngle:M_PI clockwise:YES];//LB2
     [popoverPath closePath];
     
     //// General Declarations
@@ -969,7 +980,7 @@
             UIBezierPath *titleBGPath = [UIBezierPath bezierPath];
             [titleBGPath moveToPoint:startingPoint];
             [titleBGPath addLineToPoint:CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + radius)];//LT1
-            [titleBGPath addCurveToPoint:CGPointMake(xMin + radius, yMin) controlPoint1:CGPointMake(xMin, yMin + radius - cpOffset) controlPoint2:CGPointMake(xMin + radius - cpOffset, yMin)];//LT2
+            [titleBGPath addArcWithCenter:CGPointMake(xMin + radius, yMin+radius) radius:radius startAngle:M_PI endAngle:M_PI_2 + M_PI clockwise:YES];//LT2
             
             //If the popover is positioned below (!above) the arrowPoint, then we know that the arrow must be on the top of the popover.
             //In this case, the arrow is located between LT2 and RT1
@@ -980,7 +991,7 @@
             }
             
             [titleBGPath addLineToPoint:CGPointMake(xMax - radius, yMin)];//RT1
-            [titleBGPath addCurveToPoint:CGPointMake(xMax, yMin + radius) controlPoint1:CGPointMake(xMax - radius + cpOffset, yMin) controlPoint2:CGPointMake(xMax, yMin + radius - cpOffset)];//RT2
+            [titleBGPath addArcWithCenter:CGPointMake(xMax - radius, yMin+radius) radius:radius startAngle:M_PI_2 + M_PI endAngle:0 clockwise:YES];//RT2
             [titleBGPath addLineToPoint:endingPoint];
             [titleBGPath addLineToPoint:startingPoint];
             [titleBGPath closePath];

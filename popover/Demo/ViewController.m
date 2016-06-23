@@ -64,7 +64,7 @@
 //                         withStringArray:kStringArray
 //                                delegate:self]; // Show the string array defined at top of this file
     
-    pv = [PopoverView showPopoverAtPoint:point
+    pv = [PopoverView showPopoverAtRect:CGRectMake(point.x, point.y, 0, 0)
                                   inView:self.view
                                withTitle:@"Was this helpful?"
                          withStringArray:kStringArray

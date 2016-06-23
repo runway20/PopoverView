@@ -16,11 +16,8 @@
 //padding within the box for the contentView
 #define kBoxPadding 10.f
 
-//control point offset for rounding corners of the main popover box
-#define kCPOffset 1.8f
-
 //radius for the rounded corners of the main popover box
-#define kBoxRadius 4.f
+#define kBoxRadius 8.f
 
 //Curvature value for the arrow.  Set to 0.f to make it linear.
 #define kArrowCurvature 6.f

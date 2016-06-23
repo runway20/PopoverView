@@ -18,8 +18,8 @@ As a quick demonstration, I used a UIView from another one of my components call
 OCDaysView *daysView = [[OCDaysView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
 [daysView setMonth:10];
 [daysView setYear:2012];
-//[PopoverView showPopoverAtPoint:point inView:self.view withContentView:[daysView autorelease] delegate:self];
-[PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self];
+//[PopoverView showPopoverAtRect:rect inView:self.view withContentView:[daysView autorelease] delegate:self];
+[PopoverView showPopoverAtRect:rect inView:self.view withTitle:@"October 2012" withContentView:[daysView autorelease] delegate:self];
 ```
 
 As you may note, I have two versions of the display code here.  One of them displays the `daysView` as a single `contentView` with no title, and the other displays the same view with a "October 2012" title.
